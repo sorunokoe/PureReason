@@ -22,12 +22,21 @@
 
 ---
 
-**PureReason** is a deterministic reasoning assurance engine for agentic workflows.
-It is strongest when used to **verify, calibrate, and govern** model output rather
-than replace frontier models outright. The core system scores text with a
-**0-100 Epistemic Confidence Score (ECS)**, checks reasoning chains, flags
-contradictions and overconfidence, and rewrites risky output into a more
-defensible form.
+**PureReason** is a specialized **deterministic reasoning verification engine** for agentic workflows.
+
+It verifies, calibrates, and governs AI model outputs using symbolic logic and neural embeddings. The system is designed as a **verification layer** around frontier models (Claude, GPT, Gemini) rather than replacing them - it catches hallucinations, flags overconfidence, and scores text with a **0-100 Epistemic Confidence Score (ECS)**.
+
+**What PureReason is best for:**
+- ✅ **Fast verification** - Deterministic checks in <5ms
+- ✅ **Hallucination detection** - Catches contradictions and fabrications
+- ✅ **Explainable decisions** - Traceable verification logic
+- ✅ **Zero API costs** - Runs completely offline
+- ✅ **Production safety** - Governance layer for AI agents
+
+**What PureReason is NOT:**
+- ❌ Not a general-purpose reasoning model (use GPT-5, Claude, o1 for that)
+- ❌ Not a problem solver - verifies solutions, doesn't generate them
+- ❌ Not a replacement for frontier models - works alongside them
 
 The primary deployment flow is:
 
@@ -162,12 +171,35 @@ PureReason now includes **systematic performance improvements** across the verif
 
 See [`docs/TRIZ-IMPLEMENTATION.md`](./docs/TRIZ-IMPLEMENTATION.md) for full guide.
 
+### Competitive Context (April 2026)
+
+**PureReason's Niche:** Fast, deterministic verification layer for AI systems
+
+**Alternatives & Comparisons:**
+- **Frontier Models (GPT-5, Claude Opus 4, Gemini Ultra):** Superior for general reasoning, problem-solving, and novel tasks. Use these for generation; use PureReason to verify their output.
+- **Formal Theorem Provers (Lean, Coq):** More rigorous for mathematical proofs but require formal specifications. PureReason handles natural language.
+- **Hallucination Detection APIs:** Cloud-based, probabilistic. PureReason is local, deterministic, and explainable.
+- **Enterprise AI Governance:** Broader scope (compliance, monitoring). PureReason focuses on reasoning verification.
+
+**When to use PureReason:**
+- You need fast verification (<5ms) of AI outputs
+- You want explainable, traceable decisions
+- You operate offline or want zero API costs
+- You're building production AI agents that need safety rails
+
+**When NOT to use PureReason:**
+- You need novel problem-solving (use frontier models)
+- You need rigorous mathematical proofs (use theorem provers)
+- You need general-purpose reasoning (use GPT-5, Claude, o1)
+
+---
+
 ### What PureReason is NOT
 
-- **Not a general-purpose frontier reasoning model**
-- **Not a problem solver** — we verify and score solutions, we do not generate them
-- **Not a content generator** — we assess confidence in existing text
-- **Not an LLM** — PureReason is the verifier/reviewer around an existing agent
+- **Not a general-purpose reasoning model** - Specialized for verification, not generation
+- **Not a problem solver** - Verifies and scores solutions, doesn't create them
+- **Not a content generator** - Assesses confidence in existing text
+- **Not an LLM** - Deterministic verifier, not a language model
 - **Not a replacement for domain expertise** — we flag risk, human judgment required
 - **Not yet a full agent runtime** — the current repo is stronger at verification
   than orchestration
