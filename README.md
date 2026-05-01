@@ -83,6 +83,64 @@ The typical workflow:
 
 ## Quick Start
 
+### Installation
+
+```bash
+pip install -e .
+```
+
+### 5-Minute Quickstart
+
+Verify any text in 3 lines of code:
+
+```python
+from pureason.guard import ReasoningGuard
+
+guard = ReasoningGuard(threshold=70)  # 70 = moderate strictness
+result = guard.verify("Water boils at 100°C at sea level.")
+
+print(f"ECS: {result.ecs}/100, Provenance: {result.provenance}")
+# Output: ECS: 83.0/100, Provenance: verified
+```
+
+**Decision logic:**
+```python
+if result.ecs >= 70:
+    # Accept - high confidence output
+elif result.ecs >= 40:
+    # Review - medium confidence
+else:
+    # Reject - low confidence
+```
+
+### Real-World Examples
+
+See [`examples/`](./examples/) for production-ready code:
+
+- **[`simple_verification.py`](./examples/simple_verification.py)** - Basic usage (5 min)
+- **[`langchain_integration.py`](./examples/langchain_integration.py)** - LangChain integration (10 min)
+- **[`api_server.py`](./examples/api_server.py)** - Production FastAPI server (15 min)
+
+Run the simple example:
+```bash
+python examples/simple_verification.py
+```
+
+### API Server
+
+Deploy as a microservice:
+
+```bash
+python examples/api_server.py
+```
+
+Test it:
+```bash
+curl -X POST http://localhost:8000/verify \
+     -H "Content-Type: application/json" \
+     -d '{"text": "The sky is blue.", "min_ecs": 70}'
+```
+
 ### 1. Standalone CLI
 
 ```bash
@@ -102,24 +160,17 @@ cargo build --release -p pure-reason-mcp
 
 Your agent (Claude Desktop, Cursor, GitHub Copilot) can then call PureReason verification tools.
 
-### 3. Python API
-
-```bash
-pip install pureason[semantic,logic,nlp]
-```
+### 3. Python API (Advanced)
 
 ```python
-from pureason import verify
+from pureason.reasoning import verify_chain
 
-result = verify("Aspirin cures all cancers.")
-print(result["risk_level"])  # HIGH
-print(result["has_illusions"])  # True
-```
+# Verify a chain of reasoning steps
+problem = "What is 2 + 2?"
+steps = ["Let me add the numbers.", "2 + 2 = 4", "Therefore, the answer is 4."]
 
-### 4. REST API
-
-```bash
-cargo run -p pure-reason-api -- --bind 127.0.0.1:3000
+result = verify_chain(problem, steps)
+print(f"Confidence: {result.ecs}/100")
 ```
 
 ## Core Features
