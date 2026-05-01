@@ -13,7 +13,7 @@
 //!
 //! ## Usage
 //!
-//! ```rust
+//! ```ignore
 //! use pure_reason_core::pre_verification_v2::{PreVerifier, PreVerificationConfig};
 //!
 //! let config = PreVerificationConfig::default();

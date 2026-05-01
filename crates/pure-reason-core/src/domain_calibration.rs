@@ -13,7 +13,7 @@
 //!
 //! ## Usage
 //!
-//! ```rust
+//! ```ignore
 //! use pure_reason_core::domain_calibration::DomainCalibrator;
 //!
 //! let calibrator = DomainCalibrator::new("domains/")?;

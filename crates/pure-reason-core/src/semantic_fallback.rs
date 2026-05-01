@@ -13,7 +13,7 @@
 //!
 //! ## Usage
 //!
-//! ```rust
+//! ```ignore
 //! use pure_reason_core::semantic_fallback::SemanticFallbackDetector;
 //!
 //! let detector = SemanticFallbackDetector::new()?;

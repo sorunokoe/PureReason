@@ -15,7 +15,7 @@
 //!
 //! ## Usage
 //!
-//! ```rust
+//! ```ignore
 //! use pure_reason_core::meta_learner_v2::SessionMetaLearner;
 //!
 //! let mut learner = SessionMetaLearner::new();

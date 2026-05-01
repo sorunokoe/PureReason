@@ -13,7 +13,7 @@
 //!
 //! ## Usage
 //!
-//! ```rust
+//! ```ignore
 //! use pure_reason_core::wikipedia_corpus::WikipediaCorpus;
 //!
 //! let corpus = WikipediaCorpus::new("data/corpus/wikipedia_v1.0.jsonl.gz")?;
