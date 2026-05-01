@@ -47,7 +47,7 @@ def _load_syllogism_classifier() -> tuple[object, object] | None:
             labels = [1] * len(valid) + [0] * len(invalid)
 
             vectorizer, clf = _train_syllogism_classifier(premises_list, conclusions, labels)
-            
+
             # Try to cache it for next time
             try:
                 clf_path.parent.mkdir(parents=True, exist_ok=True)
