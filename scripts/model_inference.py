@@ -38,8 +38,7 @@ def load_model():
         # Load tokenizer and model
         _tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
         _model = AutoModelForSequenceClassification.from_pretrained(
-            "distilbert-base-uncased",
-            num_labels=2
+            "distilbert-base-uncased", num_labels=2
         ).to(_device)
 
         # Load trained weights
@@ -74,11 +73,7 @@ def infer(knowledge: str, claim: str) -> dict[str, float]:
 
     try:
         encoding = _tokenizer(
-            text,
-            max_length=128,
-            padding="max_length",
-            truncation=True,
-            return_tensors="pt"
+            text, max_length=128, padding="max_length", truncation=True, return_tensors="pt"
         )
 
         input_ids = encoding["input_ids"].to(_device)
@@ -86,10 +81,7 @@ def infer(knowledge: str, claim: str) -> dict[str, float]:
 
         # Inference
         with torch.no_grad():
-            outputs = _model(
-                input_ids=input_ids,
-                attention_mask=attention_mask
-            )
+            outputs = _model(input_ids=input_ids, attention_mask=attention_mask)
             logits = outputs.logits
             probs = torch.softmax(logits, dim=1)[0].cpu().numpy()
 
@@ -103,7 +95,7 @@ def infer(knowledge: str, claim: str) -> dict[str, float]:
         return {
             "falsifiable_prob": falsifiable_prob,
             "unfalsifiable_prob": unfalsifiable_prob,
-            "confidence": confidence
+            "confidence": confidence,
         }
 
     except Exception as e:

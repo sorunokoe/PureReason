@@ -78,29 +78,30 @@ def build_index(jsonl_file: str, db_file: str, batch_size: int = 10000):
     batch = []
     total_count = 0
 
-    with open(jsonl_file, encoding='utf-8') as f:
+    with open(jsonl_file, encoding="utf-8") as f:
         for line in f:
             record = json.loads(line)
 
             # Convert lists to JSON strings for storage
-            categories_json = json.dumps(record['categories'])
-            entities_json = json.dumps(record['entities'])
+            categories_json = json.dumps(record["categories"])
+            entities_json = json.dumps(record["entities"])
 
-            batch.append((
-                record['id'],
-                record['title'],
-                record['abstract'],
-                record['url'],
-                categories_json,
-                entities_json,
-                record['last_modified'],
-                record['word_count']
-            ))
+            batch.append(
+                (
+                    record["id"],
+                    record["title"],
+                    record["abstract"],
+                    record["url"],
+                    categories_json,
+                    entities_json,
+                    record["last_modified"],
+                    record["word_count"],
+                )
+            )
 
             if len(batch) >= batch_size:
                 cursor.executemany(
-                    'INSERT OR REPLACE INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                    batch
+                    "INSERT OR REPLACE INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)", batch
                 )
                 conn.commit()
                 total_count += len(batch)
@@ -109,10 +110,7 @@ def build_index(jsonl_file: str, db_file: str, batch_size: int = 10000):
 
     # Insert remaining batch
     if batch:
-        cursor.executemany(
-            'INSERT OR REPLACE INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            batch
-        )
+        cursor.executemany("INSERT OR REPLACE INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)", batch)
         conn.commit()
         total_count += len(batch)
 
@@ -120,8 +118,8 @@ def build_index(jsonl_file: str, db_file: str, batch_size: int = 10000):
 
     # Optimize database
     print("Optimizing database...")
-    cursor.execute('VACUUM')
-    cursor.execute('ANALYZE')
+    cursor.execute("VACUUM")
+    cursor.execute("ANALYZE")
     conn.commit()
 
     # Close connection
@@ -132,15 +130,15 @@ def build_index(jsonl_file: str, db_file: str, batch_size: int = 10000):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Build BM25 index from Wikipedia JSONL')
-    parser.add_argument('--input', required=True, help='Path to JSONL corpus')
-    parser.add_argument('--output', required=True, help='Path to output SQLite database')
-    parser.add_argument('--batch-size', type=int, default=10000, help='Batch size for inserts')
+    parser = argparse.ArgumentParser(description="Build BM25 index from Wikipedia JSONL")
+    parser.add_argument("--input", required=True, help="Path to JSONL corpus")
+    parser.add_argument("--output", required=True, help="Path to output SQLite database")
+    parser.add_argument("--batch-size", type=int, default=10000, help="Batch size for inserts")
 
     args = parser.parse_args()
 
     build_index(args.input, args.output, args.batch_size)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

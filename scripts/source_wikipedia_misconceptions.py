@@ -44,15 +44,15 @@ except ImportError:
 def extract_keywords(text: str, max_keywords: int = 5) -> list[str]:
     """Extract meaningful keywords from text."""
     # Remove citations and extra whitespace
-    text = re.sub(r'\[\d+\]', '', text)
-    text = re.sub(r'\[\w+[^\]]*\]', '', text)
-    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r"\[\d+\]", "", text)
+    text = re.sub(r"\[\w+[^\]]*\]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
 
     if len(text) < 8:
         return []
 
     # Extract phrases/chunks separated by punctuation
-    phrases = re.split(r'[,.;:\-–—?!]', text)
+    phrases = re.split(r"[,.;:\-–—?!]", text)
 
     keywords = []
     for phrase in phrases:
@@ -71,7 +71,7 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
     record_id = 0
 
     # Split by double newlines to get paragraphs
-    paragraphs = re.split(r'\n\n+', text)
+    paragraphs = re.split(r"\n\n+", text)
 
     current_section = "general"
     for para in paragraphs:
@@ -82,7 +82,7 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
         # Check if this is a section header (bold text)
         if para.startswith("==") or len(para) < 30:
             # Try to extract section name
-            match = re.search(r'==+\s*([^=]+)\s*==+', para)
+            match = re.search(r"==+\s*([^=]+)\s*==+", para)
             if match:
                 current_section = match.group(1).strip().lower()
             continue
@@ -90,7 +90,7 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
         # This should be a misconception entry
         # Format: "Correction statement about X. More details about Y."
 
-        lines = para.split('\n')
+        lines = para.split("\n")
         first_line = lines[0] if lines else ""
 
         if len(first_line) < 20:
@@ -104,7 +104,9 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
         # Extract correction signals (usually indicated by "was not", "did not", "were not")
         correction_signals = []
         if "not" in first_line.lower():
-            correction_signals.append("not " + re.sub(r'.*was not\s+', '', first_line, flags=re.IGNORECASE)[:50])
+            correction_signals.append(
+                "not " + re.sub(r".*was not\s+", "", first_line, flags=re.IGNORECASE)[:50]
+            )
 
         # Get remaining details for additional signals
         for line in lines[1:2]:
@@ -126,7 +128,7 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
             "source": "Wikipedia",
             "article": article_title,
             "fetched_date": datetime.now().strftime("%Y-%m-%d"),
-            "url": f"https://en.wikipedia.org/wiki/{article_title.replace(' ', '_')}"
+            "url": f"https://en.wikipedia.org/wiki/{article_title.replace(' ', '_')}",
         }
 
         records.append(record)
@@ -138,8 +140,7 @@ def parse_history_misconceptions(text: str, article_title: str) -> list[dict]:
 def fetch_wikipedia_misconceptions() -> list[dict]:
     """Fetch misconceptions from Wikipedia articles."""
     wiki = wikipediaapi.Wikipedia(
-        language='en',
-        user_agent='PureReason-TRIZ-NE2-Remedy/1.0 (github.com/sorunokoe/PureReason)'
+        language="en", user_agent="PureReason-TRIZ-NE2-Remedy/1.0 (github.com/sorunokoe/PureReason)"
     )
 
     # These Wikipedia articles exist and contain actual misconceptions
@@ -171,21 +172,19 @@ def fetch_wikipedia_misconceptions() -> list[dict]:
 
 def save_corpus(records: list[dict], output_path: Path) -> None:
     """Save records as JSONL corpus file."""
-    with open(output_path, 'w', encoding='utf-8') as fh:
+    with open(output_path, "w", encoding="utf-8") as fh:
         for record in records:
-            fh.write(json.dumps(record) + '\n')
+            fh.write(json.dumps(record) + "\n")
     print(f"✓ Saved {len(records)} records to {output_path}")
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Source misconceptions from Wikipedia"
-    )
+    parser = argparse.ArgumentParser(description="Source misconceptions from Wikipedia")
     parser.add_argument(
-        '--output',
+        "--output",
         type=Path,
-        default=Path(__file__).parent.parent / 'data' / 'misconceptions_corpus_v2_wikipedia.jsonl',
-        help='Output JSONL file path'
+        default=Path(__file__).parent.parent / "data" / "misconceptions_corpus_v2_wikipedia.jsonl",
+        help="Output JSONL file path",
     )
     args = parser.parse_args()
 
@@ -202,7 +201,5 @@ def main():
     print(f"External corpus v2 ready: {args.output}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
-

@@ -176,9 +176,10 @@ impl DomainCalibrator {
             let confidence = match_count as f64 / patterns.len() as f64;
 
             if confidence >= config.detection.confidence_threshold
-                && (best_match.is_none() || confidence > best_match.as_ref().unwrap().1) {
-                    best_match = Some((domain_name.clone(), confidence));
-                }
+                && (best_match.is_none() || confidence > best_match.as_ref().unwrap().1)
+            {
+                best_match = Some((domain_name.clone(), confidence));
+            }
         }
 
         // Fallback to general domain

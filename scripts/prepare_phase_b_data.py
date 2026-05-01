@@ -21,6 +21,7 @@ from pathlib import Path
 # Random seed for reproducibility
 random.seed(42)
 
+
 def load_felm(felm_path: Path) -> list[dict]:
     """Load FELM dataset (factual and non-factual claims)."""
     samples = []
@@ -31,11 +32,13 @@ def load_felm(felm_path: Path) -> list[dict]:
                     entry = json.loads(line)
                     # labels is a list, take first element
                     is_factual = entry.get("labels", [False])[0]
-                    samples.append({
-                        "claim": entry.get("response", ""),
-                        "label": 1 if is_factual else 0,
-                        "source": "felm"
-                    })
+                    samples.append(
+                        {
+                            "claim": entry.get("response", ""),
+                            "label": 1 if is_factual else 0,
+                            "source": "felm",
+                        }
+                    )
         print(f"✓ Loaded {len(samples)} FELM samples")
         # Show label distribution
         pos = sum(1 for s in samples if s["label"] == 1)
@@ -44,6 +47,7 @@ def load_felm(felm_path: Path) -> list[dict]:
     except Exception as e:
         print(f"✗ Failed to load FELM: {e}")
     return samples
+
 
 def load_truthfulqa(qa_path: Path) -> list[dict]:
     """Load TruthfulQA CSV and create synthetic pairs."""
@@ -62,20 +66,24 @@ def load_truthfulqa(qa_path: Path) -> list[dict]:
                 for answer in correct.split(";"):
                     answer = answer.strip()
                     if answer:
-                        samples.append({
-                            "text": f"{question} {answer}",
-                            "label": 1,  # UNFALSIFIABLE
-                            "source": "truthfulqa"
-                        })
+                        samples.append(
+                            {
+                                "text": f"{question} {answer}",
+                                "label": 1,  # UNFALSIFIABLE
+                                "source": "truthfulqa",
+                            }
+                        )
 
                 for answer in incorrect.split(";"):
                     answer = answer.strip()
                     if answer:
-                        samples.append({
-                            "text": f"{question} {answer}",
-                            "label": 0,  # FALSIFIABLE
-                            "source": "truthfulqa"
-                        })
+                        samples.append(
+                            {
+                                "text": f"{question} {answer}",
+                                "label": 0,  # FALSIFIABLE
+                                "source": "truthfulqa",
+                            }
+                        )
 
         print(f"✓ Loaded {len(samples)} TruthfulQA pairs")
         pos = sum(1 for s in samples if s["label"] == 1)
@@ -84,6 +92,7 @@ def load_truthfulqa(qa_path: Path) -> list[dict]:
     except Exception as e:
         print(f"✗ Failed to load TruthfulQA: {e}")
     return samples
+
 
 def load_halueval(halueval_path: Path) -> list[dict]:
     """Load HaluEval JSONL dataset."""
@@ -102,19 +111,23 @@ def load_halueval(halueval_path: Path) -> list[dict]:
                     # Create two samples: one correct, one hallucinated
                     if right_answer:
                         text = f"{knowledge} {question} {right_answer}".strip()
-                        samples.append({
-                            "text": text,
-                            "label": 1,  # Correct answer - UNFALSIFIABLE
-                            "source": "halueval"
-                        })
+                        samples.append(
+                            {
+                                "text": text,
+                                "label": 1,  # Correct answer - UNFALSIFIABLE
+                                "source": "halueval",
+                            }
+                        )
 
                     if hallucinated_answer:
                         text = f"{knowledge} {question} {hallucinated_answer}".strip()
-                        samples.append({
-                            "text": text,
-                            "label": 0,  # Hallucinated answer - FALSIFIABLE
-                            "source": "halueval"
-                        })
+                        samples.append(
+                            {
+                                "text": text,
+                                "label": 0,  # Hallucinated answer - FALSIFIABLE
+                                "source": "halueval",
+                            }
+                        )
 
         print(f"✓ Loaded {len(samples)} HaluEval samples")
         pos = sum(1 for s in samples if s["label"] == 1)
@@ -124,10 +137,12 @@ def load_halueval(halueval_path: Path) -> list[dict]:
         print(f"✗ Failed to load HaluEval: {e}")
     return samples
 
+
 def format_for_distilbert(text: str) -> str:
     """Format text for DistilBERT input."""
     # Simple format: [CLS] text [SEP]
     return f"[CLS] {text} [SEP]"
+
 
 def balance_dataset(samples: list[dict]) -> list[dict]:
     """Balance dataset by downsampling majority class."""
@@ -156,12 +171,13 @@ def balance_dataset(samples: list[dict]) -> list[dict]:
 
     return balanced
 
+
 def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
     """Load all datasets, balance, and split."""
 
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("PHASE B: DATA PREPARATION FOR DISTILBERT")
-    print("="*70)
+    print("=" * 70)
 
     all_samples = []
 
@@ -207,12 +223,12 @@ def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
     val_size = int(total * 0.10)
 
     train_data = balanced[:train_size]
-    val_data = balanced[train_size:train_size+val_size]
-    test_data = balanced[train_size+val_size:]
+    val_data = balanced[train_size : train_size + val_size]
+    test_data = balanced[train_size + val_size :]
 
-    print(f"  Train: {len(train_data):5} ({100*len(train_data)/total:5.1f}%)")
-    print(f"  Val:   {len(val_data):5} ({100*len(val_data)/total:5.1f}%)")
-    print(f"  Test:  {len(test_data):5} ({100*len(test_data)/total:5.1f}%)")
+    print(f"  Train: {len(train_data):5} ({100 * len(train_data) / total:5.1f}%)")
+    print(f"  Val:   {len(val_data):5} ({100 * len(val_data) / total:5.1f}%)")
+    print(f"  Test:  {len(test_data):5} ({100 * len(test_data) / total:5.1f}%)")
 
     # Format for DistilBERT
     print("\n[4/4] Formatting for DistilBERT...")
@@ -222,7 +238,7 @@ def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
             {
                 "text": format_for_distilbert(s.get("claim") or s.get("text", "")),
                 "label": s["label"],
-                "source": s.get("source", "unknown")
+                "source": s.get("source", "unknown"),
             }
             for s in train_data
         ],
@@ -230,7 +246,7 @@ def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
             {
                 "text": format_for_distilbert(s.get("claim") or s.get("text", "")),
                 "label": s["label"],
-                "source": s.get("source", "unknown")
+                "source": s.get("source", "unknown"),
             }
             for s in val_data
         ],
@@ -238,13 +254,14 @@ def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
             {
                 "text": format_for_distilbert(s.get("claim") or s.get("text", "")),
                 "label": s["label"],
-                "source": s.get("source", "unknown")
+                "source": s.get("source", "unknown"),
             }
             for s in test_data
-        ]
+        ],
     }
 
     return result
+
 
 if __name__ == "__main__":
     data_dir = Path(__file__).parent.parent / "benchmarks" / "downloads"
@@ -265,9 +282,9 @@ if __name__ == "__main__":
             json.dump(training_data, f, indent=2)
 
         # Print summary
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print("SUMMARY")
-        print("="*70)
+        print("=" * 70)
 
         for split in ["train", "val", "test"]:
             data = training_data[split]
@@ -275,13 +292,13 @@ if __name__ == "__main__":
             neg = len(data) - pos
             print(f"\n{split.upper()}:")
             print(f"  Total: {len(data)}")
-            print(f"  Positive (unfalsifiable): {pos:4} ({100*pos/len(data):5.1f}%)")
-            print(f"  Negative (falsifiable):   {neg:4} ({100*neg/len(data):5.1f}%)")
+            print(f"  Positive (unfalsifiable): {pos:4} ({100 * pos / len(data):5.1f}%)")
+            print(f"  Negative (falsifiable):   {neg:4} ({100 * neg / len(data):5.1f}%)")
 
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print(f"✓ Training data saved to: {output_file}")
         print(f"  File size: {output_file.stat().st_size / 1024 / 1024:.2f} MB")
-        print("="*70)
+        print("=" * 70)
     else:
         print("\n✗ Failed to prepare training data")
         exit(1)

@@ -363,7 +363,7 @@ pub struct CorpusStats {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     use tempfile::NamedTempFile;
 
     #[test]

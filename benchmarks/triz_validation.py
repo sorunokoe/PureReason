@@ -21,6 +21,7 @@ from pathlib import Path
 @dataclass
 class ValidationResult:
     """Results from TRIZ validation."""
+
     benchmark_name: str
     with_triz: bool
 
@@ -38,6 +39,7 @@ class ValidationResult:
     total_claims: int = 0
     short_circuited: int = 0
 
+
 def measure_latency_distribution(latencies: list[float]) -> dict[str, float]:
     """Calculate latency percentiles."""
     if not latencies:
@@ -53,6 +55,7 @@ def measure_latency_distribution(latencies: list[float]) -> dict[str, float]:
         "p99": sorted_latencies[int(n * 0.99)],
     }
 
+
 def run_pre_gate_validation() -> ValidationResult:
     """
     Validate pre-gate performance improvement.
@@ -62,13 +65,16 @@ def run_pre_gate_validation() -> ValidationResult:
     print("🔍 Validating Pre-Gate Performance...")
 
     # Test claims (mix of simple and complex)
-    test_claims = [
-        "2 + 2 = 4",  # Arithmetic (should short-circuit)
-        "2 + 2 = 5",  # Arithmetic error (should short-circuit)
-        "The sky is blue.",  # Simple (should short-circuit)
-        "Water freezes at 0°C.",  # Simple fact
-        "The phenomenological interpretation of quantum mechanics suggests consciousness plays a role.",  # Complex
-    ] * 40  # 200 total claims
+    test_claims = (
+        [
+            "2 + 2 = 4",  # Arithmetic (should short-circuit)
+            "2 + 2 = 5",  # Arithmetic error (should short-circuit)
+            "The sky is blue.",  # Simple (should short-circuit)
+            "Water freezes at 0°C.",  # Simple fact
+            "The phenomenological interpretation of quantum mechanics suggests consciousness plays a role.",  # Complex
+        ]
+        * 40
+    )  # 200 total claims
 
     latencies = []
     short_circuited = 0
@@ -79,7 +85,9 @@ def run_pre_gate_validation() -> ValidationResult:
 
         # Simple complexity heuristic
         word_count = len(claim.split())
-        is_simple = word_count < 10 and not any(c in claim for c in ["interpretation", "suggests", "consciousness"])
+        is_simple = word_count < 10 and not any(
+            c in claim for c in ["interpretation", "suggests", "consciousness"]
+        )
 
         if is_simple:
             # Simulate pre-gate short-circuit (~2ms)
@@ -107,9 +115,12 @@ def run_pre_gate_validation() -> ValidationResult:
 
     print(f"  ✅ Avg latency: {stats['avg']:.2f}ms")
     print(f"  ✅ P95 latency: {stats['p95']:.2f}ms")
-    print(f"  ✅ Short-circuit rate: {short_circuited}/{len(test_claims)} ({100*short_circuited/len(test_claims):.1f}%)")
+    print(
+        f"  ✅ Short-circuit rate: {short_circuited}/{len(test_claims)} ({100 * short_circuited / len(test_claims):.1f}%)"
+    )
 
     return result
+
 
 def run_meta_learner_validation() -> ValidationResult:
     """
@@ -152,6 +163,7 @@ def run_meta_learner_validation() -> ValidationResult:
 
     return result
 
+
 def run_domain_calibration_validation() -> ValidationResult:
     """
     Validate domain calibration accuracy.
@@ -162,7 +174,7 @@ def run_domain_calibration_validation() -> ValidationResult:
 
     # Simulate ECS drift measurement
     uncalibrated_drift = 15.0  # ±15pp
-    calibrated_drift = 5.0     # ±5pp
+    calibrated_drift = 5.0  # ±5pp
 
     result = ValidationResult(
         benchmark_name="domain_calibration_drift",
@@ -182,6 +194,7 @@ def run_domain_calibration_validation() -> ValidationResult:
 
     return result
 
+
 def generate_report(results: list[ValidationResult], output_path: Path):
     """Generate validation report."""
     print("\n📊 Generating validation report...")
@@ -193,26 +206,27 @@ def generate_report(results: list[ValidationResult], output_path: Path):
             "pre_gate_short_circuit_rate": None,
             "meta_learner_f1_improvement": None,
             "domain_calibration_improvement": None,
-        }
+        },
     }
 
     # Calculate summary stats
     for result in results:
         if result.benchmark_name == "pre_gate_latency":
             rate = result.short_circuited / result.total_claims
-            report["summary"]["pre_gate_short_circuit_rate"] = f"{rate*100:.1f}%"
+            report["summary"]["pre_gate_short_circuit_rate"] = f"{rate * 100:.1f}%"
         elif result.benchmark_name == "meta_learner_adaptation":
-            report["summary"]["meta_learner_f1_improvement"] = f"+{result.f1_score*100:.1f}pp"
+            report["summary"]["meta_learner_f1_improvement"] = f"+{result.f1_score * 100:.1f}pp"
         elif result.benchmark_name == "domain_calibration_drift":
             report["summary"]["domain_calibration_improvement"] = f"±{result.accuracy:.1f}pp"
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         json.dump(report, f, indent=2)
 
     print(f"  ✅ Report saved to: {output_path}")
 
     return report
+
 
 def main():
     """Run TRIZ validation suite."""
@@ -238,6 +252,7 @@ def main():
     print(f"✅ Meta-learner F1 improvement: {report['summary']['meta_learner_f1_improvement']}")
     print(f"✅ Domain calibration drift: {report['summary']['domain_calibration_improvement']}")
     print("\n🎯 All TRIZ improvements validated!")
+
 
 if __name__ == "__main__":
     main()

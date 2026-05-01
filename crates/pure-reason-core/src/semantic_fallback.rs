@@ -81,7 +81,7 @@ impl SemanticFallbackDetector {
     /// `DetectorVote` with flags_risk=true if cosine similarity < threshold
     pub fn detect(&self, knowledge: &str, answer: &str) -> Result<DetectorVote> {
         use std::process::{Command, Stdio};
-        
+
         // Call Python inference service
         let output = Command::new("python3")
             .arg("scripts/semantic_inference.py")
@@ -91,24 +91,26 @@ impl SemanticFallbackDetector {
             .stdout(Stdio::piped())
             .stderr(Stdio::piped())
             .output();
-        
+
         match output {
             Ok(output) if output.status.success() => {
                 // Parse JSON result
                 let json_str = String::from_utf8_lossy(&output.stdout);
-                let result: serde_json::Value = serde_json::from_str(&json_str)
-                    .map_err(|e| crate::error::PureReasonError::InvalidInput(
-                        format!("Failed to parse semantic inference result: {}", e)
-                    ))?;
-                
+                let result: serde_json::Value = serde_json::from_str(&json_str).map_err(|e| {
+                    crate::error::PureReasonError::InvalidInput(format!(
+                        "Failed to parse semantic inference result: {}",
+                        e
+                    ))
+                })?;
+
                 let similarity = result["similarity"].as_f64().unwrap_or(0.0);
                 let flags_risk = result["flags_risk"].as_bool().unwrap_or(false);
-                
+
                 // Confidence is based on distance from threshold
                 // Close to threshold (0.86) = low confidence, far = high confidence
                 let distance_from_threshold = (similarity - self.config.threshold).abs();
                 let confidence = (distance_from_threshold * 5.0).min(1.0);
-                
+
                 Ok(DetectorVote {
                     detector_name: "semantic_fallback".to_string(),
                     confidence,
@@ -120,7 +122,7 @@ impl SemanticFallbackDetector {
                 // Python script failed, gracefully degrade
                 let stderr = String::from_utf8_lossy(&output.stderr);
                 eprintln!("Semantic fallback failed: {}", stderr);
-                
+
                 Ok(DetectorVote {
                     detector_name: "semantic_fallback".to_string(),
                     confidence: 0.0,
@@ -131,7 +133,7 @@ impl SemanticFallbackDetector {
             Err(e) => {
                 // subprocess failed to launch
                 eprintln!("Failed to launch semantic inference: {}", e);
-                
+
                 Ok(DetectorVote {
                     detector_name: "semantic_fallback".to_string(),
                     confidence: 0.0,
@@ -154,7 +156,7 @@ impl SemanticFallbackDetector {
     /// Check if semantic fallback is available (sentence-transformers installed).
     pub fn is_available(&self) -> bool {
         use std::process::{Command, Stdio};
-        
+
         // Test if Python script can run
         let output = Command::new("python3")
             .arg("-c")
@@ -163,7 +165,7 @@ impl SemanticFallbackDetector {
             .stdout(Stdio::piped())
             .stderr(Stdio::piped())
             .output();
-        
+
         match output {
             Ok(output) if output.status.success() => {
                 let stdout = String::from_utf8_lossy(&output.stdout);

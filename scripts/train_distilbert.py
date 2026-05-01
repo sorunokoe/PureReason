@@ -55,13 +55,13 @@ class FalsifiableDataset(Dataset):
             max_length=self.max_length,
             padding="max_length",
             truncation=True,
-            return_tensors="pt"
+            return_tensors="pt",
         )
 
         return {
             "input_ids": encoding["input_ids"].squeeze(0),
             "attention_mask": encoding["attention_mask"].squeeze(0),
-            "labels": torch.tensor(label, dtype=torch.long)
+            "labels": torch.tensor(label, dtype=torch.long),
         }
 
 
@@ -69,17 +69,10 @@ def compute_metrics(preds: np.ndarray, labels: np.ndarray) -> dict[str, float]:
     """Compute precision, recall, F1."""
     from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
-    precision, recall, f1, _ = precision_recall_fscore_support(
-        labels, preds, average="binary"
-    )
+    precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average="binary")
     accuracy = accuracy_score(labels, preds)
 
-    return {
-        "accuracy": accuracy,
-        "precision": precision,
-        "recall": recall,
-        "f1": f1
-    }
+    return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
 
 
 def evaluate(model, dataloader, device) -> tuple[float, float]:
@@ -95,11 +88,7 @@ def evaluate(model, dataloader, device) -> tuple[float, float]:
             attention_mask = batch["attention_mask"].to(device)
             labels = batch["labels"].to(device)
 
-            outputs = model(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                labels=labels
-            )
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
 
             loss = outputs.loss
             logits = outputs.logits
@@ -128,11 +117,7 @@ def train_epoch(model, dataloader, optimizer, device) -> float:
         attention_mask = batch["attention_mask"].to(device)
         labels = batch["labels"].to(device)
 
-        outputs = model(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            labels=labels
-        )
+        outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
 
         loss = outputs.loss
         total_loss += loss.item()
@@ -144,9 +129,9 @@ def train_epoch(model, dataloader, optimizer, device) -> float:
 
 
 def main():
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("PHASE B: DISTILBERT BINARY CLASSIFIER TRAINING")
-    print("="*70)
+    print("=" * 70)
 
     # Load data
     print("\n[1/5] Loading training data...")
@@ -168,8 +153,7 @@ def main():
     print("\n[2/5] Loading DistilBERT...")
     tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
     model = AutoModelForSequenceClassification.from_pretrained(
-        "distilbert-base-uncased",
-        num_labels=2
+        "distilbert-base-uncased", num_labels=2
     ).to(DEVICE)
 
     print(f"  Model parameters: {sum(p.numel() for p in model.parameters()):,}")
@@ -203,7 +187,7 @@ def main():
         train_loss = train_epoch(model, train_loader, optimizer, DEVICE)
         val_loss, val_f1 = evaluate(model, val_loader, DEVICE)
 
-        print(f"\nEpoch {epoch+1}/{EPOCHS}")
+        print(f"\nEpoch {epoch + 1}/{EPOCHS}")
         print(f"  Train loss: {train_loss:.4f}")
         print(f"  Val loss:   {val_loss:.4f}")
         print(f"  Val F1:     {val_f1:.4f}")
@@ -222,7 +206,9 @@ def main():
 
     # Evaluate on test set
     print("\n[5/5] Evaluating on test set...")
-    model.load_state_dict(torch.load(Path(__file__).parent.parent / "models" / "distilbert_phase_b.pt"))
+    model.load_state_dict(
+        torch.load(Path(__file__).parent.parent / "models" / "distilbert_phase_b.pt")
+    )
     test_loss, test_f1 = evaluate(model, test_loader, DEVICE)
 
     # Get detailed metrics on test set
@@ -236,10 +222,7 @@ def main():
             attention_mask = batch["attention_mask"].to(DEVICE)
             labels = batch["labels"].to(DEVICE)
 
-            outputs = model(
-                input_ids=input_ids,
-                attention_mask=attention_mask
-            )
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
 
             logits = outputs.logits
             preds = torch.argmax(logits, dim=1).cpu().numpy()
@@ -249,9 +232,9 @@ def main():
     test_metrics = compute_metrics(np.array(all_preds), np.array(all_labels))
 
     # Summary
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("SUMMARY")
-    print("="*70)
+    print("=" * 70)
     print(f"\nBest epoch: {best_epoch}")
     print(f"Training time: {elapsed_time:.1f}s")
     print("\nValidation (best):")
@@ -278,7 +261,7 @@ def main():
 
     model_path = Path(__file__).parent.parent / "models" / "distilbert_phase_b.pt"
     print(f"\n✓ Model saved to: {model_path}")
-    print("="*70 + "\n")
+    print("=" * 70 + "\n")
 
 
 if __name__ == "__main__":
