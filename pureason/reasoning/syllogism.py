@@ -17,7 +17,7 @@ def _load_syllogism_classifier() -> tuple[object, object] | None:
         from pathlib import Path
 
         clf_path = Path(__file__).parent.parent.parent / "data" / "syllogism_clf.pkl"
-        
+
         # Try to load existing pickle
         if clf_path.exists():
             try:
@@ -27,26 +27,25 @@ def _load_syllogism_classifier() -> tuple[object, object] | None:
                 # Pickle load failed (probably sklearn version mismatch)
                 # Fall through to train on-the-fly
                 pass
-        
+
         # Train classifier on-the-fly if pickle doesn't exist or failed to load
         from ._syllogism_clf import _train_syllogism_classifier
-        
+
         # Get training data from benchmarks
         try:
             import sys
-            import os
             # Add project root to path to import benchmarks
             project_root = Path(__file__).parent.parent.parent
             sys.path.insert(0, str(project_root))
             from benchmarks.run_reasoning_verification import _INVALID_SYLLOGISMS, _VALID_SYLLOGISMS
-            
+
             valid = list(_VALID_SYLLOGISMS)
             invalid = list(_INVALID_SYLLOGISMS)
-            
+
             premises_list = [list(p) for p, _ in valid] + [list(p) for p, _ in invalid]
             conclusions = [c for _, c in valid] + [c for _, c in invalid]
             labels = [1] * len(valid) + [0] * len(invalid)
-            
+
             vectorizer, clf = _train_syllogism_classifier(premises_list, conclusions, labels)
             
             # Try to cache it for next time
@@ -57,7 +56,7 @@ def _load_syllogism_classifier() -> tuple[object, object] | None:
             except Exception:
                 # Can't write cache, but that's OK
                 pass
-            
+
             return vectorizer, clf
         except Exception:
             # Training failed, return None
