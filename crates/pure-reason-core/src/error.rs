@@ -28,7 +28,7 @@ pub enum PureReasonError {
 
     #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
-    
+
     #[error("Storage error: {0}")]
     Storage(String),
 

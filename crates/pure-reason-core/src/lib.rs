@@ -32,6 +32,7 @@ pub mod contradiction_detector; // Scale 2 Phase C: Logical contradiction detect
 pub mod counterargument_synthesis; // Scale 3 Tier 2 Phase 3: Find and reconcile opposing arguments
 pub mod counterfactual_reasoner; // Scale 2 Phase C: Counterfactual reasoning + dependency tracing
 pub mod dialectic; // Transcendental Dialectic (illusions, antinomies, paralogisms)
+pub mod domain_calibration; // TRIZ P3, P4: Per-domain ensemble weights and ECS calibration
 pub mod domain_config; // Quick Win #1: Domain-specific hyperparameter configuration
 pub mod domain_governance; // Scale 2 Phase C: Domain-specific governance policies
 pub mod domain_prompts; // Quick Win #2: Domain-specific prompt templates
@@ -41,6 +42,7 @@ pub mod error; // Crate-wide error type
 pub mod error_analyzer; // Medium Win #7: Top failure pattern analysis & fixes
 pub mod math_solver; // Medium Win #6: Specialized mathematical computation validation
 pub mod meta_learner; // Home Run #9: Meta-learning from benchmark failures
+pub mod meta_learner_v2; // TRIZ P13, P2: Session-scoped adaptive learning
 pub mod methodology; // Transcendental Methodology (discipline, canon, architectonic)
 pub mod model_inference; // Scale 2 Phase B: DistilBERT model inference
 pub mod multi_hop_reasoner; // Medium Win #5: Extended reasoning chains (3-5 hops)
@@ -50,14 +52,12 @@ pub mod phase_optimizer; // Quick Win #4: Per-phase enable/disable optimization
 pub mod pipeline; // Full Kantian cognitive pipeline
 pub mod pre_verification; // Scale 2 Phase D: Fast pre-verification before model inference
 pub mod pre_verification_v2; // TRIZ P10, P25: Enhanced pre-gate with arithmetic, blacklist, complexity routing
-pub mod semantic_fallback; // TRIZ P1: Embedding-based hallucination detection
-pub mod meta_learner_v2; // TRIZ P13, P2: Session-scoped adaptive learning
-pub mod domain_calibration; // TRIZ P3, P4: Per-domain ensemble weights and ECS calibration
-pub mod wikipedia_corpus; // TRIZ P40: 6M Wikipedia articles with BM25 search
 pub mod self_verification; // Scale 2 Phase D: Verdict self-consistency verification
+pub mod semantic_fallback; // TRIZ P1: Embedding-based hallucination detection
 pub mod types; // Shared primitive types
 pub mod uncertainty_calibration; // Medium Win #8: Domain-specific confidence interval fitting
 pub mod uncertainty_quantification; // Scale 3 Tier 2 Phase 2: Confidence intervals and uncertainty propagation
+pub mod wikipedia_corpus; // TRIZ P40: 6M Wikipedia articles with BM25 search
 pub mod wittgenstein; // Wittgensteinian language-game layer
 pub mod world_priors; // Misconception atlas + BM25 soft-prior matcher
 

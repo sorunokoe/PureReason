@@ -86,7 +86,7 @@ impl SemanticFallbackDetector {
         // 2. Encode knowledge and answer
         // 3. Compute cosine similarity
         // 4. Return vote based on threshold
-        
+
         // Stub: Always return low-confidence "no risk"
         // This allows the rest of the system to compile and integrate
         Ok(DetectorVote {
@@ -100,10 +100,7 @@ impl SemanticFallbackDetector {
     /// Batch detect for multiple (knowledge, answer) pairs.
     ///
     /// More efficient than calling `detect()` repeatedly.
-    pub fn detect_batch(
-        &self,
-        pairs: &[(&str, &str)],
-    ) -> Result<Vec<DetectorVote>> {
+    pub fn detect_batch(&self, pairs: &[(&str, &str)]) -> Result<Vec<DetectorVote>> {
         // TODO: Batch encoding for efficiency
         pairs.iter().map(|(k, a)| self.detect(k, a)).collect()
     }
@@ -162,8 +159,10 @@ mod tests {
     #[test]
     fn test_detect_stub() {
         let detector = SemanticFallbackDetector::new().unwrap();
-        let vote = detector.detect("The sky is blue", "The atmosphere is azure").unwrap();
-        
+        let vote = detector
+            .detect("The sky is blue", "The atmosphere is azure")
+            .unwrap();
+
         // Stub returns no risk, low confidence
         assert!(!vote.flags_risk);
         assert_eq!(vote.confidence, 0.0);
@@ -173,11 +172,8 @@ mod tests {
     #[test]
     fn test_batch_detect_stub() {
         let detector = SemanticFallbackDetector::new().unwrap();
-        let pairs = vec![
-            ("Knowledge 1", "Answer 1"),
-            ("Knowledge 2", "Answer 2"),
-        ];
-        
+        let pairs = vec![("Knowledge 1", "Answer 1"), ("Knowledge 2", "Answer 2")];
+
         let votes = detector.detect_batch(&pairs).unwrap();
         assert_eq!(votes.len(), 2);
     }

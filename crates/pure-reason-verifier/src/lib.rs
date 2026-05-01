@@ -29,7 +29,7 @@ use pure_reason_core::{
     contradiction_detector::{extract_claims, find_contradictions},
     math_solver::MathSolver,
     pipeline::{KantianPipeline, RiskLevel},
-    pre_verification_v2::{PreVerifier, PreVerificationConfig, PreVerdict},
+    pre_verification_v2::{PreVerdict, PreVerificationConfig, PreVerifier},
     structured_validator::StructuredDecisionValidator,
 };
 use pure_reason_trace::{
@@ -356,7 +356,7 @@ impl VerifierService {
 
     fn check_arithmetic(text: &str) -> Option<Vec<Finding>> {
         use regex::Regex;
-        
+
         // Pattern: "X divided by Y equals Z" or "X / Y = Z" or "X + Y = Z"
         let patterns = vec![
             // "120 divided by 2 equals 90"
@@ -386,9 +386,9 @@ impl VerifierService {
 
                 let (operator, correct) = match idx {
                     0 | 1 => ("/", left_num / right_num), // division
-                    2 => ("+", left_num + right_num),      // addition
-                    3 => ("-", left_num - right_num),      // subtraction
-                    4 => ("*", left_num * right_num),      // multiplication
+                    2 => ("+", left_num + right_num),     // addition
+                    3 => ("-", left_num - right_num),     // subtraction
+                    4 => ("*", left_num * right_num),     // multiplication
                     _ => continue,
                 };
 
@@ -432,7 +432,10 @@ impl VerifierService {
         // Critical certainty markers (especially problematic in medical/finance/legal)
         let critical_patterns = vec![
             ("must have", "absolute certainty without evidence"),
-            ("definitely has", "definitive diagnosis without qualification"),
+            (
+                "definitely has",
+                "definitive diagnosis without qualification",
+            ),
             ("certainly is", "unqualified certainty"),
             ("absolutely will", "future certainty claim"),
             ("guaranteed to", "inappropriate guarantee"),
@@ -454,17 +457,18 @@ impl VerifierService {
 
         // Check for high-confidence medical/financial claims
         let medical_pattern = Regex::new(r"\b(?:patient|diagnosis|treatment|prognosis)\b").ok()?;
-        let financial_pattern = Regex::new(r"\b(?:stock|investment|return|profit|portfolio)\b").ok()?;
+        let financial_pattern =
+            Regex::new(r"\b(?:stock|investment|return|profit|portfolio)\b").ok()?;
 
         let is_medical = medical_pattern.is_match(&text_lower);
         let is_financial = financial_pattern.is_match(&text_lower);
 
         if is_medical || is_financial {
             let domain = if is_medical { "medical" } else { "financial" };
-            
+
             // Domain-specific certainty markers
             let high_certainty_markers = vec!["will", "always", "never", "impossible", "certain"];
-            
+
             for marker in high_certainty_markers {
                 if text_lower.contains(marker) {
                     findings.push(Finding {

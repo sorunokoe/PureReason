@@ -42,7 +42,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install package
-        run: pip install -e ".[logic]"
+        run: pip install -e ".[logic,nlp]"
 
       - name: Run tests
         run: python3 -m unittest discover -s tests -p "test_*.py" -v

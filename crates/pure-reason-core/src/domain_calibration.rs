@@ -39,25 +39,25 @@ use std::path::{Path, PathBuf};
 pub struct DomainConfig {
     /// Config version (for reproducibility)
     pub version: String,
-    
+
     /// Domain name (medical, legal, financial, general, etc.)
     pub domain: String,
-    
+
     /// Human-readable description
     pub description: String,
-    
+
     /// Domain detection patterns
     pub detection: DomainDetection,
-    
+
     /// Ensemble detector weights
     pub ensemble_weights: EnsembleWeights,
-    
+
     /// Risk thresholds
     pub risk_thresholds: RiskThresholds,
-    
+
     /// ECS calibration curve
     pub calibration: CalibrationCurve,
-    
+
     /// Domain-specific overrides
     #[serde(default)]
     pub overrides: DomainOverrides,
@@ -68,7 +68,7 @@ pub struct DomainConfig {
 pub struct DomainDetection {
     /// Regex patterns for detection
     pub patterns: Vec<String>,
-    
+
     /// Minimum confidence to apply domain config
     pub confidence_threshold: f64,
 }
@@ -87,7 +87,7 @@ pub struct RiskThresholds {
 pub struct CalibrationCurve {
     /// Method: "platt_scaling" or "isotonic_regression"
     pub method: String,
-    
+
     /// Parameters (A, B for Platt scaling)
     pub parameters: CalibrationParameters,
 }
@@ -97,7 +97,7 @@ pub struct CalibrationParameters {
     /// Slope (A in logistic regression)
     #[serde(rename = "A")]
     pub a: f64,
-    
+
     /// Intercept (B in logistic regression)
     #[serde(rename = "B")]
     pub b: f64,
@@ -108,10 +108,10 @@ pub struct CalibrationParameters {
 pub struct DomainOverrides {
     #[serde(default)]
     pub disable_world_priors: bool,
-    
+
     #[serde(default)]
     pub require_evidence: bool,
-    
+
     #[serde(default)]
     pub strict_numeric_validation: bool,
 }
@@ -120,10 +120,10 @@ pub struct DomainOverrides {
 pub struct DomainCalibrator {
     /// Path to domain configs directory
     config_dir: PathBuf,
-    
+
     /// Loaded domain configs (lazy)
     configs: HashMap<String, DomainConfig>,
-    
+
     /// Compiled regex patterns (lazy)
     patterns: HashMap<String, Vec<Regex>>,
 }
@@ -146,50 +146,56 @@ impl DomainCalibrator {
     /// Returns domain name and confidence (0.0-1.0).
     pub fn detect_domain(&mut self, text: &str) -> Result<DetectedDomain> {
         let text_lower = text.to_lowercase();
-        
+
         // Load all domain configs if not already loaded
         self.load_all_configs()?;
-        
+
         let mut best_match: Option<(String, f64)> = None;
-        
+
         for (domain_name, config) in &self.configs {
             // Get or compile patterns
             if !self.patterns.contains_key(domain_name) {
-                let compiled: Vec<Regex> = config.detection.patterns
+                let compiled: Vec<Regex> = config
+                    .detection
+                    .patterns
                     .iter()
                     .filter_map(|p| Regex::new(p).ok())
                     .collect();
                 self.patterns.insert(domain_name.clone(), compiled);
             }
-            
+
             let patterns = self.patterns.get(domain_name).unwrap();
             let mut match_count = 0;
-            
+
             for pattern in patterns {
                 if pattern.is_match(&text_lower) {
                     match_count += 1;
                 }
             }
-            
+
             let confidence = match_count as f64 / patterns.len() as f64;
-            
+
             if confidence >= config.detection.confidence_threshold {
                 if best_match.is_none() || confidence > best_match.as_ref().unwrap().1 {
                     best_match = Some((domain_name.clone(), confidence));
                 }
             }
         }
-        
+
         // Fallback to general domain
-        let (domain_name, confidence) = best_match
-            .unwrap_or_else(|| ("general".to_string(), 1.0));
-        
-        let config = self.configs.get(&domain_name)
-            .ok_or_else(|| crate::error::PureReasonError::InvalidInput(
-                format!("Domain config not found: {}", domain_name)
-            ))?
+        let (domain_name, confidence) = best_match.unwrap_or_else(|| ("general".to_string(), 1.0));
+
+        let config = self
+            .configs
+            .get(&domain_name)
+            .ok_or_else(|| {
+                crate::error::PureReasonError::InvalidInput(format!(
+                    "Domain config not found: {}",
+                    domain_name
+                ))
+            })?
             .clone();
-        
+
         Ok(DetectedDomain {
             name: domain_name,
             confidence,
@@ -202,47 +208,51 @@ impl DomainCalibrator {
         if !self.configs.is_empty() {
             return Ok(()); // Already loaded
         }
-        
+
         // Read all YAML files in config directory
         let entries = match fs::read_dir(&self.config_dir) {
             Ok(entries) => entries,
             Err(_) => {
                 // Directory doesn't exist, use general domain only
-                self.configs.insert("general".to_string(), DomainConfig::general());
+                self.configs
+                    .insert("general".to_string(), DomainConfig::general());
                 return Ok(());
             }
         };
-        
+
         for entry in entries {
             let entry = match entry {
                 Ok(e) => e,
                 Err(_) => continue, // Skip entries we can't read
             };
             let path = entry.path();
-            
+
             if path.extension().and_then(|s| s.to_str()) == Some("yaml") {
                 if let Ok(config) = self.load_config(&path) {
                     self.configs.insert(config.domain.clone(), config);
                 }
             }
         }
-        
+
         // Ensure general domain exists
         if !self.configs.contains_key("general") {
-            self.configs.insert("general".to_string(), DomainConfig::general());
+            self.configs
+                .insert("general".to_string(), DomainConfig::general());
         }
-        
+
         Ok(())
     }
 
     /// Load single domain config from file.
     fn load_config(&self, path: &Path) -> Result<DomainConfig> {
         let yaml = fs::read_to_string(path)?;
-        
-        serde_yaml::from_str(&yaml)
-            .map_err(|e| crate::error::PureReasonError::InvalidInput(
-                format!("Failed to parse domain YAML: {}", e)
+
+        serde_yaml::from_str(&yaml).map_err(|e| {
+            crate::error::PureReasonError::InvalidInput(format!(
+                "Failed to parse domain YAML: {}",
+                e
             ))
+        })
     }
 }
 
@@ -282,7 +292,7 @@ impl DomainConfig {
         if self.calibration.method == "platt_scaling" {
             let a = self.calibration.parameters.a;
             let b = self.calibration.parameters.b;
-            
+
             // Logistic function
             1.0 / (1.0 + (-1.0 * (a * raw_score + b)).exp())
         } else {
@@ -297,10 +307,10 @@ impl DomainConfig {
 pub struct DetectedDomain {
     /// Domain name
     pub name: String,
-    
+
     /// Detection confidence (0.0-1.0)
     pub confidence: f64,
-    
+
     /// Domain configuration
     pub config: DomainConfig,
 }
@@ -361,8 +371,10 @@ calibration:
         create_test_config(temp_dir.path(), "medical").unwrap();
 
         let mut calibrator = DomainCalibrator::new(temp_dir.path()).unwrap();
-        
-        let detected = calibrator.detect_domain("This is a test medical case").unwrap();
+
+        let detected = calibrator
+            .detect_domain("This is a test medical case")
+            .unwrap();
         assert_eq!(detected.name, "medical");
         assert!(detected.confidence > 0.5);
     }
@@ -370,7 +382,7 @@ calibration:
     #[test]
     fn test_calibration() {
         let config = DomainConfig::general();
-        
+
         // Identity calibration (A=1.0, B=0.0)
         let calibrated = config.calibrate_ecs(0.5);
         assert!((calibrated - 0.622).abs() < 0.01); // sigmoid(0.5) ≈ 0.622
@@ -381,10 +393,10 @@ calibration:
         let mut config = DomainConfig::general();
         config.calibration.parameters.a = 1.35;
         config.calibration.parameters.b = -0.42;
-        
+
         let raw = 0.75;
         let calibrated = config.calibrate_ecs(raw);
-        
+
         // Should be different from raw due to calibration
         assert!((calibrated - raw).abs() > 0.01);
     }
@@ -393,7 +405,7 @@ calibration:
     fn test_fallback_to_general() {
         let temp_dir = TempDir::new().unwrap();
         let mut calibrator = DomainCalibrator::new(temp_dir.path()).unwrap();
-        
+
         // No domain patterns match
         let detected = calibrator.detect_domain("random text").unwrap();
         assert_eq!(detected.name, "general");
@@ -407,7 +419,7 @@ calibration:
 
         let mut calibrator = DomainCalibrator::new(temp_dir.path()).unwrap();
         let detected = calibrator.detect_domain("test medical").unwrap();
-        
+
         // Medical domain should have higher numeric weight
         assert_eq!(detected.config.ensemble_weights.numeric_detector, 2.0);
     }

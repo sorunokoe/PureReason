@@ -100,9 +100,9 @@ fn test_domain_inference_medical() {
     // Note: Domain inference uses hardcoded regex in test_domain_config.rs
     // This test validates that medical.yaml patterns are comprehensive
     let texts = [
-        "patient diagnosis",    // matches "patient"
-        "hospital procedure",   // matches "hospital"
-        "disease treatment",    // matches both "disease" and "treatment"
+        "patient diagnosis",  // matches "patient"
+        "hospital procedure", // matches "hospital"
+        "disease treatment",  // matches both "disease" and "treatment"
     ];
     for text in &texts {
         assert_eq!(

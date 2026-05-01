@@ -34,11 +34,11 @@
 //! ```
 
 use crate::error::{PureReasonError, Result};
+use rusqlite::{params, Connection};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
-use rusqlite::{params, Connection};
 
 /// A Wikipedia article record.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -264,9 +264,7 @@ impl WikipediaCorpus {
 
         // Search in entities JSON field
         let mut stmt = conn
-            .prepare(
-                "SELECT COUNT(*) FROM articles WHERE entities LIKE ?1 LIMIT 1",
-            )
+            .prepare("SELECT COUNT(*) FROM articles WHERE entities LIKE ?1 LIMIT 1")
             .map_err(|e| PureReasonError::Storage(format!("Failed to prepare query: {}", e)))?;
 
         let pattern = format!("%\"{}%", entity);
@@ -293,38 +291,39 @@ impl WikipediaCorpus {
             )
             .map_err(|e| PureReasonError::Storage(format!("Failed to prepare query: {}", e)))?;
 
-        let result = stmt
-            .query_row(params![article_id], |row| {
-                let id: String = row.get(0)?;
-                let title: String = row.get(1)?;
-                let abstract_text: String = row.get(2)?;
-                let url: String = row.get(3)?;
-                let categories_json: String = row.get(4)?;
-                let entities_json: String = row.get(5)?;
-                let last_modified: String = row.get(6)?;
-                let word_count: i64 = row.get(7)?;
+        let result = stmt.query_row(params![article_id], |row| {
+            let id: String = row.get(0)?;
+            let title: String = row.get(1)?;
+            let abstract_text: String = row.get(2)?;
+            let url: String = row.get(3)?;
+            let categories_json: String = row.get(4)?;
+            let entities_json: String = row.get(5)?;
+            let last_modified: String = row.get(6)?;
+            let word_count: i64 = row.get(7)?;
 
-                let categories: Vec<String> =
-                    serde_json::from_str(&categories_json).unwrap_or_default();
-                let entities: Vec<String> =
-                    serde_json::from_str(&entities_json).unwrap_or_default();
+            let categories: Vec<String> =
+                serde_json::from_str(&categories_json).unwrap_or_default();
+            let entities: Vec<String> = serde_json::from_str(&entities_json).unwrap_or_default();
 
-                Ok(Article {
-                    id,
-                    title,
-                    abstract_text,
-                    url,
-                    categories,
-                    entities,
-                    last_modified,
-                    word_count: word_count as usize,
-                })
-            });
-        
+            Ok(Article {
+                id,
+                title,
+                abstract_text,
+                url,
+                categories,
+                entities,
+                last_modified,
+                word_count: word_count as usize,
+            })
+        });
+
         match result {
             Ok(article) => Ok(Some(article)),
             Err(rusqlite::Error::QueryReturnedNoRows) => Ok(None),
-            Err(e) => Err(PureReasonError::Storage(format!("Query execution failed: {}", e))),
+            Err(e) => Err(PureReasonError::Storage(format!(
+                "Query execution failed: {}",
+                e
+            ))),
         }
     }
 
@@ -364,8 +363,8 @@ pub struct CorpusStats {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use tempfile::NamedTempFile;
     use std::io::Write;
+    use tempfile::NamedTempFile;
 
     #[test]
     fn test_corpus_version_extraction() {
@@ -421,7 +420,7 @@ mod tests {
 
         let json = serde_json::to_string(&article).unwrap();
         let deserialized: Article = serde_json::from_str(&json).unwrap();
-        
+
         assert_eq!(article.id, deserialized.id);
         assert_eq!(article.title, deserialized.title);
     }
@@ -438,7 +437,7 @@ mod tests {
         // Create a temporary SQLite database
         let temp_file = NamedTempFile::new().unwrap();
         let db_path = temp_file.path();
-        
+
         // Create schema
         let conn = Connection::open(db_path).unwrap();
         conn.execute(
@@ -446,7 +445,8 @@ mod tests {
                 title, abstract, content='articles', content_rowid='rowid'
             )",
             [],
-        ).unwrap();
+        )
+        .unwrap();
         conn.execute(
             "CREATE TABLE articles (
                 id TEXT PRIMARY KEY,
@@ -459,8 +459,9 @@ mod tests {
                 word_count INTEGER
             )",
             [],
-        ).unwrap();
-        
+        )
+        .unwrap();
+
         // Insert test data
         conn.execute(
             "INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
@@ -474,19 +475,24 @@ mod tests {
                 "2026-01-01",
                 10
             ],
-        ).unwrap();
-        
+        )
+        .unwrap();
+
         conn.execute(
             "INSERT INTO articles_fts (rowid, title, abstract) VALUES (1, ?, ?)",
-            params!["Albert Einstein", "Albert Einstein was a theoretical physicist."],
-        ).unwrap();
-        
+            params![
+                "Albert Einstein",
+                "Albert Einstein was a theoretical physicist."
+            ],
+        )
+        .unwrap();
+
         drop(conn);
-        
+
         // Test corpus with real DB
         let corpus = WikipediaCorpus::new(db_path.to_str().unwrap()).unwrap();
         let results = corpus.query("Einstein", 10).unwrap();
-        
+
         assert!(!results.is_empty(), "Should find Einstein article");
         assert_eq!(results[0].title, "Albert Einstein");
     }
@@ -495,7 +501,7 @@ mod tests {
     fn test_entity_detection() {
         let temp_file = NamedTempFile::new().unwrap();
         let db_path = temp_file.path();
-        
+
         // Create minimal schema
         let conn = Connection::open(db_path).unwrap();
         conn.execute(
@@ -510,8 +516,9 @@ mod tests {
                 word_count INTEGER
             )",
             [],
-        ).unwrap();
-        
+        )
+        .unwrap();
+
         conn.execute(
             "INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             params![
@@ -524,14 +531,14 @@ mod tests {
                 "2026-01-01",
                 15
             ],
-        ).unwrap();
-        
+        )
+        .unwrap();
+
         drop(conn);
-        
+
         let corpus = WikipediaCorpus::new(db_path.to_str().unwrap()).unwrap();
-        
+
         // Should find entity by title match
         assert!(corpus.contains_entity("Python").unwrap_or(false));
     }
 }
-

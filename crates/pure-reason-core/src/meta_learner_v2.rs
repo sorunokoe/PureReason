@@ -29,8 +29,8 @@
 //! // Every 100 calls, weights adapt automatically
 //! ```
 
-use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 /// Ensemble weights for detectors.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -123,16 +123,16 @@ impl Default for MetaLearnerConfig {
 pub struct SessionMetaLearner {
     /// Per-detector accuracy: (detector_name → (hits, misses))
     detector_stats: HashMap<String, (usize, usize)>,
-    
+
     /// Current ensemble weights (adaptive)
     weights: EnsembleWeights,
-    
+
     /// Default weights (fallback)
     default_weights: EnsembleWeights,
-    
+
     /// Configuration
     config: MetaLearnerConfig,
-    
+
     /// Call counter
     call_count: usize,
 }
@@ -179,13 +179,14 @@ impl SessionMetaLearner {
 
         // Update detector stats
         for (detector_name, (flags_risk, _confidence)) in detector_votes {
-            let stats = self.detector_stats
+            let stats = self
+                .detector_stats
                 .entry(detector_name.clone())
                 .or_insert((0, 0));
 
             // Detector is correct if its prediction matches actual verdict
             let correct = *flags_risk == actual_verdict;
-            
+
             if correct {
                 stats.0 += 1; // hits
             } else {
@@ -209,29 +210,29 @@ impl SessionMetaLearner {
         let mut new_weights = EnsembleWeights::default();
 
         for detector_name in EnsembleWeights::detector_names() {
-            let (hits, misses) = self.detector_stats
+            let (hits, misses) = self
+                .detector_stats
                 .get(detector_name)
                 .copied()
                 .unwrap_or((0, 0));
-            
+
             let total = hits + misses;
-            
+
             let computed_weight = if total < self.config.min_samples {
                 // Not enough data, use default
                 self.default_weights.get(detector_name)
             } else {
                 // Compute accuracy and scale weight
                 let accuracy = hits as f64 / total as f64;
-                
+
                 // Scale: 1.0 accuracy = 2× default, 0.5 accuracy = 1× default
                 self.default_weights.get(detector_name) * (1.0 + accuracy)
             };
 
             // Exponential smoothing
             let old_weight = self.weights.get(detector_name);
-            let smoothed_weight = 
-                self.config.alpha * computed_weight +
-                (1.0 - self.config.alpha) * old_weight;
+            let smoothed_weight =
+                self.config.alpha * computed_weight + (1.0 - self.config.alpha) * old_weight;
 
             new_weights.set(detector_name, smoothed_weight);
         }
@@ -290,8 +291,10 @@ mod tests {
             if i >= 10 {
                 // After warmup, kac_detector weight should increase
                 let weights = learner.get_weights();
-                assert!(weights.kac_detector > 1.0, 
-                    "kac_detector weight should increase after consistent accuracy");
+                assert!(
+                    weights.kac_detector > 1.0,
+                    "kac_detector weight should increase after consistent accuracy"
+                );
             }
         }
     }
@@ -313,7 +316,7 @@ mod tests {
         }
 
         let weights = learner.get_weights();
-        
+
         // Weight should increase but not wildly (due to smoothing)
         assert!(weights.kac_detector > 1.0);
         assert!(weights.kac_detector < 2.0); // Smoothing prevents extreme values
@@ -329,7 +332,7 @@ mod tests {
 
         // kac correct, numeric correct
         learner.update_after_verification(&votes, true);
-        
+
         let stats = learner.detector_stats();
         assert_eq!(stats.get("kac_detector"), Some(&(1, 0))); // 1 hit, 0 misses
         assert_eq!(stats.get("numeric_detector"), Some(&(0, 1))); // 0 hits, 1 miss
@@ -352,7 +355,7 @@ mod tests {
         }
 
         let weights = learner.get_weights();
-        
+
         // With min_samples=10 and only 10 calls total, should use default weights
         // (might be slightly adapted due to smoothing, but close to 1.0)
         assert!(weights.kac_detector >= 1.0);
