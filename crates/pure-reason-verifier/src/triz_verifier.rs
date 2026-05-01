@@ -42,7 +42,7 @@ impl Default for TrizConfig {
         Self {
             enable_pre_gate: true,
             enable_meta_learner: true,
-            enable_semantic_fallback: false, // Stub only in Phase 1
+            enable_semantic_fallback: true, // Now fully implemented
             enable_domain_calibration: true,
             enable_wikipedia: false, // Optional until corpus built
             domain_config_path: Some(PathBuf::from("domains/")),

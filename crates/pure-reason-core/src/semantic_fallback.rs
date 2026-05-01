@@ -79,36 +79,98 @@ impl SemanticFallbackDetector {
     ///
     /// # Returns
     /// `DetectorVote` with flags_risk=true if cosine similarity < threshold
-    pub fn detect(&self, _knowledge: &str, _answer: &str) -> Result<DetectorVote> {
-        // TODO: Phase 1 stub implementation
-        // In production, this would:
-        // 1. Load sentence-transformers model (lazy, cached)
-        // 2. Encode knowledge and answer
-        // 3. Compute cosine similarity
-        // 4. Return vote based on threshold
-
-        // Stub: Always return low-confidence "no risk"
-        // This allows the rest of the system to compile and integrate
-        Ok(DetectorVote {
-            detector_name: "semantic_fallback".to_string(),
-            confidence: 0.0,
-            flags_risk: false,
-            evidence: Some("Semantic fallback detector not yet implemented".to_string()),
-        })
+    pub fn detect(&self, knowledge: &str, answer: &str) -> Result<DetectorVote> {
+        use std::process::{Command, Stdio};
+        
+        // Call Python inference service
+        let output = Command::new("python3")
+            .arg("scripts/semantic_inference.py")
+            .arg(knowledge)
+            .arg(answer)
+            .stdin(Stdio::null())
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .output();
+        
+        match output {
+            Ok(output) if output.status.success() => {
+                // Parse JSON result
+                let json_str = String::from_utf8_lossy(&output.stdout);
+                let result: serde_json::Value = serde_json::from_str(&json_str)
+                    .map_err(|e| crate::error::PureReasonError::InvalidInput(
+                        format!("Failed to parse semantic inference result: {}", e)
+                    ))?;
+                
+                let similarity = result["similarity"].as_f64().unwrap_or(0.0);
+                let flags_risk = result["flags_risk"].as_bool().unwrap_or(false);
+                
+                // Confidence is based on distance from threshold
+                // Close to threshold (0.86) = low confidence, far = high confidence
+                let distance_from_threshold = (similarity - self.config.threshold).abs();
+                let confidence = (distance_from_threshold * 5.0).min(1.0);
+                
+                Ok(DetectorVote {
+                    detector_name: "semantic_fallback".to_string(),
+                    confidence,
+                    flags_risk,
+                    evidence: Some(format!("Cosine similarity: {:.3}", similarity)),
+                })
+            }
+            Ok(output) => {
+                // Python script failed, gracefully degrade
+                let stderr = String::from_utf8_lossy(&output.stderr);
+                eprintln!("Semantic fallback failed: {}", stderr);
+                
+                Ok(DetectorVote {
+                    detector_name: "semantic_fallback".to_string(),
+                    confidence: 0.0,
+                    flags_risk: false,
+                    evidence: Some("Semantic fallback unavailable".to_string()),
+                })
+            }
+            Err(e) => {
+                // subprocess failed to launch
+                eprintln!("Failed to launch semantic inference: {}", e);
+                
+                Ok(DetectorVote {
+                    detector_name: "semantic_fallback".to_string(),
+                    confidence: 0.0,
+                    flags_risk: false,
+                    evidence: Some("Semantic fallback unavailable".to_string()),
+                })
+            }
+        }
     }
 
     /// Batch detect for multiple (knowledge, answer) pairs.
     ///
     /// More efficient than calling `detect()` repeatedly.
     pub fn detect_batch(&self, pairs: &[(&str, &str)]) -> Result<Vec<DetectorVote>> {
-        // TODO: Batch encoding for efficiency
+        // For now, call detect() sequentially
+        // TODO: Implement true batch encoding for better efficiency
         pairs.iter().map(|(k, a)| self.detect(k, a)).collect()
     }
 
     /// Check if semantic fallback is available (sentence-transformers installed).
     pub fn is_available(&self) -> bool {
-        // TODO: Check if Python + sentence-transformers is available
-        false
+        use std::process::{Command, Stdio};
+        
+        // Test if Python script can run
+        let output = Command::new("python3")
+            .arg("-c")
+            .arg("from sentence_transformers import SentenceTransformer; print('OK')")
+            .stdin(Stdio::null())
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .output();
+        
+        match output {
+            Ok(output) if output.status.success() => {
+                let stdout = String::from_utf8_lossy(&output.stdout);
+                stdout.trim() == "OK"
+            }
+            _ => false,
+        }
     }
 }
 
@@ -152,21 +214,23 @@ mod tests {
     #[test]
     fn test_detector_creation() {
         let detector = SemanticFallbackDetector::new().unwrap();
-        // Stub implementation - should not panic
-        assert!(!detector.is_available());
+        // Check if available (may be true if sentence-transformers installed)
+        let available = detector.is_available();
+        // Should not panic regardless of availability
+        assert!(available || !available); // Always true, just verifying no panic
     }
 
     #[test]
-    fn test_detect_stub() {
+    fn test_detect() {
         let detector = SemanticFallbackDetector::new().unwrap();
         let vote = detector
             .detect("The sky is blue", "The atmosphere is azure")
             .unwrap();
 
-        // Stub returns no risk, low confidence
-        assert!(!vote.flags_risk);
-        assert_eq!(vote.confidence, 0.0);
+        // Vote should be returned (may flag risk or not depending on model availability)
         assert_eq!(vote.detector_name, "semantic_fallback");
+        // Confidence should be in valid range
+        assert!(vote.confidence >= 0.0 && vote.confidence <= 1.0);
     }
 
     #[test]

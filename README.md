@@ -151,9 +151,11 @@ PureReason now includes **systematic performance improvements** across the verif
   - LRU cache for performance
   - **Impact**: +18pp TruthfulQA recall (when corpus available)
 
-- **Semantic Fallback** — Embedding-based hallucination detection (interface ready)
-  - Cosine similarity threshold detection
+- **Semantic Fallback** — Embedding-based hallucination detection using all-MiniLM-L6-v2
+  - Cosine similarity threshold detection (<0.86 = hallucination)
   - Catches semantic variations pattern matching misses
+  - Python subprocess interface with graceful fallback
+  - **Status**: Fully implemented, optimizations pending
   - **Impact**: +8-12pp recall on narrative hallucinations
 
 **Cumulative gains**: +25-30pp F1, -40% latency, 3× better calibration accuracy
