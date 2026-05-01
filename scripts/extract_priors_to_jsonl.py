@@ -25,17 +25,17 @@ for match in re.finditer(prior_pattern, content, re.DOTALL):
     prior_id = id_match.group(1)
 
     # Extract arrays
-    def extract_array(field_name: str) -> list[str]:
+    def extract_array(field_name: str, text_block: str) -> list[str]:
         pattern = rf"{field_name}:\s*&\[(.*?)\]"
-        m = re.search(pattern, block, re.DOTALL)
+        m = re.search(pattern, text_block, re.DOTALL)
         if not m:
             return []
         items = re.findall(r'"([^"]+)"', m.group(1))
         return items
 
-    topic_signals = extract_array("topic_signals")
-    myth_signals = extract_array("myth_signals")
-    correction_signals = extract_array("correction_signals")
+    topic_signals = extract_array("topic_signals", block)
+    myth_signals = extract_array("myth_signals", block)
+    correction_signals = extract_array("correction_signals", block)
 
     priors_data.append(
         {

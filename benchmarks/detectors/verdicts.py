@@ -56,13 +56,12 @@ def universal_verdict(text: str, verdict: dict) -> bool:
     """
     if verdict.get("has_contradictions", False):
         return True
-    if verdict.get("has_illusions", False):
-        # Faithful answers that happen to share phrasing with a world prior
-        # (e.g. a correct debunking paragraph) would otherwise be false
-        # positives. Keep the prior match as a flag only when the text adds
-        # material that is NOT in its context.
-        if _unigram_faithfulness(text) < 0.40:
-            return True
+    # Faithful answers that happen to share phrasing with a world prior
+    # (e.g. a correct debunking paragraph) would otherwise be false
+    # positives. Keep the prior match as a flag only when the text adds
+    # material that is NOT in its context.
+    if verdict.get("has_illusions", False) and _unigram_faithfulness(text) < 0.40:
+        return True
     if verdict.get("has_paralogisms", False):
         return True
     if str(verdict.get("risk", "Safe")).lower() == "high":
