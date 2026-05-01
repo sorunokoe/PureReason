@@ -1,0 +1,156 @@
+name: Benchmark CI (S13 — TRIZ Report IX)
+
+# S13 — Continuous Statistical Validity Engine
+#
+# Three-tier benchmark validation ordered by statistical rigour:
+#   PR trigger:    n=25/class  (±8% CI, ~2 min)  — regression guard
+#   Merge to main: n=100/class (±4% CI, ~20 min) — baseline tracking
+#   Release tag:   n=200/class (±3% CI, ~40 min) — publishable numbers
+#
+# All tiers include Wilson 95% CI on F1 scores.
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  release:
+    types: [published]
+
+env:
+  RUST_BACKTRACE: 1
+
+jobs:
+  # ── Tier 1: PR Fast Benchmark (n=25/class) ───────────────────────────────────
+  benchmark-pr:
+    name: "Benchmark · PR · n=25"
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install Python deps
+        run: pip install requests tqdm
+
+      - name: Build CLI
+        run: cargo build -p pure-reason-cli --release
+
+      - name: Download benchmark datasets
+        run: python3 benchmarks/download_benchmarks.py --benchmarks truthfulqa,halueval,ragtruth,faithbench,felm
+
+      - name: Run benchmarks (n=25/class)
+        run: |
+          python3 benchmarks/run_downloaded_benchmarks.py \
+            --n 25 \
+            --benchmarks truthfulqa,halueval_qa,halueval_dialogue,ragtruth,faithbench,felm \
+            --output benchmarks/results/ci-pr-${{ github.sha }}.json
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: benchmark-pr-n25-${{ github.sha }}
+          path: benchmarks/results/ci-pr-*.json
+
+  # ── Tier 2: Main Branch Benchmark (n=100/class) ──────────────────────────────
+  benchmark-main:
+    name: "Benchmark · Main · n=100"
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install Python deps
+        run: pip install requests tqdm
+
+      - name: Build CLI
+        run: cargo build -p pure-reason-cli --release
+
+      - name: Download benchmark datasets
+        run: python3 benchmarks/download_benchmarks.py --benchmarks truthfulqa,halueval,ragtruth,faithbench,felm
+
+      - name: Run benchmarks (n=100/class)
+        run: |
+          python3 benchmarks/run_downloaded_benchmarks.py \
+            --n 100 \
+            --benchmarks truthfulqa,halueval_qa,halueval_dialogue,ragtruth,faithbench,felm \
+            --output benchmarks/results/ci-main-${{ github.sha }}.json
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-main-n100-${{ github.sha }}
+          path: benchmarks/results/ci-main-*.json
+
+  # ── Tier 3: Release Benchmark (n=200/class — publishable) ────────────────────
+  benchmark-release:
+    name: "Benchmark · Release · n=200"
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install Python deps
+        run: pip install requests tqdm
+
+      - name: Build CLI (release mode)
+        run: cargo build -p pure-reason-cli --release
+
+      - name: Download benchmark datasets
+        run: python3 benchmarks/download_benchmarks.py --benchmarks truthfulqa,halueval,ragtruth,faithbench,felm
+
+      - name: Run benchmarks (n=200/class — publishable)
+        run: |
+          python3 benchmarks/run_downloaded_benchmarks.py \
+            --n 200 \
+            --benchmarks truthfulqa,halueval_qa,halueval_dialogue,ragtruth,faithbench,felm \
+            --output benchmarks/results/release-${{ github.ref_name }}.json
+
+      - name: Upload release results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-release-${{ github.ref_name }}
+          path: benchmarks/results/release-*.json
+
+      - name: Attach results to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: benchmarks/results/release-${{ github.ref_name }}.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

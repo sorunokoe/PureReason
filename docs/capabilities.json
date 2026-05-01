@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "name": "PureReason",
+  "version": "0.2.0",
+  "tagline": "Zero-LLM deterministic epistemic verifier — Rust-fast, always-available, benchmark-honest",
+  "positioning": "The only pure-deterministic hallucination and reasoning verifier with sub-millisecond latency, zero API dependencies, and verifiable benchmark results",
+
+  "modes": {
+    "deterministic": {
+      "description": "Pure deterministic pipeline — Kantian epistemic logic, Rust kernel, zero LLM calls, microsecond latency",
+      "requires_llm": false,
+      "cost_per_call": "zero"
+    }
+  },
+
+  "benchmark_results": {
+    "note": "Heuristic mode unless otherwise stated. See BENCHMARK.md and CAPABILITIES.md for full tables with CIs.",
+    "halueval_qa":       { "precision": 0.936, "recall": 0.590, "f1": 0.724, "mode": "deterministic", "claim": "highest_precision_zero_llm" },
+    "ragtruth":          { "precision": 0.517, "recall": 0.910, "f1": 0.659, "mode": "deterministic", "claim": "class_leading_recall" },
+    "halueval_dialogue": { "precision": 0.510, "recall": 0.760, "f1": 0.610, "mode": "deterministic" },
+    "truthfulqa":        { "precision": 0.463, "recall": 0.190, "f1": 0.270, "mode": "deterministic" },
+    "felm":              { "precision": 0.875, "recall": 0.070, "f1": 0.130, "mode": "deterministic", "note": "arithmetic verifier + word-problem extractor" },
+    "hallumix":          { "f1": null, "mode": "deterministic", "note": "first_run_pending_download" },
+    "hallulens":         { "f1": null, "mode": "deterministic", "note": "first_run_pending_download" },
+    "logicbench":        { "f1": null, "mode": "deterministic", "note": "first_run_pending_download" }
+  },
+
+  "detection_capabilities": {
+    "knowledge_answer_contradiction": {
+      "description": "Detects when an answer contradicts the source question's implicit knowledge",
+      "implemented": true,
+      "tier": "kernel"
+    },
+    "entity_novelty_overreach": {
+      "description": "Detects entities introduced in the answer not grounded in question context",
+      "implemented": true,
+      "tier": "kernel"
+    },
+    "world_prior_violation": {
+      "description": "Detects claims that contradict known scientific/historical misconceptions (107+ priors)",
+      "implemented": true,
+      "tier": "kernel",
+      "atlas_size": 107
+    },
+    "arithmetic_verification": {
+      "description": "AST-safe evaluation of explicit arithmetic expressions (A op B patterns)",
+      "implemented": true,
+      "tier": "kernel"
+    },
+    "antinomy_detection": {
+      "description": "Identifies self-contradictory statements via Kantian antinomy framework",
+      "implemented": true,
+      "tier": "kernel"
+    },
+    "paralogism_detection": {
+      "description": "Identifies invalid logical inferences (affirming the consequent etc.)",
+      "implemented": true,
+      "tier": "kernel"
+    },
+    "temporal_coherence": {
+      "description": "Detects temporal inconsistencies in claims (tense conflicts, timeline gaps)",
+      "implemented": true,
+      "tier": "runtime"
+    },
+    "numeric_plausibility": {
+      "description": "Validates numeric claims against physical/mathematical constants atlas",
+      "implemented": true,
+      "tier": "runtime"
+    },
+    "structured_validation": {
+      "description": "Domain-aware validation with legal, medical, and financial specialisation",
+      "implemented": true,
+      "tier": "runtime"
+    },
+    "soft_prior_matching": {
+      "description": "BM25 semantic soft-matching over misconception atlas for near-miss detection",
+      "implemented": true,
+      "tier": "kernel",
+      "note": "Catches semantic variants not covered by exact atlas triggers"
+    }
+  },
+
+  "interfaces": {
+    "cli": {
+      "commands": ["analyze","certify","claims","regulate","validate","calibrate",
+                   "critique","antinomy","paralogism","apperceive","train","feedback",
+                   "judge","audit","schema","compliance","game","multiagent","sla"]
+    },
+    "api": {
+      "type": "REST/JSON",
+      "endpoints": ["/analyze","/certify","/claims","/regulate","/validate",
+                    "/calibrate","/ops/submit","/ops/review","/ops/overview",
+                    "/ops/history","/webhook"]
+    },
+    "dashboard": {
+      "type": "HTTP (embedded)"
+    },
+    "mcp": {
+      "type": "Model Context Protocol",
+      "tools": ["analyze_text","validate_text","certify_text"]
+    }
+  },
+
+  "architecture": {
+    "language": "Rust",
+    "tiers": {
+      "kernel": "Core deterministic logic — stable API, zero breaking changes without major version",
+      "runtime": "Service orchestration — may evolve between minor versions",
+      "experimental": "New capabilities under active development — API may change"
+    },
+    "kernel_modules": ["pipeline","dialectic","analytic","aesthetic","world_priors","claims","numeric_plausibility"],
+    "runtime_modules": ["trust_ops","calibration","domain","rewriter","temporal_coherence","structured_validator"],
+    "experimental_modules": ["streaming","synthetic_apriori","world_model"]
+  },
+
+  "claims_policy": {
+    "benchmark_honesty": "All published scores are from pre-registered protocol (benchmarks/protocol.yaml)",
+    "no_overclaiming": "Capabilities listed here match implemented code — see CAPABILITIES.md for details",
+    "experimental_labelling": "Experimental features are labelled; production features are Kernel or Runtime tier"
+  }
+}

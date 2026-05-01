@@ -1,0 +1,36 @@
+[package]
+name = "pure-reason-cli"
+description = "CLI frontend for the PureReason Kantian reasoning system"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "pure-reason"
+path = "src/main.rs"
+
+[dependencies]
+pure-reason-core = { path = "../pure-reason-core" }
+pure-reason-memory = { path = "../pure-reason-memory" }
+pure-reason-runtime = { path = "../pure-reason-runtime" }
+pure-reason-trace = { path = "../pure-reason-trace" }
+pure-reason-verifier = { path = "../pure-reason-verifier" }
+tokio = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+indicatif = { workspace = true }
+colored = { workspace = true }
+comfy-table = { workspace = true }
+config = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

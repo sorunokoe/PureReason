@@ -1,0 +1,804 @@
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "How many apples remain after removing 21?", "label": "-"}
+{"text": "A machine produces 36 apples per day. How many in 3 weeks?", "label": "*"}
+{"text": "Kim had 45 stamps but discarded 7. How many are left?", "label": "-"}
+{"text": "How many are left if 37 apples were taken away?", "label": "-"}
+{"text": "Altogether they have 27 stamps and 30 oranges.", "label": "+"}
+{"text": "Bob dropped 28 oranges.", "label": "-"}
+{"text": "How many are left if 40 cookies were taken away?", "label": "-"}
+{"text": "Tom distributed 79 coins equally among 7 people. How many each?", "label": "/"}
+{"text": "How many cards per person if 48 are shared equally among 2?", "label": "/"}
+{"text": "Each person gets an equal share of 68 apples split among 2 people.", "label": "/"}
+{"text": "If 5 shelves each makes 3 cookies, how many cookies are there?", "label": "*"}
+{"text": "Priya accumulated 26 more books.", "label": "+"}
+{"text": "Bob earned 49 apples.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "There are 26 rows with 14 coins in each row.", "label": "*"}
+{"text": "Aisha works 3 days at a rate of 30 euros per week.", "label": "*"}
+{"text": "Find the sum of 12 and 36.", "label": "+"}
+{"text": "After Kim donated 31 stamps, how many remain?", "label": "-"}
+{"text": "The price is 40 dollars per apple.", "label": "/"}
+{"text": "Priya works 8 hours at a rate of 12 euros per day.", "label": "*"}
+{"text": "Priya picked up 42 tokens.", "label": "+"}
+{"text": "Each box contains 19 apples and there are 4 boxes.", "label": "*"}
+{"text": "Tom lost 12 pencils.", "label": "-"}
+{"text": "Priya bought 39 books.", "label": "+"}
+{"text": "There are 30 rows with 46 oranges in each row.", "label": "*"}
+{"text": "Kim got 2 more pencils.", "label": "+"}
+{"text": "How many cards in total if they had 15 and got 36 more?", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Each box contains 46 apples and there are 9 boxes.", "label": "*"}
+{"text": "Find the sum of 31 and 35.", "label": "+"}
+{"text": "Tom gave away 49 oranges.", "label": "-"}
+{"text": "Find the average score if the total is 82 over 8 tests.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Leo parcelled 39 books among 9 friends.", "label": "/"}
+{"text": "The price is 34 dollars per stamp.", "label": "/"}
+{"text": "There are 11 groups and each organizes 2 books.", "label": "*"}
+{"text": "Each person gets an equal share of 87 oranges split among 8 people.", "label": "/"}
+{"text": "Maria lost 28 apples.", "label": "-"}
+{"text": "Find the average score if the total is 129 over 4 tests.", "label": "/"}
+{"text": "A machine produces 6 oranges per cycle with 6 machines.", "label": "*"}
+{"text": "Alice added 20 dollars.", "label": "+"}
+{"text": "Each person gets an equal share of 28 coins split among 10 people.", "label": "/"}
+{"text": "The price is 26 points per stamp.", "label": "/"}
+{"text": "Sara removed 6 items.", "label": "-"}
+{"text": "Sara broke 11 cookies yesterday.", "label": "-"}
+{"text": "What is the difference between 32 and 11?", "label": "-"}
+{"text": "How many books does Priya have after accumulateing 26?", "label": "+"}
+{"text": "How many are left if 18 books were taken away?", "label": "-"}
+{"text": "The factory stores 5 units.", "label": "*"}
+{"text": "There are 18 rows with 22 books in each row.", "label": "*"}
+{"text": "There are 40 rows with 24 cookies in each row.", "label": "*"}
+{"text": "How many books in total if they had 13 and got 6 more?", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Each boxe contains 6 books. There are 5 boxes.", "label": "*"}
+{"text": "Sara had 31 cookies but broke 14. How many are left?", "label": "-"}
+{"text": "How many pencils per person if 13 are shared equally among 2?", "label": "/"}
+{"text": "Each person gets an equal share of 20 apples split among 4 people.", "label": "/"}
+{"text": "Jake removed 24 items.", "label": "-"}
+{"text": "Aisha threw away 46 cookies yesterday.", "label": "-"}
+{"text": "How many stamps remain after removing 2?", "label": "-"}
+{"text": "If 66 pencils are divided into 2 equal parts, how many per part?", "label": "/"}
+{"text": "How many are left if 22 cookies were taken away?", "label": "-"}
+{"text": "If 78 pencils are apportioned into 3 equal parts, how many per part?", "label": "/"}
+{"text": "Tom received 10 dollars.", "label": "+"}
+{"text": "What is the average of 26 and 40?", "label": "/"}
+{"text": "Sara had 57 apples but used 8. How many are left?", "label": "-"}
+{"text": "What is the difference between 47 and 14?", "label": "-"}
+{"text": "How many pencils does Kim have after goting 2?", "label": "+"}
+{"text": "Aisha threw away 13 cookies.", "label": "-"}
+{"text": "There are 7 rows with 16 books in each row.", "label": "*"}
+{"text": "What is the combined total of 22 pencils and 15 stamps?", "label": "+"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Alice added 20 cookies.", "label": "+"}
+{"text": "How many cookies are there altogether?", "label": "+"}
+{"text": "Each person gets an equal share of 73 books split among 3 people.", "label": "/"}
+{"text": "How many coins per person if 50 are shared equally among 6?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Tom received 10 cookies.", "label": "+"}
+{"text": "If 28 books are rationed into 5 equal parts, how many per part?", "label": "/"}
+{"text": "There are 3 rows with 4 stamps in each row.", "label": "*"}
+{"text": "Find the sum of 42 and 29.", "label": "+"}
+{"text": "Each person gets an equal share of 40 stamps split among 2 people.", "label": "/"}
+{"text": "The factory plants 4 units.", "label": "*"}
+{"text": "A machine produces 39 pencils per shift. How many in 7 weeks?", "label": "*"}
+{"text": "Aisha subtracted 37 pencils.", "label": "-"}
+{"text": "Sara lost 47 pencils.", "label": "-"}
+{"text": "Jake portioned 53 pencils among 3 friends.", "label": "/"}
+{"text": "How many cookies does Tom have after receiveing 10?", "label": "+"}
+{"text": "Kim removed 8 items.", "label": "-"}
+{"text": "Bob dropped 42 oranges yesterday.", "label": "-"}
+{"text": "Aisha works 9 shifts at a rate of 17 points per hour.", "label": "*"}
+{"text": "How many cookies are there altogether?", "label": "+"}
+{"text": "How many are left if 27 cookies were taken away?", "label": "-"}
+{"text": "Find the sum of 40 and 6.", "label": "+"}
+{"text": "After Bob ate 38 cards, how many remain?", "label": "-"}
+{"text": "Bob earned 49 tokens.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Leo works 3 shifts at a rate of 8 liters per shift.", "label": "*"}
+{"text": "Find the sum of 26 and 2.", "label": "+"}
+{"text": "How many are left if 44 apples were taken away?", "label": "-"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "66 pencils were divided among 2 groups equally.", "label": "/"}
+{"text": "A machine produces 20 apples per hour. How many in 4 weeks?", "label": "*"}
+{"text": "Alice consumed 41 cookies yesterday.", "label": "-"}
+{"text": "Tom lost 43 oranges.", "label": "-"}
+{"text": "Aisha had 41 cards but reduced 45. How many are left?", "label": "-"}
+{"text": "What is the average of 49 and 42?", "label": "/"}
+{"text": "How many pencils in total if they had 29 and got 12 more?", "label": "+"}
+{"text": "The price is 22 points per stamp.", "label": "/"}
+{"text": "Find the average score if the total is 120 over 3 tests.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "How many are left if 10 oranges were taken away?", "label": "-"}
+{"text": "The price is 16 tokens per coin.", "label": "/"}
+{"text": "What is the difference between 37 and 8?", "label": "-"}
+{"text": "After Kim discarded 7 stamps, how many remain?", "label": "-"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Kim leaked 37 pencils yesterday.", "label": "-"}
+{"text": "Kim saved 4 points.", "label": "+"}
+{"text": "Find the average score if the total is 144 over 2 tests.", "label": "/"}
+{"text": "A machine organizes 2 books per cycle with 11 machines.", "label": "*"}
+{"text": "What is the combined total of 36 apples and 25 coins?", "label": "+"}
+{"text": "How many coins per person if 38 are shared equally among 7?", "label": "/"}
+{"text": "The price is 27 dollars per stamp.", "label": "/"}
+{"text": "Tom had 45 cards but wasted 33. How many are left?", "label": "-"}
+{"text": "There are 6 rows with 30 stamps in each row.", "label": "*"}
+{"text": "Aisha had 63 cookies but threw away 13. How many are left?", "label": "-"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "If 12 boxes each plants 4 pencils, how many pencils are there?", "label": "*"}
+{"text": "How many books remain after removing 38?", "label": "-"}
+{"text": "Bob had 46 cards but ate 38. How many are left?", "label": "-"}
+{"text": "After Jake distributed 37 apples, how many remain?", "label": "-"}
+{"text": "How many are left if 43 pencils were taken away?", "label": "-"}
+{"text": "Tom acquired 8 dollars.", "label": "+"}
+{"text": "Priya bought 39 more books.", "label": "+"}
+{"text": "Kim had 58 stamps but donated 31. How many are left?", "label": "-"}
+{"text": "How many books does Priya have after boughting 39?", "label": "+"}
+{"text": "If 4 trays each manufactures 10 books, how many books are there?", "label": "*"}
+{"text": "Jake lost 33 cookies.", "label": "-"}
+{"text": "How many books per person if 33 are shared equally among 6?", "label": "/"}
+{"text": "How many pencils does Priya have after picked uping 42?", "label": "+"}
+{"text": "What is the combined total of 44 books and 24 cards?", "label": "+"}
+{"text": "Aisha spread 21 stamps among 8 friends.", "label": "/"}
+{"text": "Alice divided 66 pencils equally among 2 people. How many each?", "label": "/"}
+{"text": "Aisha reduced 45 cards.", "label": "-"}
+{"text": "How many cards remain after removing 28?", "label": "-"}
+{"text": "Each person gets an equal share of 96 oranges split among 10 people.", "label": "/"}
+{"text": "How many apples remain after removing 24?", "label": "-"}
+{"text": "There are 2 boxes and each stacks 6 coins.", "label": "*"}
+{"text": "How many stamps does Aisha have after woning 19?", "label": "+"}
+{"text": "After Priya lent 50 stamps, how many remain?", "label": "-"}
+{"text": "Kim had 30 pencils but leaked 27. How many are left?", "label": "-"}
+{"text": "How many coins are there altogether?", "label": "+"}
+{"text": "Find the average score if the total is 123 over 6 tests.", "label": "/"}
+{"text": "How many pencils remain after removing 22?", "label": "-"}
+{"text": "Bob works 5 weeks at a rate of 42 liters per hour.", "label": "*"}
+{"text": "A machine plants 4 pencils per cycle with 12 machines.", "label": "*"}
+{"text": "The price is 46 tokens per apple.", "label": "/"}
+{"text": "Leo works 9 shifts at a rate of 50 dollars per hour.", "label": "*"}
+{"text": "Priya picked up 42 more pencils.", "label": "+"}
+{"text": "The factory packs 10 units.", "label": "*"}
+{"text": "Sara had 80 pencils but moved 15. How many are left?", "label": "-"}
+{"text": "62 pencils were doled out among 3 groups equally.", "label": "/"}
+{"text": "Each box contains 31 apples and there are 6 boxes.", "label": "*"}
+{"text": "Priya bought 39 points.", "label": "+"}
+{"text": "How many apples are there altogether?", "label": "+"}
+{"text": "Alice lost 2 cards.", "label": "-"}
+{"text": "How many cards per person if 31 are shared equally among 4?", "label": "/"}
+{"text": "The price is 44 kilograms per apple.", "label": "/"}
+{"text": "How many are left if 43 apples were taken away?", "label": "-"}
+{"text": "How many coins in total if they had 25 and got 50 more?", "label": "+"}
+{"text": "The factory produces 6 units.", "label": "*"}
+{"text": "How many apples does Bob have after earneing 49?", "label": "+"}
+{"text": "Altogether they have 15 coins and 48 oranges.", "label": "+"}
+{"text": "What is the average of 19 and 30?", "label": "/"}
+{"text": "What is the difference between 27 and 3?", "label": "-"}
+{"text": "Aisha subtracted 10 pencils yesterday.", "label": "-"}
+{"text": "How many cards remain after removing 23?", "label": "-"}
+{"text": "How many cookies in total if they had 6 and got 30 more?", "label": "+"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "Bob fetched 36 coins.", "label": "+"}
+{"text": "After Leo sold 45 cards, how many remain?", "label": "-"}
+{"text": "How many apples in total if they had 24 and got 15 more?", "label": "+"}
+{"text": "How many stamps are there altogether?", "label": "+"}
+{"text": "Each box contains 38 apples and there are 8 boxes.", "label": "*"}
+{"text": "Kim secured 47 dollars.", "label": "+"}
+{"text": "After Sara broke 14 cookies, how many remain?", "label": "-"}
+{"text": "Find the sum of 38 and 7.", "label": "+"}
+{"text": "Sara shared 63 stamps among 4 friends.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "If 6 baskets each yields 9 cookies, how many cookies are there?", "label": "*"}
+{"text": "Each box contains 34 apples and there are 6 boxes.", "label": "*"}
+{"text": "How many pencils in total if they had 5 and got 7 more?", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "What is the average of 13 and 10?", "label": "/"}
+{"text": "Jake doled out 62 pencils among 3 friends.", "label": "/"}
+{"text": "How many apples remain after removing 41?", "label": "-"}
+{"text": "Each group bundles 3 books. There are 8 groups.", "label": "*"}
+{"text": "Jake had 37 apples but distributed 37. How many are left?", "label": "-"}
+{"text": "Find the sum of 49 and 37.", "label": "+"}
+{"text": "A machine produces 44 books per hour. How many in 4 shifts?", "label": "*"}
+{"text": "Alice spent 13 books yesterday.", "label": "-"}
+{"text": "Jake distributed 37 apples.", "label": "-"}
+{"text": "Maria works 6 weeks at a rate of 30 dollars per shift.", "label": "*"}
+{"text": "A machine produces 28 coins per day. How many in 5 weeks?", "label": "*"}
+{"text": "There are 28 rows with 23 stamps in each row.", "label": "*"}
+{"text": "Altogether they have 41 coins and 17 coins.", "label": "+"}
+{"text": "After Leo cut 44 stamps, how many remain?", "label": "-"}
+{"text": "Alice apportioned 78 pencils equally among 3 people. How many each?", "label": "/"}
+{"text": "How many cards in total if they had 26 and got 40 more?", "label": "+"}
+{"text": "How many coins does Bob have after fetcheing 36?", "label": "+"}
+{"text": "Alice collected 7 apples.", "label": "+"}
+{"text": "There are 6 trays and each produces 6 oranges.", "label": "*"}
+{"text": "Alice had 67 books but spent 18. How many are left?", "label": "-"}
+{"text": "If 6 trays each produces 6 oranges, how many oranges are there?", "label": "*"}
+{"text": "After Aisha threw away 13 cookies, how many remain?", "label": "-"}
+{"text": "Leo grabbed 44 cookies.", "label": "+"}
+{"text": "Aisha won 19 euros.", "label": "+"}
+{"text": "Altogether they have 10 oranges and 37 coins.", "label": "+"}
+{"text": "Tom deposited 26 more books.", "label": "+"}
+{"text": "Leo had 51 cards but sold 45. How many are left?", "label": "-"}
+{"text": "79 coins were distributed among 7 groups equally.", "label": "/"}
+{"text": "Altogether they have 28 oranges and 48 apples.", "label": "+"}
+{"text": "Altogether they have 2 books and 47 apples.", "label": "+"}
+{"text": "What is the combined total of 50 apples and 9 coins?", "label": "+"}
+{"text": "How many pencils in total if they had 9 and got 8 more?", "label": "+"}
+{"text": "Maria donated 8 apples yesterday.", "label": "-"}
+{"text": "If 5 boxes each contains 6 books, how many books are there?", "label": "*"}
+{"text": "The price is 12 tokens per pencil.", "label": "/"}
+{"text": "If 6 baskets each arranges 4 stamps, how many stamps are there?", "label": "*"}
+{"text": "The price is 28 tokens per apple.", "label": "/"}
+{"text": "A machine arranges 4 stamps per cycle with 6 machines.", "label": "*"}
+{"text": "Find the sum of 6 and 2.", "label": "+"}
+{"text": "Sara removed 7 items.", "label": "-"}
+{"text": "Priya sent away 37 cards.", "label": "-"}
+{"text": "Aisha obtained 24 books.", "label": "+"}
+{"text": "Kim leaked 27 pencils.", "label": "-"}
+{"text": "Aisha had 42 pencils but subtracted 37. How many are left?", "label": "-"}
+{"text": "Priya allocated 31 pencils among 6 friends.", "label": "/"}
+{"text": "What is the combined total of 7 oranges and 6 coins?", "label": "+"}
+{"text": "Find the sum of 50 and 48.", "label": "+"}
+{"text": "The price is 37 meters per cookie.", "label": "/"}
+{"text": "What is the combined total of 35 apples and 40 stamps?", "label": "+"}
+{"text": "How many stamps remain after removing 19?", "label": "-"}
+{"text": "Sara works 8 weeks at a rate of 38 liters per day.", "label": "*"}
+{"text": "Each box contains 6 apples and there are 2 boxes.", "label": "*"}
+{"text": "A machine makes 3 cookies per cycle with 5 machines.", "label": "*"}
+{"text": "The price is 49 dollars per card.", "label": "/"}
+{"text": "Maria gathered 26 oranges.", "label": "+"}
+{"text": "A machine stores 5 books per cycle with 6 machines.", "label": "*"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "What is the average of 47 and 30?", "label": "/"}
+{"text": "How many apples in total if they had 9 and got 6 more?", "label": "+"}
+{"text": "Jake had 63 coins but handed out 31. How many are left?", "label": "-"}
+{"text": "Jake separated 43 stamps among 8 friends.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "A machine contains 6 books per cycle with 5 machines.", "label": "*"}
+{"text": "A machine bundles 3 books per cycle with 8 machines.", "label": "*"}
+{"text": "Find the sum of 45 and 17.", "label": "+"}
+{"text": "Altogether they have 34 books and 42 pencils.", "label": "+"}
+{"text": "Find the sum of 6 and 34.", "label": "+"}
+{"text": "Priya found 16 points.", "label": "+"}
+{"text": "Kim saved 4 more pencils.", "label": "+"}
+{"text": "How many apples does Alice have after collecteing 7?", "label": "+"}
+{"text": "How many are left if 33 books were taken away?", "label": "-"}
+{"text": "How many cards per person if 20 are shared equally among 2?", "label": "/"}
+{"text": "Maria works 10 days at a rate of 12 dollars per shift.", "label": "*"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "How many books per person if 45 are shared equally among 4?", "label": "/"}
+{"text": "Bob had 70 pencils but traded 34. How many are left?", "label": "-"}
+{"text": "Priya accumulated 26 dollars.", "label": "+"}
+{"text": "After Aisha reduced 45 cards, how many remain?", "label": "-"}
+{"text": "How many cookies per person if 43 are shared equally among 7?", "label": "/"}
+{"text": "Alice had 79 cookies but consumed 32. How many are left?", "label": "-"}
+{"text": "Each tray fills 10 cards. There are 7 trays.", "label": "*"}
+{"text": "What is the combined total of 18 apples and 45 books?", "label": "+"}
+{"text": "How many cookies in total if they had 16 and got 6 more?", "label": "+"}
+{"text": "Find the average score if the total is 65 over 6 tests.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "How many books per person if 30 are shared equally among 6?", "label": "/"}
+{"text": "Each tray groups 2 coins. There are 6 trays.", "label": "*"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "26 stamps were split among 3 groups equally.", "label": "/"}
+{"text": "What is the combined total of 4 stamps and 27 pencils?", "label": "+"}
+{"text": "How many cookies are there altogether?", "label": "+"}
+{"text": "Altogether they have 12 cards and 33 oranges.", "label": "+"}
+{"text": "Each shelve stores 5 books. There are 6 shelves.", "label": "*"}
+{"text": "How many apples per person if 40 are shared equally among 7?", "label": "/"}
+{"text": "There are 7 trays and each fills 10 cards.", "label": "*"}
+{"text": "Each box contains 34 apples and there are 11 boxes.", "label": "*"}
+{"text": "After Tom decreased 29 stamps, how many remain?", "label": "-"}
+{"text": "Altogether they have 46 books and 26 apples.", "label": "+"}
+{"text": "Find the average score if the total is 108 over 5 tests.", "label": "/"}
+{"text": "A machine stacks 6 coins per cycle with 2 machines.", "label": "*"}
+{"text": "Each person gets an equal share of 66 cookies split among 7 people.", "label": "/"}
+{"text": "Jake loaded 12 more stamps.", "label": "+"}
+{"text": "Each person gets an equal share of 51 coins split among 3 people.", "label": "/"}
+{"text": "Sara had 50 pencils but took 44. How many are left?", "label": "-"}
+{"text": "Sara used 8 apples.", "label": "-"}
+{"text": "What is the difference between 28 and 13?", "label": "-"}
+{"text": "After Alice consumed 32 cookies, how many remain?", "label": "-"}
+{"text": "What is the average of 48 and 44?", "label": "/"}
+{"text": "Priya lost 50 apples.", "label": "-"}
+{"text": "What is the average of 35 and 9?", "label": "/"}
+{"text": "Kim discarded 7 stamps.", "label": "-"}
+{"text": "Altogether they have 29 coins and 4 pencils.", "label": "+"}
+{"text": "How many stamps are there altogether?", "label": "+"}
+{"text": "After Aisha subtracted 37 pencils, how many remain?", "label": "-"}
+{"text": "There are 12 boxes and each plants 4 pencils.", "label": "*"}
+{"text": "Each box contains 12 apples and there are 5 boxes.", "label": "*"}
+{"text": "There are 6 baskets and each yields 9 cookies.", "label": "*"}
+{"text": "Jake delivered 50 oranges yesterday.", "label": "-"}
+{"text": "What is the average of 10 and 2?", "label": "/"}
+{"text": "How many cookies remain after removing 6?", "label": "-"}
+{"text": "How many stamps does Jake have after loadeing 12?", "label": "+"}
+{"text": "Kim donated 31 stamps.", "label": "-"}
+{"text": "Jake portioned 53 pencils equally among 3 people. How many each?", "label": "/"}
+{"text": "The factory contains 6 units.", "label": "*"}
+{"text": "28 books were rationed among 5 groups equally.", "label": "/"}
+{"text": "Kim donated 30 stamps yesterday.", "label": "-"}
+{"text": "What is the average of 10 and 4?", "label": "/"}
+{"text": "What is the difference between 37 and 18?", "label": "-"}
+{"text": "Alice had 64 cards but lost 2. How many are left?", "label": "-"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Leo grabbed 44 tokens.", "label": "+"}
+{"text": "If 62 pencils are doled out into 3 equal parts, how many per part?", "label": "/"}
+{"text": "What is the difference between 48 and 18?", "label": "-"}
+{"text": "How many pencils are there altogether?", "label": "+"}
+{"text": "Leo had 76 stamps but cut 44. How many are left?", "label": "-"}
+{"text": "The factory makes 3 units.", "label": "*"}
+{"text": "If 11 groups each organizes 2 books, how many books are there?", "label": "*"}
+{"text": "What is the difference between 38 and 13?", "label": "-"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "A machine produces 20 oranges per shift. How many in 2 days?", "label": "*"}
+{"text": "What is the combined total of 17 cookies and 14 oranges?", "label": "+"}
+{"text": "After Kim leaked 27 pencils, how many remain?", "label": "-"}
+{"text": "What is the average of 13 and 19?", "label": "/"}
+{"text": "Tom acquired 8 more stamps.", "label": "+"}
+{"text": "How many pencils per person if 4 are shared equally among 3?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "How many stamps per person if 6 are shared equally among 5?", "label": "/"}
+{"text": "Maria lost 7 cards.", "label": "-"}
+{"text": "What is the combined total of 18 coins and 17 pencils?", "label": "+"}
+{"text": "Alice assigned equally 38 stamps among 3 friends.", "label": "/"}
+{"text": "Aisha obtained 24 more books.", "label": "+"}
+{"text": "If 2 boxes each stacks 6 coins, how many coins are there?", "label": "*"}
+{"text": "How many books does Tom have after depositeing 26?", "label": "+"}
+{"text": "The factory arranges 4 units.", "label": "*"}
+{"text": "Alice lost 35 cards yesterday.", "label": "-"}
+{"text": "Each shelve makes 3 cookies. There are 5 shelves.", "label": "*"}
+{"text": "After Tom wasted 33 cards, how many remain?", "label": "-"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "The factory stacks 6 units.", "label": "*"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Alice apportioned 78 pencils among 3 friends.", "label": "/"}
+{"text": "Tom deposited 26 books.", "label": "+"}
+{"text": "Tom gave away 12 oranges yesterday.", "label": "-"}
+{"text": "How many cookies per person if 39 are shared equally among 3?", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Tom decreased 6 stamps yesterday.", "label": "-"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Alice collected 7 more apples.", "label": "+"}
+{"text": "Each person gets an equal share of 49 stamps split among 3 people.", "label": "/"}
+{"text": "Each box contains 19 apples and there are 2 boxes.", "label": "*"}
+{"text": "A machine produces 6 pencils per shift. How many in 4 weeks?", "label": "*"}
+{"text": "Priya had 69 stamps but lent 50. How many are left?", "label": "-"}
+{"text": "What is the combined total of 26 pencils and 31 pencils?", "label": "+"}
+{"text": "A machine manufactures 10 books per cycle with 4 machines.", "label": "*"}
+{"text": "Aisha removed 49 items.", "label": "-"}
+{"text": "Aisha reduced 49 cards yesterday.", "label": "-"}
+{"text": "How many cookies does Leo have after grabbeing 44?", "label": "+"}
+{"text": "Sara works 9 hours at a rate of 30 liters per shift.", "label": "*"}
+{"text": "A machine produces 42 cookies per week. How many in 7 hours?", "label": "*"}
+{"text": "Find the average score if the total is 158 over 5 tests.", "label": "/"}
+{"text": "What is the combined total of 36 pencils and 41 apples?", "label": "+"}
+{"text": "Find the sum of 12 and 30.", "label": "+"}
+{"text": "Leo sold 45 cards.", "label": "-"}
+{"text": "The price is 29 dollars per stamp.", "label": "/"}
+{"text": "The price is 44 kilograms per card.", "label": "/"}
+{"text": "After Bob dropped 28 oranges, how many remain?", "label": "-"}
+{"text": "There are 8 groups and each bundles 3 books.", "label": "*"}
+{"text": "What is the average of 40 and 2?", "label": "/"}
+{"text": "What is the average of 48 and 22?", "label": "/"}
+{"text": "Jake separated 43 stamps equally among 8 people. How many each?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "How many pencils are there altogether?", "label": "+"}
+{"text": "How many stamps does Tom have after acquireing 8?", "label": "+"}
+{"text": "A machine produces 38 apples per hour. How many in 5 shifts?", "label": "*"}
+{"text": "Tom gained 37 more apples.", "label": "+"}
+{"text": "How many cookies in total if they had 14 and got 31 more?", "label": "+"}
+{"text": "Each group organizes 2 books. There are 11 groups.", "label": "*"}
+{"text": "Tom wasted 27 cards yesterday.", "label": "-"}
+{"text": "Bob fetched 36 more coins.", "label": "+"}
+{"text": "Alice collected 7 euros.", "label": "+"}
+{"text": "A machine produces 31 books per hour. How many in 5 weeks?", "label": "*"}
+{"text": "What is the average of 12 and 41?", "label": "/"}
+{"text": "There are 2 rows with 48 coins in each row.", "label": "*"}
+{"text": "Tom works 4 weeks at a rate of 37 dollars per shift.", "label": "*"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "Find the sum of 46 and 11.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Tom works 8 days at a rate of 22 meters per shift.", "label": "*"}
+{"text": "If 43 stamps are separated into 8 equal parts, how many per part?", "label": "/"}
+{"text": "Aisha won 19 more stamps.", "label": "+"}
+{"text": "If 6 shelves each stores 5 books, how many books are there?", "label": "*"}
+{"text": "Jake handed out 44 coins yesterday.", "label": "-"}
+{"text": "A machine produces 31 stamps per hour. How many in 7 hours?", "label": "*"}
+{"text": "How many oranges are there altogether?", "label": "+"}
+{"text": "Maria donated 50 apples.", "label": "-"}
+{"text": "If 9 shelves each sets up 9 oranges, how many oranges are there?", "label": "*"}
+{"text": "How many oranges per person if 27 are shared equally among 5?", "label": "/"}
+{"text": "There are 7 rows with 17 books in each row.", "label": "*"}
+{"text": "What is the difference between 47 and 8?", "label": "-"}
+{"text": "Altogether they have 17 pencils and 27 coins.", "label": "+"}
+{"text": "There are 41 rows with 26 cookies in each row.", "label": "*"}
+{"text": "The factory groups 2 units.", "label": "*"}
+{"text": "There are 38 rows with 24 pencils in each row.", "label": "*"}
+{"text": "How many cards in total if they had 3 and got 13 more?", "label": "+"}
+{"text": "How many oranges remain after removing 3?", "label": "-"}
+{"text": "Sara lost 35 cookies.", "label": "-"}
+{"text": "How many pencils are there altogether?", "label": "+"}
+{"text": "Find the average score if the total is 122 over 7 tests.", "label": "/"}
+{"text": "How many stamps per person if 9 are shared equally among 2?", "label": "/"}
+{"text": "Jake delivered 18 oranges.", "label": "-"}
+{"text": "Altogether they have 39 oranges and 34 coins.", "label": "+"}
+{"text": "How many cards remain after removing 33?", "label": "-"}
+{"text": "Kim secured 47 cookies.", "label": "+"}
+{"text": "How many books per person if 7 are shared equally among 2?", "label": "/"}
+{"text": "What is the average of 29 and 30?", "label": "/"}
+{"text": "There are 9 shelves and each sets up 9 oranges.", "label": "*"}
+{"text": "How many cards per person if 24 are shared equally among 8?", "label": "/"}
+{"text": "Jake removed 31 items.", "label": "-"}
+{"text": "Sara works 8 days at a rate of 31 dollars per week.", "label": "*"}
+{"text": "Each box contains 42 apples and there are 11 boxes.", "label": "*"}
+{"text": "Find the average score if the total is 68 over 2 tests.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "The price is 16 liters per apple.", "label": "/"}
+{"text": "Find the average score if the total is 145 over 3 tests.", "label": "/"}
+{"text": "Sara lost 44 stamps.", "label": "-"}
+{"text": "Kim works 6 days at a rate of 7 euros per day.", "label": "*"}
+{"text": "After Sara took 44 pencils, how many remain?", "label": "-"}
+{"text": "What is the difference between 45 and 2?", "label": "-"}
+{"text": "A machine packs 10 oranges per cycle with 10 machines.", "label": "*"}
+{"text": "Aisha spread 21 stamps equally among 8 people. How many each?", "label": "/"}
+{"text": "How many are left if 23 oranges were taken away?", "label": "-"}
+{"text": "Tom decreased 29 stamps.", "label": "-"}
+{"text": "How many coins per person if 19 are shared equally among 6?", "label": "/"}
+{"text": "Each shelve sets up 9 oranges. There are 9 shelves.", "label": "*"}
+{"text": "Altogether they have 47 stamps and 15 pencils.", "label": "+"}
+{"text": "Find the sum of 24 and 21.", "label": "+"}
+{"text": "Each box contains 42 apples and there are 3 boxes.", "label": "*"}
+{"text": "Kim split 26 stamps equally among 3 people. How many each?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "How many cookies in total if they had 25 and got 20 more?", "label": "+"}
+{"text": "How many are left if 24 cards were taken away?", "label": "-"}
+{"text": "How many books per person if 43 are shared equally among 7?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "21 stamps were spread among 8 groups equally.", "label": "/"}
+{"text": "Priya sent away 30 cards yesterday.", "label": "-"}
+{"text": "There are 5 boxes and each contains 6 books.", "label": "*"}
+{"text": "Kim got 2 pencils.", "label": "+"}
+{"text": "A machine produces 37 cards per hour. How many in 8 shifts?", "label": "*"}
+{"text": "Tom removed 30 items.", "label": "-"}
+{"text": "How many oranges in total if they had 22 and got 50 more?", "label": "+"}
+{"text": "How many apples in total if they had 27 and got 48 more?", "label": "+"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Priya lent 30 stamps yesterday.", "label": "-"}
+{"text": "78 pencils were apportioned among 3 groups equally.", "label": "/"}
+{"text": "There are 6 baskets and each arranges 4 stamps.", "label": "*"}
+{"text": "Find the sum of 23 and 3.", "label": "+"}
+{"text": "Leo removed 29 stamps.", "label": "-"}
+{"text": "Sara moved 15 pencils.", "label": "-"}
+{"text": "How many coins remain after removing 29?", "label": "-"}
+{"text": "Altogether they have 10 pencils and 12 oranges.", "label": "+"}
+{"text": "Sara took 28 pencils yesterday.", "label": "-"}
+{"text": "38 stamps were assigned equally among 3 groups equally.", "label": "/"}
+{"text": "Each basket yields 9 cookies. There are 6 baskets.", "label": "*"}
+{"text": "Altogether they have 29 oranges and 11 cookies.", "label": "+"}
+{"text": "Priya found 16 more cards.", "label": "+"}
+{"text": "There are 10 trays and each packs 10 oranges.", "label": "*"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "Each box contains 16 apples and there are 3 boxes.", "label": "*"}
+{"text": "The factory sets up 9 units.", "label": "*"}
+{"text": "If 39 books are parcelled into 9 equal parts, how many per part?", "label": "/"}
+{"text": "Alice works 9 weeks at a rate of 45 liters per hour.", "label": "*"}
+{"text": "How many cookies per person if 36 are shared equally among 3?", "label": "/"}
+{"text": "Alice spent 18 books.", "label": "-"}
+{"text": "Each box contains 2 apples and there are 6 boxes.", "label": "*"}
+{"text": "How many oranges remain after removing 46?", "label": "-"}
+{"text": "Sara removed 19 items.", "label": "-"}
+{"text": "Tom acquired 8 stamps.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Priya lost 29 stamps.", "label": "-"}
+{"text": "A machine produces 33 coins per hour. How many in 5 weeks?", "label": "*"}
+{"text": "Each person gets an equal share of 77 cookies split among 8 people.", "label": "/"}
+{"text": "After Leo removed 29 stamps, how many remain?", "label": "-"}
+{"text": "Maria removed 15 items.", "label": "-"}
+{"text": "After Alice spent 18 books, how many remain?", "label": "-"}
+{"text": "Sara lost 11 cookies.", "label": "-"}
+{"text": "What is the difference between 28 and 12?", "label": "-"}
+{"text": "Aisha lost 30 cookies.", "label": "-"}
+{"text": "Altogether they have 49 cards and 39 cards.", "label": "+"}
+{"text": "Each person gets an equal share of 53 oranges split among 8 people.", "label": "/"}
+{"text": "Priya removed 42 items.", "label": "-"}
+{"text": "Altogether they have 38 cookies and 39 apples.", "label": "+"}
+{"text": "The price is 5 meters per book.", "label": "/"}
+{"text": "How many pencils are there altogether?", "label": "+"}
+{"text": "How many cards does Priya have after founing 16?", "label": "+"}
+{"text": "What is the combined total of 17 pencils and 44 oranges?", "label": "+"}
+{"text": "Jake had 45 oranges but delivered 18. How many are left?", "label": "-"}
+{"text": "What is the combined total of 48 pencils and 34 coins?", "label": "+"}
+{"text": "Each box contains 46 apples and there are 9 boxes.", "label": "*"}
+{"text": "What is the difference between 33 and 14?", "label": "-"}
+{"text": "Kim works 2 shifts at a rate of 20 kilograms per hour.", "label": "*"}
+{"text": "Sara lost 33 cookies.", "label": "-"}
+{"text": "Each box contains 29 apples and there are 7 boxes.", "label": "*"}
+{"text": "Leo cut 9 stamps yesterday.", "label": "-"}
+{"text": "There are 22 rows with 42 oranges in each row.", "label": "*"}
+{"text": "Each person gets an equal share of 67 stamps split among 10 people.", "label": "/"}
+{"text": "Each person gets an equal share of 81 stamps split among 3 people.", "label": "/"}
+{"text": "A machine yields 9 cookies per cycle with 6 machines.", "label": "*"}
+{"text": "How many are left if 12 books were taken away?", "label": "-"}
+{"text": "Priya found 16 cards.", "label": "+"}
+{"text": "There are 19 rows with 37 coins in each row.", "label": "*"}
+{"text": "How many pencils per person if 15 are shared equally among 8?", "label": "/"}
+{"text": "The price is 27 dollars per coin.", "label": "/"}
+{"text": "How many are left if 44 cards were taken away?", "label": "-"}
+{"text": "Find the sum of 31 and 11.", "label": "+"}
+{"text": "Altogether they have 44 pencils and 44 books.", "label": "+"}
+{"text": "Aisha removed 50 items.", "label": "-"}
+{"text": "Bob ate 38 cards.", "label": "-"}
+{"text": "Aisha removed 24 items.", "label": "-"}
+{"text": "Bob earned 49 more apples.", "label": "+"}
+{"text": "How many are left if 46 oranges were taken away?", "label": "-"}
+{"text": "Sara broke 14 cookies.", "label": "-"}
+{"text": "Find the sum of 23 and 8.", "label": "+"}
+{"text": "Bob ate 14 cards yesterday.", "label": "-"}
+{"text": "There are 41 rows with 49 books in each row.", "label": "*"}
+{"text": "Tom gained 37 apples.", "label": "+"}
+{"text": "A machine sets up 9 oranges per cycle with 9 machines.", "label": "*"}
+{"text": "Each box contains 14 apples and there are 10 boxes.", "label": "*"}
+{"text": "Jake loaded 12 stamps.", "label": "+"}
+{"text": "There are 5 shelves and each makes 3 cookies.", "label": "*"}
+{"text": "How many are left if 22 coins were taken away?", "label": "-"}
+{"text": "If 31 pencils are allocated into 6 equal parts, how many per part?", "label": "/"}
+{"text": "Priya picked up 42 pencils.", "label": "+"}
+{"text": "What is the combined total of 46 cookies and 47 pencils?", "label": "+"}
+{"text": "Bob had 66 oranges but dropped 28. How many are left?", "label": "-"}
+{"text": "Jake rationed 28 books equally among 5 people. How many each?", "label": "/"}
+{"text": "Kim discarded 50 stamps yesterday.", "label": "-"}
+{"text": "Altogether they have 33 apples and 9 stamps.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Each person gets an equal share of 82 cookies split among 3 people.", "label": "/"}
+{"text": "What is the combined total of 28 cookies and 19 coins?", "label": "+"}
+{"text": "The price is 27 liters per apple.", "label": "/"}
+{"text": "Tom gained 37 euros.", "label": "+"}
+{"text": "Find the sum of 5 and 16.", "label": "+"}
+{"text": "Tom received 10 more cookies.", "label": "+"}
+{"text": "53 pencils were portioned among 3 groups equally.", "label": "/"}
+{"text": "Priya allocated 31 pencils equally among 6 people. How many each?", "label": "/"}
+{"text": "What is the combined total of 44 cards and 24 cards?", "label": "+"}
+{"text": "There are 6 shelves and each stores 5 books.", "label": "*"}
+{"text": "What is the average of 48 and 5?", "label": "/"}
+{"text": "Aisha obtained 24 tokens.", "label": "+"}
+{"text": "What is the average of 3 and 31?", "label": "/"}
+{"text": "What is the average of 2 and 15?", "label": "/"}
+{"text": "What is the difference between 27 and 9?", "label": "-"}
+{"text": "Altogether they have 45 pencils and 43 stamps.", "label": "+"}
+{"text": "Jake handed out 31 coins.", "label": "-"}
+{"text": "Aisha won 19 stamps.", "label": "+"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "What is the difference between 50 and 14?", "label": "-"}
+{"text": "What is the average of 23 and 17?", "label": "/"}
+{"text": "Find the average score if the total is 120 over 8 tests.", "label": "/"}
+{"text": "Each person gets an equal share of 27 pencils split among 6 people.", "label": "/"}
+{"text": "How many pencils remain after removing 50?", "label": "-"}
+{"text": "Sara shared 63 stamps equally among 4 people. How many each?", "label": "/"}
+{"text": "How many cards per person if 8 are shared equally among 3?", "label": "/"}
+{"text": "How many cookies does Kim have after secureing 47?", "label": "+"}
+{"text": "How many are left if 7 pencils were taken away?", "label": "-"}
+{"text": "Kim got 2 euros.", "label": "+"}
+{"text": "Find the average score if the total is 147 over 6 tests.", "label": "/"}
+{"text": "Each person gets an equal share of 68 cards split among 3 people.", "label": "/"}
+{"text": "Altogether they have 27 stamps and 19 books.", "label": "+"}
+{"text": "Find the sum of 33 and 7.", "label": "+"}
+{"text": "Each row holds 6 cookies. There are 12 rows.", "label": "*"}
+{"text": "How many oranges are there altogether?", "label": "+"}
+{"text": "Each box contains 30 apples and there are 9 boxes.", "label": "*"}
+{"text": "What is the average of 44 and 18?", "label": "/"}
+{"text": "Sara moved 29 pencils yesterday.", "label": "-"}
+{"text": "How many cookies in total if they had 5 and got 39 more?", "label": "+"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Find the average score if the total is 183 over 4 tests.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "A machine produces 50 cookies per hour. How many in 4 days?", "label": "*"}
+{"text": "Find the average score if the total is 185 over 4 tests.", "label": "/"}
+{"text": "Each person gets an equal share of 97 oranges split among 3 people.", "label": "/"}
+{"text": "Jake lost 31 stamps.", "label": "-"}
+{"text": "Each boxe stacks 6 coins. There are 2 boxes.", "label": "*"}
+{"text": "How many coins per person if 18 are shared equally among 2?", "label": "/"}
+{"text": "Tom had 72 stamps but decreased 29. How many are left?", "label": "-"}
+{"text": "Find the sum of 8 and 8.", "label": "+"}
+{"text": "How many cards are there altogether?", "label": "+"}
+{"text": "Find the sum of 49 and 36.", "label": "+"}
+{"text": "What is the difference between 20 and 16?", "label": "-"}
+{"text": "A machine produces 19 oranges per shift. How many in 2 days?", "label": "*"}
+{"text": "If 6 trays each groups 2 coins, how many coins are there?", "label": "*"}
+{"text": "Priya removed 17 items.", "label": "-"}
+{"text": "Tom had 72 oranges but gave away 49. How many are left?", "label": "-"}
+{"text": "The price is 32 euros per book.", "label": "/"}
+{"text": "A machine holds 6 cookies per cycle with 12 machines.", "label": "*"}
+{"text": "A machine produces 5 pencils per week. How many in 4 shifts?", "label": "*"}
+{"text": "Maria removed 10 items.", "label": "-"}
+{"text": "Each person gets an equal share of 100 cookies split among 10 people.", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Find the average score if the total is 59 over 4 tests.", "label": "/"}
+{"text": "Leo had 62 stamps but removed 29. How many are left?", "label": "-"}
+{"text": "Kim works 8 shifts at a rate of 7 points per week.", "label": "*"}
+{"text": "Sara used 40 apples yesterday.", "label": "-"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Bob traded 44 pencils yesterday.", "label": "-"}
+{"text": "If 10 trays each packs 10 oranges, how many oranges are there?", "label": "*"}
+{"text": "Leo removed 40 stamps yesterday.", "label": "-"}
+{"text": "What is the difference between 38 and 19?", "label": "-"}
+{"text": "Jake lost 41 oranges.", "label": "-"}
+{"text": "Priya accumulated 26 books.", "label": "+"}
+{"text": "The price is 45 dollars per orange.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Altogether they have 34 pencils and 10 stamps.", "label": "+"}
+{"text": "What is the combined total of 5 stamps and 5 apples?", "label": "+"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "What is the average of 46 and 25?", "label": "/"}
+{"text": "63 stamps were shared among 4 groups equally.", "label": "/"}
+{"text": "How many books in total if they had 4 and got 23 more?", "label": "+"}
+{"text": "If 21 stamps are spread into 8 equal parts, how many per part?", "label": "/"}
+{"text": "How many are left if 30 books were taken away?", "label": "-"}
+{"text": "How many cookies per person if 11 are shared equally among 7?", "label": "/"}
+{"text": "Find the average score if the total is 141 over 8 tests.", "label": "/"}
+{"text": "A machine produces 27 apples per shift. How many in 5 days?", "label": "*"}
+{"text": "What is the average of 10 and 37?", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Alice consumed 32 cookies.", "label": "-"}
+{"text": "Maria gathered 26 tokens.", "label": "+"}
+{"text": "How many cards in total if they had 5 and got 12 more?", "label": "+"}
+{"text": "How many oranges in total if they had 28 and got 14 more?", "label": "+"}
+{"text": "Leo sold 36 cards yesterday.", "label": "-"}
+{"text": "What is the combined total of 11 pencils and 20 cookies?", "label": "+"}
+{"text": "Each boxe plants 4 pencils. There are 12 boxes.", "label": "*"}
+{"text": "How many are left if 7 coins were taken away?", "label": "-"}
+{"text": "Find the sum of 49 and 23.", "label": "+"}
+{"text": "What is the combined total of 31 books and 6 cookies?", "label": "+"}
+{"text": "Maria had 79 apples but donated 50. How many are left?", "label": "-"}
+{"text": "Aisha removed 31 items.", "label": "-"}
+{"text": "How many apples does Tom have after gaineing 37?", "label": "+"}
+{"text": "Aisha lost 48 coins.", "label": "-"}
+{"text": "The factory bundles 3 units.", "label": "*"}
+{"text": "What is the difference between 48 and 9?", "label": "-"}
+{"text": "Altogether they have 42 coins and 45 cards.", "label": "+"}
+{"text": "There are 46 rows with 21 cards in each row.", "label": "*"}
+{"text": "What is the combined total of 39 cookies and 39 cookies?", "label": "+"}
+{"text": "Priya had 40 cards but sent away 37. How many are left?", "label": "-"}
+{"text": "Find the average score if the total is 167 over 8 tests.", "label": "/"}
+{"text": "Aisha lost 32 apples.", "label": "-"}
+{"text": "A machine produces 44 coins per shift. How many in 2 hours?", "label": "*"}
+{"text": "Each person gets an equal share of 25 oranges split among 3 people.", "label": "/"}
+{"text": "The price is 42 liters per stamp.", "label": "/"}
+{"text": "Kim split 26 stamps among 3 friends.", "label": "/"}
+{"text": "How many cookies are there altogether?", "label": "+"}
+{"text": "Tom removed 8 items.", "label": "-"}
+{"text": "What is the average of 29 and 9?", "label": "/"}
+{"text": "The price is 33 meters per card.", "label": "/"}
+{"text": "What is the difference between 50 and 1?", "label": "-"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "A machine produces 46 pencils per day. How many in 8 shifts?", "label": "*"}
+{"text": "Altogether they have 6 cookies and 38 stamps.", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Find the sum of 37 and 8.", "label": "+"}
+{"text": "Tom distributed 79 coins among 7 friends.", "label": "/"}
+{"text": "What is the average of 5 and 27?", "label": "/"}
+{"text": "Leo cut 44 stamps.", "label": "-"}
+{"text": "Bob traded 34 pencils.", "label": "-"}
+{"text": "Tom lost 44 books.", "label": "-"}
+{"text": "There are 47 rows with 26 cards in each row.", "label": "*"}
+{"text": "How many books are there altogether?", "label": "+"}
+{"text": "After Priya sent away 37 cards, how many remain?", "label": "-"}
+{"text": "Jake loaded 12 tokens.", "label": "+"}
+{"text": "How many oranges remain after removing 42?", "label": "-"}
+{"text": "Each person gets an equal share of 85 coins split among 8 people.", "label": "/"}
+{"text": "Each person gets an equal share of 54 apples split among 4 people.", "label": "/"}
+{"text": "Kim secured 47 more cookies.", "label": "+"}
+{"text": "If 63 stamps are shared into 4 equal parts, how many per part?", "label": "/"}
+{"text": "The price is 10 meters per card.", "label": "/"}
+{"text": "Sara removed 17 items.", "label": "-"}
+{"text": "What is the difference between 25 and 17?", "label": "-"}
+{"text": "Tom removed 38 items.", "label": "-"}
+{"text": "After Tom gave away 49 oranges, how many remain?", "label": "-"}
+{"text": "Jake removed 23 items.", "label": "-"}
+{"text": "How many apples remain after removing 27?", "label": "-"}
+{"text": "How many pencils are there altogether?", "label": "+"}
+{"text": "If 53 pencils are portioned into 3 equal parts, how many per part?", "label": "/"}
+{"text": "There are 29 rows with 9 cookies in each row.", "label": "*"}
+{"text": "The price is 29 liters per card.", "label": "/"}
+{"text": "If 12 rows each holds 6 cookies, how many cookies are there?", "label": "*"}
+{"text": "There are 12 rows and each holds 6 cookies.", "label": "*"}
+{"text": "After Alice lost 2 cards, how many remain?", "label": "-"}
+{"text": "Kim saved 4 pencils.", "label": "+"}
+{"text": "How many cards in total if they had 44 and got 39 more?", "label": "+"}
+{"text": "Find the average score if the total is 188 over 5 tests.", "label": "/"}
+{"text": "A machine groups 2 coins per cycle with 6 machines.", "label": "*"}
+{"text": "How many oranges in total if they had 27 and got 43 more?", "label": "+"}
+{"text": "Sara removed 26 items.", "label": "-"}
+{"text": "Find the average score if the total is 127 over 3 tests.", "label": "/"}
+{"text": "A machine fills 10 cards per cycle with 7 machines.", "label": "*"}
+{"text": "Tom deposited 26 tokens.", "label": "+"}
+{"text": "Find the average score if the total is 57 over 2 tests.", "label": "/"}
+{"text": "There are 6 trays and each groups 2 coins.", "label": "*"}
+{"text": "Each basket arranges 4 stamps. There are 6 baskets.", "label": "*"}
+{"text": "31 pencils were allocated among 6 groups equally.", "label": "/"}
+{"text": "After Jake handed out 31 coins, how many remain?", "label": "-"}
+{"text": "How many coins are there altogether?", "label": "+"}
+{"text": "Find the average score if the total is 105 over 5 tests.", "label": "/"}
+{"text": "Each box contains 11 apples and there are 5 boxes.", "label": "*"}
+{"text": "The factory fills 10 units.", "label": "*"}
+{"text": "How many pencils does Kim have after saveing 4?", "label": "+"}
+{"text": "There are 24 rows with 23 cards in each row.", "label": "*"}
+{"text": "Tom works 8 shifts at a rate of 8 euros per shift.", "label": "*"}
+{"text": "There are 4 trays and each manufactures 10 books.", "label": "*"}
+{"text": "What is the difference between 24 and 8?", "label": "-"}
+{"text": "Each person gets an equal share of 45 cookies split among 8 people.", "label": "/"}
+{"text": "If 26 stamps are split into 3 equal parts, how many per part?", "label": "/"}
+{"text": "Jake rationed 28 books among 5 friends.", "label": "/"}
+{"text": "How many cookies in total if they had 10 and got 34 more?", "label": "+"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Each person gets an equal share of 50 cards split among 8 people.", "label": "/"}
+{"text": "After Bob traded 34 pencils, how many remain?", "label": "-"}
+{"text": "How many coins remain after removing 5?", "label": "-"}
+{"text": "How many cookies does Alice have after addeing 20?", "label": "+"}
+{"text": "How many books does Aisha have after obtaineing 24?", "label": "+"}
+{"text": "Each tray produces 6 oranges. There are 6 trays.", "label": "*"}
+{"text": "Each tray manufactures 10 books. There are 4 trays.", "label": "*"}
+{"text": "Each person gets an equal share of 98 stamps split among 3 people.", "label": "/"}
+{"text": "Bob fetched 36 euros.", "label": "+"}
+{"text": "If 8 groups each bundles 3 books, how many books are there?", "label": "*"}
+{"text": "Aisha lost 32 apples.", "label": "-"}
+{"text": "Alice added 20 more cookies.", "label": "+"}
+{"text": "Alice divided 66 pencils among 2 friends.", "label": "/"}
+{"text": "After Sara moved 15 pencils, how many remain?", "label": "-"}
+{"text": "Tom wasted 33 cards.", "label": "-"}
+{"text": "Alice assigned equally 38 stamps equally among 3 people. How many each?", "label": "/"}
+{"text": "Each tray packs 10 oranges. There are 10 trays.", "label": "*"}
+{"text": "The factory yields 9 units.", "label": "*"}
+{"text": "Leo grabbed 44 more cookies.", "label": "+"}
+{"text": "The factory holds 6 units.", "label": "*"}
+{"text": "What is the combined total of 5 apples and 7 cookies?", "label": "+"}
+{"text": "Jake distributed 17 apples yesterday.", "label": "-"}
+{"text": "Leo parcelled 39 books equally among 9 people. How many each?", "label": "/"}
+{"text": "Priya lent 50 stamps.", "label": "-"}
+{"text": "43 stamps were separated among 8 groups equally.", "label": "/"}
+{"text": "Jake doled out 62 pencils equally among 3 people. How many each?", "label": "/"}
+{"text": "Costs are calculated per kilometer.", "label": "/"}
+{"text": "Aisha works 3 weeks at a rate of 45 kilograms per shift.", "label": "*"}
+{"text": "Find the average score if the total is 66 over 5 tests.", "label": "/"}
+{"text": "If 7 trays each fills 10 cards, how many cards are there?", "label": "*"}
+{"text": "Each box contains 31 apples and there are 6 boxes.", "label": "*"}
+{"text": "Each box contains 23 apples and there are 11 boxes.", "label": "*"}
+{"text": "The factory manufactures 10 units.", "label": "*"}
+{"text": "The factory organizes 2 units.", "label": "*"}
+{"text": "39 books were parcelled among 9 groups equally.", "label": "/"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "Maria gathered 26 more oranges.", "label": "+"}
+{"text": "The price is 36 meters per stamp.", "label": "/"}
+{"text": "How many cookies are there altogether?", "label": "+"}
+{"text": "If 79 coins are distributed into 7 equal parts, how many per part?", "label": "/"}
+{"text": "Find the sum of 38 and 35.", "label": "+"}
+{"text": "What is the combined total of 19 apples and 2 stamps?", "label": "+"}
+{"text": "Sara took 44 pencils.", "label": "-"}
+{"text": "Altogether they have 10 cards and 13 pencils.", "label": "+"}
+{"text": "Find the sum of 31 and 2.", "label": "+"}
+{"text": "After Sara used 8 apples, how many remain?", "label": "-"}
+{"text": "How many items are there in total?", "label": "+"}
+{"text": "What is the average of 44 and 49?", "label": "/"}
+{"text": "What is the average of 24 and 37?", "label": "/"}
+{"text": "How many are left if 50 cards were taken away?", "label": "-"}
+{"text": "How many cards remain after removing 39?", "label": "-"}
+{"text": "How many oranges are there altogether?", "label": "+"}
+{"text": "Find the average score if the total is 69 over 8 tests.", "label": "/"}
+{"text": "There are 50 rows with 45 pencils in each row.", "label": "*"}
+{"text": "How many cookies in total if they had 5 and got 17 more?", "label": "+"}
+{"text": "If 38 stamps are assigned equally into 3 equal parts, how many per part?", "label": "/"}
+{"text": "Jake works 3 days at a rate of 11 euros per week.", "label": "*"}
+{"text": "How many oranges does Maria have after gathereing 26?", "label": "+"}
+{"text": "What is the combined total of 45 cookies and 27 books?", "label": "+"}
+{"text": "After Jake delivered 18 oranges, how many remain?", "label": "-"}
+{"text": "What is the combined total of 16 cookies and 3 cookies?", "label": "+"}
+{"text": "How many stamps remain after removing 22?", "label": "-"}
+{"text": "Find the average score if the total is 195 over 6 tests.", "label": "/"}
+{"text": "After Maria donated 50 apples, how many remain?", "label": "-"}
+{"text": "Kim lost 6 cookies.", "label": "-"}
+{"text": "How many cookies in total if they had 45 and got 22 more?", "label": "+"}
+{"text": "A machine produces 43 coins per week. How many in 8 hours?", "label": "*"}

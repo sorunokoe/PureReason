@@ -1,0 +1,22 @@
+# CODEOWNERS
+#
+# These owners are requested for review on any PR touching these paths.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default: all maintainers review everything
+*                           @sorunokoe
+
+# Core detection engine
+pureason/                   @sorunokoe
+pureason/reasoning/         @sorunokoe
+
+# Benchmark runners and detectors
+benchmarks/                 @sorunokoe
+
+# CI / release pipeline
+.github/                    @sorunokoe
+
+# Rust workspace
+crates/                     @sorunokoe
+Cargo.toml                  @sorunokoe
+Cargo.lock                  @sorunokoe

@@ -1,0 +1,70 @@
+[workspace]
+members = [
+    "crates/pure-reason-core",
+    "crates/pure-reason-cli",
+    "crates/pure-reason-macros",
+    "crates/pure-reason-api",
+    "crates/pure-reason-mcp",
+    "crates/pure-reason-py",
+    "crates/pure-reason-dashboard",
+    "crates/pure-reason-bench",
+    "crates/pure-reason-kb",
+    "crates/pure-reason-trace",
+    "crates/pure-reason-runtime",
+    "crates/pure-reason-verifier",
+    "crates/pure-reason-memory",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["PureReason Contributors"]
+license = "Apache-2.0"
+repository = "https://github.com/pure-reason/pure-reason"
+
+[workspace.dependencies]
+# Async
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# HTTP
+reqwest = { version = "0.12", features = ["json", "stream"] }
+axum = { version = "0.7", features = ["json"] }
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# Logging / tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+# CLI
+clap = { version = "4", features = ["derive", "env"] }
+indicatif = "0.17"
+colored = "2"
+comfy-table = "7"
+
+# Config
+config = "0.14"
+
+# Security
+subtle = "2"
+blake3 = "1"
+
+# Utilities
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+regex = "1"
+
+# Storage
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# Testing
+proptest = "1"

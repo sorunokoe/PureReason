@@ -1,0 +1,36 @@
+# Rust build artifacts
+/target/
+
+# Python packaging / build artifacts
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+*.pyc
+*.pyo
+__pycache__/
+
+# Environment / secrets
+.env
+*.env.local
+
+# macOS
+.DS_Store
+
+# AI tool directories (project-local agent configs)
+/.claude/
+/.gitnexus/
+.gitnexus
+
+# Benchmark results and downloaded datasets (generated, not source)
+benchmarks/results/
+benchmarks/downloads/
+benchmarks/cache/
+benchmarks/__pycache__/
+target/
+
+# Large model files (use external storage or Git LFS)
+*.pt
+*.pth
+*.onnx

@@ -1,0 +1,122 @@
+{
+  "truthfulqa": {
+    "display_name": "TruthfulQA",
+    "homepage": "https://github.com/sylinrl/TruthfulQA",
+    "notes": "Canonical truthfulness QA benchmark with plausible false answers.",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/sylinrl/TruthfulQA/d71c110897f5d31c5d7f309e7bc316c152f6f031/TruthfulQA.csv",
+        "path": "truthfulqa/TruthfulQA.csv"
+      }
+    ]
+  },
+  "halueval": {
+    "display_name": "HaluEval",
+    "homepage": "https://github.com/RUCAIBox/HaluEval",
+    "notes": "Large-scale hallucination benchmark with knowledge-grounded QA and dialogue tasks.",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/RUCAIBox/HaluEval/b7253db3cdaa0ab2c382f92b26b390109174f77e/data/qa_data.json",
+        "path": "halueval/qa_data.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/RUCAIBox/HaluEval/b7253db3cdaa0ab2c382f92b26b390109174f77e/data/dialogue_data.json",
+        "path": "halueval/dialogue_data.json"
+      }
+    ]
+  },
+  "ragtruth": {
+    "display_name": "RAGTruth",
+    "homepage": "https://github.com/ParticleMedia/RAGTruth",
+    "notes": "Retrieval-grounded hallucination corpus for RAG summarization and QA outputs.",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/source_info.jsonl",
+        "path": "ragtruth/source_info.jsonl"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ParticleMedia/RAGTruth/c103204b9ce28d6bbad859304bf30de72b8ed8fe/dataset/response.jsonl",
+        "path": "ragtruth/response.jsonl"
+      }
+    ]
+  },
+  "faithbench": {
+    "display_name": "FaithBench",
+    "homepage": "https://github.com/vectara/FaithBench",
+    "notes": "NAACL 2025 benchmark for difficult summarization hallucinations.",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/vectara/FaithBench/cf89797d82812c23b5d5e5c121f1d9b8983bbbce/FaithBench.csv",
+        "path": "faithbench/FaithBench.csv"
+      }
+    ]
+  },
+  "felm": {
+    "display_name": "FELM",
+    "homepage": "https://github.com/hkust-nlp/felm",
+    "notes": "Segment-level factuality benchmark for LLM outputs across math, reasoning, science, writing, and world knowledge.",
+    "files": [
+      {
+        "url": "https://huggingface.co/datasets/hkust-nlp/felm/resolve/main/all.jsonl",
+        "path": "felm/all.jsonl"
+      }
+    ]
+  },
+  "hallumix": {
+    "display_name": "HalluMix",
+    "homepage": "https://huggingface.co/datasets/quotientai/HalluMix",
+    "notes": "Task-agnostic, multi-domain hallucination detection benchmark (2025). Fields: question, answer, documents, hallucination_label.",
+    "files": [
+      {
+        "url": "https://huggingface.co/datasets/quotientai/HalluMix/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet",
+        "path": "hallumix/train.parquet"
+      }
+    ]
+  },
+  "hallulens": {
+    "display_name": "HalluLens PreciseWiki (swiss-ai mirror)",
+    "homepage": "https://huggingface.co/datasets/swiss-ai/hallulens",
+    "notes": "HalluLens PreciseWiki split (arXiv:2504.17550) mirrored on HuggingFace by swiss-ai. 5000 factual QA pairs from Wikipedia with h_score_cat 0-9 (hallucination difficulty). Used here as a reference-answer grounding benchmark: synthetic positives created by category-mismatched answer substitution.",
+    "files": [
+      {
+        "url": "https://huggingface.co/api/datasets/swiss-ai/hallulens/parquet/precise_wiki/test/0.parquet",
+        "path": "hallulens/precise_wiki_test.parquet"
+      }
+    ]
+  },
+  "logicbench": {
+    "display_name": "LogicBench (Propositional)",
+    "homepage": "https://github.com/Mihir3009/LogicBench",
+    "notes": "Propositional logic MCQA benchmark (25 reasoning types). Tests structural contradiction resolution — PureReason's core competence.",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/modus_tollens/data_instances.json",
+        "path": "logicbench/modus_tollens.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/disjunctive_syllogism/data_instances.json",
+        "path": "logicbench/disjunctive_syllogism.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/hypothetical_syllogism/data_instances.json",
+        "path": "logicbench/hypothetical_syllogism.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/constructive_dilemma/data_instances.json",
+        "path": "logicbench/constructive_dilemma.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/destructive_dilemma/data_instances.json",
+        "path": "logicbench/destructive_dilemma.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/bidirectional_dilemma/data_instances.json",
+        "path": "logicbench/bidirectional_dilemma.json"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Mihir3009/LogicBench/main/data/LogicBench(Eval)/MCQA/propositional_logic/material_implication/data_instances.json",
+        "path": "logicbench/material_implication.json"
+      }
+    ]
+  }
+}

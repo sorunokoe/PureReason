@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    container_name: pure-reason-api
+    # Local dev profile: unauthenticated only because compose starts the service
+    # explicitly with --allow-unauthenticated. Add auth before exposing it beyond
+    # a trusted local environment.
+    ports:
+      - "8080:8080"
+    environment:
+      RUST_LOG: info
+    command: ["/app/pure-reason-api", "--bind", "0.0.0.0:8080", "--allow-unauthenticated"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/dashboard.Dockerfile
+    container_name: pure-reason-dashboard
+    # Local dev profile: unauthenticated only because compose starts the service
+    # explicitly with --allow-unauthenticated. Add auth before exposing it beyond
+    # a trusted local environment.
+    ports:
+      - "8081:8081"
+    environment:
+      RUST_LOG: info
+    command: ["/app/pure-reason-dashboard", "--bind", "0.0.0.0:8081", "--allow-unauthenticated"]
+    depends_on:
+      - api
+    restart: unless-stopped

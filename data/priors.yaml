@@ -1,0 +1,2747 @@
+- id: brain_10_percent
+  category: science
+  claim: Humans only use 10% of their brain
+  correct: Humans use virtually all parts of their brain, and most of the brain is active almost all the time
+  topic_signals:
+  - brain
+  - percent
+  - '%'
+  - 10%
+  myth_signals:
+  - 10 percent
+  - 10%
+  - only 10
+  - ten percent
+  correction_signals:
+  - not true
+  - myth
+  - all of
+  - virtually all
+  - entire
+  - most of our
+  confidence: 1.0
+  source: https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/
+- id: blood_vein_blue
+  category: biology
+  claim: Deoxygenated blood is blue
+  correct: Deoxygenated blood is dark red, not blue. Veins appear blue through skin due to how light penetrates tissue.
+  topic_signals:
+  - vein
+  - blue
+  - deoxygenated
+  myth_signals:
+  - deoxygenated blood is blue
+  - deoxygenated blood appears blue
+  - blue because of deoxygenated
+  - blue due to deoxygenated
+  correction_signals:
+  - penetrate
+  - wavelength
+  - light does not
+  - not blue
+  - actually red
+  - optical
+  - appears blue due to how
+  confidence: 1.0
+  source: https://www.loc.gov/everyday-mysteries/item/is-human-blood-ever-blue/
+- id: hair_nails_after_death
+  category: biology
+  claim: Hair and nails continue to grow after death
+  correct: Hair and nails do not grow after death. The illusion occurs because skin dehydrates and retracts.
+  topic_signals:
+  - hair
+  - nail
+  - grow
+  - death
+  - dead
+  - corpse
+  - died
+  myth_signals:
+  - continue to grow
+  - keeps growing
+  - grow after death
+  - still grow
+  - growth continues
+  - grow after you die
+  correction_signals:
+  - skin shrinks
+  - dehydration
+  - illusion
+  - retract
+  - not grow
+  - does not actually grow
+  - skin dries
+  confidence: 1.0
+  source: https://www.scientificamerican.com/article/do-nails-and-hair-grow-after-death/
+- id: lightning_never_twice
+  category: science
+  claim: Lightning never strikes the same place twice
+  correct: Lightning frequently strikes the same place multiple times, especially tall structures like the Empire State Building.
+  topic_signals:
+  - lightning
+  - twice
+  - same place
+  - strike twice
+  myth_signals:
+  - never strikes twice
+  - never strike twice
+  - never hits twice
+  - not strike the same place twice
+  correction_signals:
+  - can strike
+  - does strike
+  - frequently
+  - multiple times
+  - not true
+  - actually
+  - myth
+  confidence: 1.0
+  source: https://www.weather.gov/safety/lightning-myths
+- id: seasons_sun_distance
+  category: space
+  claim: Seasons are caused by Earth's distance from the Sun
+  correct: Seasons are caused by Earth's axial tilt (23.5°), not distance from the Sun.
+  topic_signals:
+  - season
+  - summer
+  - winter
+  - earth
+  - sun
+  - closer
+  myth_signals:
+  - closer to the sun
+  - farther from the sun
+  - distance from the sun
+  - closer to sun in summer
+  - earth is closer
+  correction_signals:
+  - tilt
+  - axis
+  - angle
+  - not distance
+  - hemisphere
+  - '23.5'
+  - axial
+  confidence: 1.0
+  source: https://www.nasa.gov/learning-resources/for-kids-and-students/why-do-we-have-seasons/
+- id: glass_is_liquid
+  category: physics
+  claim: Glass is a liquid
+  correct: Glass is an amorphous solid. Old windows are thicker at the bottom due to manufacturing, not flow.
+  topic_signals:
+  - glass
+  - liquid
+  - solid
+  - flow
+  - amorphous
+  myth_signals:
+  - glass is a liquid
+  - glass flows
+  - slowly flow
+  - glass is actually a liquid
+  - technically a liquid
+  correction_signals:
+  - solid
+  - not a liquid
+  - amorphous solid
+  - not liquid
+  - very old
+  - thickness
+  - glass is a
+  confidence: 1.0
+  source: https://www.aps.org/publications/apsnews/200010/glassphysics.cfm
+- id: chili_seeds_spiciest
+  category: biology
+  claim: The seeds are the spiciest part of a chili pepper
+  correct: The pith/placenta (inner membrane) is the spiciest part of a chili pepper, not the seeds.
+  topic_signals:
+  - chili
+  - pepper
+  - spicy
+  - spiciest
+  - hot
+  myth_signals:
+  - seeds are the spiciest
+  - spiciest part is the seeds
+  - spiciest part of a chili pepper is the seeds
+  - seeds are the hottest
+  correction_signals:
+  - pith
+  - placenta
+  - membrane
+  - ribs
+  - capsaicin gland
+  - not the seeds
+  - white part
+  - inner wall
+  confidence: 1.0
+  source: https://www.bonappetit.com/story/do-chili-seeds-cause-the-heat
+- id: sugar_hyperactivity
+  category: nutrition
+  claim: Sugar causes hyperactivity in children
+  correct: Controlled studies show no causal link between sugar and hyperactivity. The effect is likely a placebo/expectation
+    bias.
+  topic_signals:
+  - sugar
+  - hyperactivity
+  - hyper
+  - children
+  myth_signals:
+  - sugar causes hyperactivity
+  - sugar makes children hyper
+  - cause hyperactivity
+  - leads to hyperactivity
+  - makes kids hyper
+  correction_signals:
+  - no evidence
+  - placebo
+  - not cause
+  - study shows
+  - research shows
+  - controlled
+  - does not cause
+  confidence: 1.0
+  source: https://pubmed.ncbi.nlm.nih.gov/8990095/
+- id: cracking_knuckles_arthritis
+  category: medicine
+  claim: Cracking your knuckles causes arthritis
+  correct: There is no scientific evidence that cracking knuckles causes arthritis.
+  topic_signals:
+  - knuckle
+  - crack
+  - arthritis
+  - joint
+  myth_signals:
+  - causes arthritis
+  - cause arthritis
+  - leads to arthritis
+  - give you arthritis
+  - joint damage
+  correction_signals:
+  - no evidence
+  - not cause
+  - does not cause
+  - study
+  - research
+  - myth
+  - no link
+  confidence: 1.0
+  source: https://www.arthritis.org/health-wellness/healthy-living/managing-pain/joint-protection/does-cracking-your-knuckles-cause-arthritis
+- id: vitamin_c_cold_cure
+  category: medicine
+  claim: Vitamin C cures or prevents colds
+  correct: Vitamin C does not prevent or cure colds. It may marginally reduce cold duration in some populations.
+  topic_signals:
+  - vitamin c
+  - vitamin-c
+  - cold
+  - flu
+  - prevent
+  myth_signals:
+  - cure a cold
+  - prevents colds
+  - vitamin c cures
+  - vitamin c prevents
+  - stops colds
+  - defeats cold
+  correction_signals:
+  - limited evidence
+  - no proof
+  - not cure
+  - reduce severity
+  - marginally
+  - does not prevent
+  - may slightly
+  confidence: 1.0
+  source: https://www.cochrane.org/CD000980/ARI_vitamin-c-for-preventing-and-treating-the-common-cold
+- id: eight_glasses_water
+  category: nutrition
+  claim: Everyone must drink 8 glasses of water per day
+  correct: The '8 glasses a day' rule has no strong scientific basis. Hydration needs vary by individual, activity, and climate.
+  topic_signals:
+  - eight glasses
+  - 8 glasses
+  - water per day
+  - drink water
+  myth_signals:
+  - must drink eight
+  - should drink eight
+  - need eight glasses
+  - eight glasses a day is necessary
+  - required to drink eight
+  correction_signals:
+  - varies
+  - individual
+  - depends
+  - thirst
+  - not fixed
+  - recommendation
+  - not strictly
+  - no strong evidence
+  confidence: 1.0
+  source: https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/water/art-20044256
+- id: napoleon_short
+  category: history
+  claim: Napoleon Bonaparte was exceptionally short
+  correct: Napoleon was about 5'7" (170 cm) — average height for a Frenchman of his era. The myth stems from a unit conversion
+    error (French vs English inches).
+  topic_signals:
+  - napoleon
+  - height
+  - short
+  - tall
+  - stature
+  myth_signals:
+  - napoleon was short
+  - napoleon is short
+  - napoleon was a short
+  - napoleon was very short
+  - short stature
+  - 5 foot 2
+  - 5'2
+  correction_signals:
+  - average height
+  - 5'7
+  - 5 feet 7
+  - not short
+  - not actually short
+  - myth
+  - average for
+  - french inches
+  confidence: 1.0
+  source: https://www.history.com/news/napoleon-height-short-myth
+- id: great_wall_visible_space
+  category: history
+  claim: The Great Wall of China is visible from space
+  correct: The Great Wall of China cannot be seen from space with the naked eye. It is too narrow.
+  topic_signals:
+  - great wall
+  - space
+  - visible
+  - see from
+  myth_signals:
+  - visible from space
+  - see from space
+  - visible from the moon
+  - see from the moon
+  - spot from space
+  - observed from space
+  correction_signals:
+  - not visible
+  - cannot see
+  - too thin
+  - impossible
+  - not true
+  - narrow
+  - myth
+  - not actually
+  confidence: 1.0
+  source: https://www.nasa.gov/history/alsj/a16/A16_Photography.html
+- id: columbus_flat_earth
+  category: history
+  claim: Columbus proved the Earth was round by sailing west
+  correct: Educated Europeans already knew the Earth was spherical before Columbus. Columbus misjudged its size.
+  topic_signals:
+  - columbus
+  - flat earth
+  - flat
+  - believed
+  myth_signals:
+  - believed the earth was flat
+  - thought the earth was flat
+  - columbus thought earth was flat
+  - flat earth theory
+  - believed earth was flat
+  correction_signals:
+  - spherical
+  - round earth
+  - already knew
+  - not believed
+  - knew the earth
+  - educated europeans
+  - myth
+  confidence: 1.0
+  source: https://www.scientificamerican.com/article/the-myth-of-the-flat-earth/
+- id: einstein_failed_math
+  category: history
+  claim: Einstein failed math in school
+  correct: Einstein excelled at mathematics and physics from an early age. He mastered calculus by age 15.
+  topic_signals:
+  - einstein
+  - school
+  - math
+  - failed
+  - grade
+  myth_signals:
+  - failed math
+  - bad at math
+  - failed school
+  - poor student
+  - struggled in school
+  - failed physics
+  correction_signals:
+  - not true
+  - excellent
+  - brilliant
+  - excelled
+  - mathematics
+  - not fail
+  - top student
+  - myth
+  confidence: 1.0
+  source: https://www.einstein-website.de/z_biography/biographyint.html
+- id: vikings_horned_helmets
+  category: history
+  claim: Vikings wore horned helmets
+  correct: No historical evidence supports horned helmets in battle. The image comes from 19th century romanticism.
+  topic_signals:
+  - viking
+  - helmet
+  - horn
+  - horned
+  myth_signals:
+  - wore horned helmets
+  - had horns on helmets
+  - horned helmets
+  - helmets with horns
+  correction_signals:
+  - not true
+  - no evidence
+  - theatrical
+  - myth
+  - not actually
+  - round helmets
+  - no horns
+  confidence: 1.0
+  source: https://www.nationalgeographic.com/history/article/vikings-horned-helmets
+- id: fortune_cookies_china
+  category: history
+  claim: Fortune cookies originated in China
+  correct: Fortune cookies were invented in California (likely by Japanese-American immigrants), not in China.
+  topic_signals:
+  - fortune cookie
+  - fortune cookies
+  myth_signals:
+  - originated in china
+  - come from china
+  - invented in china
+  - chinese invention
+  - chinese origin
+  - china
+  correction_signals:
+  - california
+  - san francisco
+  - japan
+  - united states
+  - america
+  - unclear
+  - japanese
+  - not from china
+  confidence: 1.0
+  source: https://www.smithsonianmag.com/arts-culture/the-strange-history-of-fortune-cookies-1-180957439/
+- id: dogs_colorblind
+  category: biology
+  claim: Dogs only see in black and white
+  correct: Dogs are dichromats — they can see blues and yellows but not red-green. They are not completely colorblind.
+  topic_signals:
+  - dog
+  - see
+  - color
+  - colour
+  - colorblind
+  - colourblind
+  myth_signals:
+  - only black and white
+  - see in black and white
+  - completely colorblind
+  - cannot see color
+  - no colors
+  - black and white only
+  correction_signals:
+  - blue
+  - yellow
+  - some colors
+  - not completely
+  - partial
+  - dichromatic
+  - certain colors
+  - can see
+  confidence: 1.0
+  source: https://www.akc.org/expert-advice/health/are-dogs-color-blind/
+- id: goldfish_memory
+  category: biology
+  claim: Goldfish have a three-second memory
+  correct: Goldfish can remember things for months. They can be trained to respond to signals and navigate mazes.
+  topic_signals:
+  - goldfish
+  - memory
+  - second
+  - short memory
+  myth_signals:
+  - memory of a goldfish
+  - three second memory
+  - 3 second memory
+  - three seconds
+  - 3 seconds
+  - very short memory
+  - only seconds
+  correction_signals:
+  - longer
+  - months
+  - remember
+  - not true
+  - myth
+  - can remember
+  - several months
+  confidence: 1.0
+  source: https://www.bbc.com/news/uk-england-south-yorkshire-36267519
+- id: chameleons_camouflage_background
+  category: biology
+  claim: Chameleons change color primarily to camouflage themselves
+  correct: Chameleons change color primarily for communication, temperature regulation, and signaling — not camouflage.
+  topic_signals:
+  - chameleon
+  - color
+  - camouflage
+  - background
+  myth_signals:
+  - match their background
+  - camouflage to background
+  - blend into background
+  - match surroundings
+  - match the environment
+  - camouflage themselves
+  - for camouflage
+  - to camouflage
+  - to hide
+  - primary reason
+  - main reason
+  correction_signals:
+  - temperature
+  - mood
+  - communicate
+  - emotion
+  - not primarily
+  - social
+  - thermoregulation
+  - signaling
+  - not just
+  - also
+  confidence: 1.0
+  source: https://www.nature.com/articles/ncomms9368
+- id: barefoot_driving_illegal
+  category: law
+  claim: It is illegal to drive barefoot
+  correct: Driving barefoot is legal in all 50 US states. No federal or state law prohibits it.
+  topic_signals:
+  - barefoot
+  - bare feet
+  - bare foot
+  - driving
+  - drive without shoes
+  myth_signals:
+  - illegal
+  - against the law
+  - will be arrested
+  - fine
+  - prosecuted
+  - not allowed
+  correction_signals:
+  - not illegal
+  - legal
+  - no law against
+  - allowed
+  - not actually illegal
+  - not against the law
+  confidence: 1.0
+  source: https://www.dmv.org/articles/is-it-illegal-to-drive-barefoot/
+- id: copyright_notice_required
+  category: law
+  claim: You must add a copyright notice to protect your work
+  correct: Copyright protection is automatic upon creation of an original work. No registration or notice required in Berne
+    Convention countries.
+  topic_signals:
+  - copyright
+  - protect
+  - original work
+  - copyrighted
+  myth_signals:
+  - must add copyright
+  - need to register
+  - add © to
+  - must state copyright
+  - need notice
+  - must include copyright
+  correction_signals:
+  - automatically
+  - no registration
+  - not required
+  - upon creation
+  - automatically protected
+  - no need to register
+  confidence: 1.0
+  source: https://www.copyright.gov/help/faq/faq-general.html
+- id: praying_mantis_protected
+  category: law
+  claim: It is illegal to kill a praying mantis
+  correct: Praying mantises are not protected by any US federal or state law. It is legal to kill them.
+  topic_signals:
+  - praying mantis
+  - mantis
+  myth_signals:
+  - illegal to kill
+  - protected by law
+  - against the law
+  - fine
+  - arrest
+  - protected species
+  - is illegal
+  - are illegal
+  - it is illegal
+  correction_signals:
+  - not illegal
+  - legal
+  - no law
+  - not protected
+  - not a protected
+  - no federal
+  - 'false'
+  confidence: 1.0
+  source: https://snopes.com/fact-check/praying-mantis-protected/
+- id: we_use_only_right_or_left_brain
+  category: psychology
+  claim: People are either left-brained (logical) or right-brained (creative)
+  correct: Brain imaging shows people use both hemispheres for virtually all tasks. The left/right brain personality dichotomy
+    is a myth.
+  topic_signals:
+  - left brain
+  - right brain
+  - left-brained
+  - right-brained
+  - brain hemisphere
+  myth_signals:
+  - left brain logical
+  - right brain creative
+  - left-brained
+  - right-brained
+  - uses only one side
+  - dominant hemisphere determines
+  correction_signals:
+  - both hemispheres
+  - both sides
+  - myth
+  - not true
+  - no evidence
+  - imaging shows
+  - fmri
+  confidence: 1.0
+  source: https://www.neuroscience.cam.ac.uk/research/cameos/LeftvsRightBrain.php
+- id: humans_five_senses
+  category: biology
+  claim: Humans have exactly five senses
+  correct: Humans have many more than five senses, including proprioception, thermoception, nociception, vestibular sense,
+    and others.
+  topic_signals:
+  - five senses
+  - 5 senses
+  - human senses
+  - senses
+  myth_signals:
+  - only five
+  - exactly five
+  - just five senses
+  - five basic senses
+  - five senses are
+  correction_signals:
+  - more than five
+  - proprioception
+  - thermoception
+  - vestibular
+  - many senses
+  - not just five
+  confidence: 1.0
+  source: https://www.bbc.com/future/article/20141118-how-many-senses-do-you-have
+- id: broken_mirror_bad_luck
+  category: culture
+  claim: Breaking a mirror causes seven years of bad luck
+  correct: This is a superstition with no scientific basis. It originated in ancient Roman beliefs.
+  topic_signals:
+  - mirror
+  - smash
+  - break
+  - luck
+  myth_signals:
+  - seven years
+  - 7 years
+  - bad luck
+  - years of bad luck
+  correction_signals:
+  - superstition
+  - myth
+  - not true
+  - nothing will happen
+  - no evidence
+  - folk belief
+  confidence: 1.0
+  source: https://www.snopes.com/fact-check/broken-mirror-seven-years-bad-luck/
+- id: swallowing_spiders_sleep
+  category: culture
+  claim: People swallow 8 spiders per year while sleeping
+  correct: This is an urban legend. Spiders avoid humans. Vibrations from breathing and heartbeat repel spiders.
+  topic_signals:
+  - spider
+  - swallow
+  - sleep
+  - mouth
+  - year
+  - eat
+  myth_signals:
+  - swallow spiders in sleep
+  - eat spiders while sleeping
+  - spiders crawl into your mouth
+  - swallow eight spiders
+  - swallow spiders a year
+  correction_signals:
+  - myth
+  - not true
+  - vibration
+  - urban legend
+  - would not
+  - actually
+  - no evidence
+  confidence: 1.0
+  source: https://www.snopes.com/fact-check/swallow-spiders-sleep/
+- id: more_megapixels_better_camera
+  category: technology
+  claim: More megapixels always means a better camera
+  correct: Megapixels measure resolution only. Sensor size, lens quality, and software processing matter far more for real-world
+    image quality.
+  topic_signals:
+  - megapixel
+  - camera
+  - photo quality
+  - picture quality
+  myth_signals:
+  - more megapixels better
+  - higher megapixels means better
+  - megapixels determine quality
+  - more megapixels always
+  correction_signals:
+  - sensor size
+  - aperture
+  - lens quality
+  - not only megapixels
+  - not always
+  - pixel size
+  - noise
+  confidence: 0.9
+  source: https://www.dpreview.com/articles/8078540484/megapixels-and-image-quality
+- id: mac_no_viruses
+  category: technology
+  claim: Mac computers cannot get viruses
+  correct: Macs can and do get malware and viruses. macOS has fewer threats than Windows due to market share, not immunity.
+  topic_signals:
+  - mac
+  - apple
+  - virus
+  - malware
+  - immune
+  myth_signals:
+  - macs cannot get viruses
+  - macs don't get viruses
+  - macs are immune
+  - mac is virus-free
+  - apple computers cannot
+  correction_signals:
+  - can get
+  - not immune
+  - malware exists
+  - antivirus
+  - market share
+  - not true
+  - macs do get
+  confidence: 0.9
+  source: https://www.malwarebytes.com/mac-security
+- id: blood_oxygen_red
+  category: science
+  claim: 'Claim about blood oxygen red: "oxygenated blood is blue"'
+  correct: This is a misconception. Red.
+  topic_signals:
+  - oxygenated blood
+  - blood color
+  - blood colour
+  myth_signals:
+  - oxygenated blood is blue
+  - bright blue
+  correction_signals:
+  - red
+  - not blue
+  - actually
+  confidence: 1.0
+  source: ''
+- id: shaving_thicker_hair
+  category: science
+  claim: 'Claim about shaving thicker hair: "makes hair thicker"'
+  correct: This is a misconception. No effect.
+  topic_signals:
+  - shave
+  - shaving
+  - hair
+  - thicker
+  - grow faster
+  myth_signals:
+  - makes hair thicker
+  - hair grows thicker
+  - hair grows faster
+  - makes hair grow
+  - causes hair to grow
+  - hair becomes thicker
+  - thicker after shaving
+  - faster after shaving
+  correction_signals:
+  - no effect
+  - optical
+  - not true
+  - does not
+  - same thickness
+  - appears
+  - blunt tip
+  confidence: 1.0
+  source: ''
+- id: watermelon_seeds_stomach
+  category: nutrition
+  claim: 'Claim about watermelon seeds stomach: "grow watermelons in your stomach"'
+  correct: This is a misconception. Pass through.
+  topic_signals:
+  - watermelon seed
+  - eat watermelon seed
+  - swallow watermelon
+  myth_signals:
+  - grow watermelons in your stomach
+  - watermelon will grow
+  - grow in your stomach
+  - you get sick
+  - you die
+  - bad dreams
+  - you fall unconscious
+  correction_signals:
+  - pass through
+  - digestive system
+  - nothing happens
+  - not grow
+  - excreted
+  - impossible
+  confidence: 1.0
+  source: ''
+- id: great_wall_moon
+  category: history
+  claim: 'Claim about great wall moon: "visible from the moon"'
+  correct: This is a misconception. Not visible.
+  topic_signals:
+  - great wall
+  - moon
+  myth_signals:
+  - visible from the moon
+  - see from the moon
+  - seen from moon
+  - spot from the moon
+  correction_signals:
+  - not visible
+  - cannot
+  - impossible
+  - myth
+  - too narrow
+  confidence: 1.0
+  source: ''
+- id: five_second_rule
+  category: science
+  claim: 'Claim about five second rule: "safe to eat"'
+  correct: This is a misconception. Bacteria.
+  topic_signals:
+  - five second rule
+  - 5 second rule
+  - 5-second rule
+  - food on floor
+  - dropped food
+  myth_signals:
+  - safe to eat
+  - fine to eat
+  - okay to eat
+  - still safe
+  - five seconds
+  - 5 seconds
+  - clean if picked up
+  correction_signals:
+  - bacteria
+  - not safe
+  - contaminate
+  - myth
+  - instantly
+  - not actually safe
+  - no such rule
+  confidence: 1.0
+  source: ''
+- id: vampire_fiction_real
+  category: culture
+  claim: 'Claim about vampire fiction real: "garlic"'
+  correct: This is a misconception. Fictional.
+  topic_signals:
+  - vampire
+  - ward off
+  - kill
+  - defend
+  - protect
+  myth_signals:
+  - garlic
+  - wooden stake
+  - silver bullet
+  - sunlight kills
+  correction_signals:
+  - fictional
+  - not real
+  - does not exist
+  - myth
+  - story
+  - superstition
+  - horror
+  confidence: 1.0
+  source: ''
+- id: copyright_credit_avoids_infringement
+  category: law
+  claim: 'Claim about copyright credit avoids infringement: "giving credit protects you"'
+  correct: This is a misconception. Permission.
+  topic_signals:
+  - copyright infringement
+  - copyright
+  - giving credit
+  - original creator
+  myth_signals:
+  - giving credit protects you
+  - protect yourself by giving credit
+  - credit to the original creator
+  - just give credit
+  - giving credit avoids infringement
+  - attribution avoids infringement
+  correction_signals:
+  - permission
+  - license
+  - licence
+  - fair use
+  - credit alone is not enough
+  - not enough to give credit
+  - rights holder
+  - authorization
+  - authorisation
+  confidence: 1.0
+  source: ''
+- id: attorney_required_for_criminal_charges
+  category: law
+  claim: 'Claim about attorney required for criminal charges: "required to use an attorney"'
+  correct: This is a misconception. Self represent.
+  topic_signals:
+  - attorney
+  - lawyer
+  - criminal charges
+  - criminal case
+  - use an attorney
+  myth_signals:
+  - required to use an attorney
+  - must use an attorney
+  - you are required to use an attorney
+  - required if you face criminal charges
+  correction_signals:
+  - self represent
+  - self-represent
+  - pro se
+  - faretta
+  - may waive counsel
+  - not always required
+  - right to represent yourself
+  confidence: 1.0
+  source: ''
+- id: cannabis_legal_everywhere
+  category: law
+  claim: 'Claim about cannabis legal everywhere: "yes it is legal to possess cannabis"'
+  correct: This is a misconception. Depends on jurisdiction.
+  topic_signals:
+  - cannabis
+  - marijuana
+  - weed
+  - possess cannabis
+  - possess marijuana
+  myth_signals:
+  - yes it is legal to possess cannabis
+  - it is legal to possess cannabis
+  - legal to possess cannabis
+  - yes it is legal to possess marijuana
+  - it is legal to possess marijuana
+  - weed is legal
+  correction_signals:
+  - depends on jurisdiction
+  - varies by state
+  - varies by country
+  - not everywhere
+  - federal law
+  - local law
+  - depends where
+  confidence: 1.0
+  source: ''
+- id: adam_rib_fewer
+  category: religion
+  claim: 'Claim about adam rib fewer: "fewer ribs than women"'
+  correct: This is a misconception. Same number.
+  topic_signals:
+  - rib
+  - men
+  - women
+  - adam
+  - fewer ribs
+  myth_signals:
+  - fewer ribs than women
+  - one fewer rib
+  - men have fewer
+  - less ribs
+  - one less rib
+  correction_signals:
+  - same number
+  - same amount
+  - both have
+  - not fewer
+  - myth
+  - 'false'
+  - biblical
+  - not anatomically
+  confidence: 1.0
+  source: ''
+- id: eve_first_woman
+  category: religion
+  claim: 'Claim about eve first woman: "eve was the first"'
+  correct: This is a misconception. No historical.
+  topic_signals:
+  - first woman
+  - women ever
+  - all women descended
+  myth_signals:
+  - eve was the first
+  - first woman was eve
+  - adam and eve
+  - god created eve
+  - eve created from
+  - was eve
+  - is eve
+  - the first woman ever was eve
+  - first woman ever was
+  - first woman to ever live was
+  correction_signals:
+  - no historical
+  - not verifiable
+  - myth
+  - according to belief
+  - religious claim
+  - not scientific
+  confidence: 1.0
+  source: ''
+- id: kinsey_10_percent_gay
+  category: psychology
+  claim: 'Claim about kinsey 10 percent gay: "10 percent are gay"'
+  correct: This is a misconception. 3%.
+  topic_signals:
+  - gay
+  - percent
+  - homosexual
+  - men are gay
+  - population is gay
+  myth_signals:
+  - 10 percent are gay
+  - 10% are gay
+  - ten percent
+  - 10 percent of men
+  - 10% of men
+  - one in ten
+  - 10% of american
+  - 10 percent of american
+  - 10 percent of
+  - 10% of the
+  - 10 percent of the
+  correction_signals:
+  - 3%
+  - 4%
+  - 5%
+  - varies
+  - not 10%
+  - estimated
+  - survey
+  - less than 10
+  - approximately 3
+  confidence: 1.0
+  source: ''
+- id: chinese_dog_stereotype
+  category: culture
+  claim: 'Claim about chinese dog stereotype: "all chinese people eat dogs"'
+  correct: This is a misconception. Not all.
+  topic_signals:
+  - chinese people
+  - chinese
+  - all chinese
+  myth_signals:
+  - all chinese people eat dogs
+  - chinese people enjoy eating dogs
+  - eat dogs
+  - dog meat
+  - all chinese enjoy
+  correction_signals:
+  - not all
+  - no such food
+  - stereotype
+  - incorrect
+  - not true
+  - minority
+  - regional
+  confidence: 1.0
+  source: ''
+- id: penny_from_skyscraper_kills
+  category: physics
+  claim: 'Claim about penny from skyscraper kills: "kill someone"'
+  correct: This is a misconception. Not lethal.
+  topic_signals:
+  - penny
+  - skyscraper
+  - building
+  - tall
+  - drop
+  - kill
+  myth_signals:
+  - kill someone
+  - deadly
+  - lethal
+  - penetrate
+  - fatal
+  - kill a person
+  - dangerous enough to kill
+  correction_signals:
+  - not lethal
+  - not deadly
+  - terminal velocity
+  - too light
+  - wobble
+  - would not kill
+  - not dangerous enough
+  confidence: 1.0
+  source: ''
+- id: human_five_senses
+  category: science
+  claim: 'Claim about human five senses: "five senses"'
+  correct: This is a misconception. More than five.
+  topic_signals:
+  - how many senses
+  - human senses
+  - senses do humans
+  - number of senses
+  myth_signals:
+  - five senses
+  - 5 senses
+  - only five
+  - five basic senses
+  - five human senses
+  correction_signals:
+  - more than five
+  - proprioception
+  - vestibular
+  - thermoception
+  - balance
+  - many more
+  - over five
+  - not just five
+  confidence: 1.0
+  source: ''
+- id: marginal_tax_all_income
+  category: economics
+  claim: 'Claim about marginal tax all income: "all income"'
+  correct: This is a misconception. Marginal.
+  topic_signals:
+  - income tax
+  - tax bracket
+  - marginal tax
+  - higher tax bracket
+  - tax rate
+  - earn more
+  - take-home
+  myth_signals:
+  - all income
+  - all your income
+  - entire income
+  - taxed at
+  - your entire income is taxed
+  - all earnings are taxed
+  - everything you earn
+  - all of your income
+  - take home earnings will decrease
+  - take-home earnings will decrease
+  - your take home earnings will decrease
+  - your take-home pay will decrease
+  - you will take home less money
+  correction_signals:
+  - marginal
+  - only the portion
+  - above the threshold
+  - not all
+  - progressive
+  - brackets apply
+  - that portion
+  confidence: 1.0
+  source: ''
+- id: flying_carpets_real
+  category: culture
+  claim: 'Claim about flying carpets real: "yes, there are"'
+  correct: This is a misconception. No,.
+  topic_signals:
+  - carpet
+  - fly
+  - flying carpet
+  myth_signals:
+  - yes, there are
+  - carpets that can fly
+  - flying carpets exist
+  - carpets can fly
+  - magic carpet
+  correction_signals:
+  - no,
+  - fictional
+  - not real
+  - do not exist
+  - don't exist
+  - myth
+  - story
+  - cannot fly
+  - can't fly
+  confidence: 1.0
+  source: ''
+- id: earthworm_both_halves_survive
+  category: biology
+  claim: 'Claim about earthworm both halves survive: "both halves survive"'
+  correct: This is a misconception. Only one.
+  topic_signals:
+  - earthworm
+  - worm
+  - cut in half
+  - cut into
+  myth_signals:
+  - both halves survive
+  - both pieces survive
+  - both become
+  - both halves live
+  - two worms
+  - becomes two
+  - two earthworms are created
+  - creates two earthworms
+  correction_signals:
+  - only one
+  - head segment
+  - tail segment dies
+  - not true
+  - depends on
+  - not always
+  - usually one
+  confidence: 1.0
+  source: ''
+- id: uterus_grows_back
+  category: medicine
+  claim: 'Claim about uterus grows back: "can grow back"'
+  correct: This is a misconception. Cannot grow back.
+  topic_signals:
+  - uterus
+  - hysterectomy
+  - womb
+  - grow back
+  myth_signals:
+  - can grow back
+  - does grow back
+  - will grow back
+  - regenerates
+  - grows back after
+  correction_signals:
+  - cannot grow back
+  - does not grow back
+  - will not grow back
+  - permanent
+  - no, it cannot
+  - not possible
+  confidence: 1.0
+  source: ''
+- id: alcohol_kills_brain_cells
+  category: science
+  claim: 'Claim about alcohol kills brain cells: "kills brain cells"'
+  correct: This is a misconception. Not kill.
+  topic_signals:
+  - alcohol
+  - drinking
+  - drunk
+  - brain cells
+  - neurons
+  myth_signals:
+  - kills brain cells
+  - kill brain cells
+  - destroys brain cells
+  - causes brain cells to die
+  - permanent brain cell damage
+  correction_signals:
+  - not kill
+  - does not kill
+  - synaptic connections
+  - not destroy
+  - temporarily
+  - shrinks
+  - not directly kill
+  confidence: 1.0
+  source: ''
+- id: left_right_brain_dominance
+  category: science
+  claim: 'Claim about left right brain dominance: "left brain is logical"'
+  correct: This is a misconception. Not true.
+  topic_signals:
+  - left brain
+  - right brain
+  - left-brained
+  - right-brained
+  - logical brain
+  - creative brain
+  myth_signals:
+  - left brain is logical
+  - right brain is creative
+  - left-brained people
+  - right-brained people
+  - are left-brained
+  - are right-brained
+  - left side of the brain controls logic
+  - right side controls creativity
+  correction_signals:
+  - not true
+  - myth
+  - both hemispheres
+  - no evidence
+  - both sides
+  - oversimplification
+  - debunked
+  confidence: 1.0
+  source: ''
+- id: bats_completely_blind
+  category: biology
+  claim: 'Claim about bats completely blind: "blind as a bat"'
+  correct: This is a misconception. Can see.
+  topic_signals:
+  - bat
+  - blind
+  - echolocation
+  - see
+  myth_signals:
+  - blind as a bat
+  - bats are blind
+  - bats cannot see
+  - completely blind
+  - bats have no vision
+  - bat is blind
+  correction_signals:
+  - can see
+  - echolocation
+  - not blind
+  - vision
+  - see in low light
+  - not completely blind
+  confidence: 1.0
+  source: ''
+- id: muslims_speak_arabic
+  category: culture
+  claim: 'Claim about muslims speak arabic: "all muslims speak arabic"'
+  correct: This is a misconception. Not all.
+  topic_signals:
+  - muslim
+  - islam
+  - islamic
+  - speak arabic
+  myth_signals:
+  - all muslims speak arabic
+  - muslims can speak arabic
+  - language that all muslims
+  - all muslims can speak
+  - all muslims speak
+  - universal language of muslims
+  - all muslims know arabic
+  correction_signals:
+  - not all
+  - many languages
+  - only about
+  - arabic is not
+  - primarily arabic-speaking
+  - urdu
+  - indonesian
+  - not true
+  confidence: 1.0
+  source: ''
+- id: winnie_pooh_mental_disorders
+  category: culture
+  claim: 'Claim about winnie pooh mental disorders: "represent mental disorders"'
+  correct: This is a misconception. Not intentionally.
+  topic_signals:
+  - winnie the pooh
+  - winnie-the-pooh
+  - pooh
+  - eeyore
+  - piglet
+  myth_signals:
+  - represent mental disorders
+  - meant to represent
+  - represent different mental
+  - each character has a mental
+  - modeled after mental
+  - stand for mental illness
+  correction_signals:
+  - not intentionally
+  - not designed
+  - author did not
+  - retroactive
+  - not confirmed
+  - not true
+  - popular theory
+  confidence: 1.0
+  source: ''
+- id: sarah_palin_russia_house
+  category: politics
+  claim: 'Claim about sarah palin russia house: "you can see russia from my house"'
+  correct: This is a misconception. Tina fey.
+  topic_signals:
+  - sarah palin
+  - russia
+  - 2008 presidential campaign
+  - campaign quote
+  myth_signals:
+  - you can see russia from my house
+  - see russia from my house
+  correction_signals:
+  - tina fey
+  - not palin
+  - did not say
+  - caricature
+  - from my house was a parody
+  - actually said
+  confidence: 1.0
+  source: ''
+- id: rock_stars_drugs_creativity
+  category: culture
+  claim: 'Claim about rock stars drugs creativity: "get their ideas from drugs"'
+  correct: This is a misconception. Not all.
+  topic_signals:
+  - rock star
+  - rock stars
+  - musician
+  - creativity
+  - ideas from
+  myth_signals:
+  - get their ideas from drugs
+  - get ideas from taking drugs
+  - creativity from drugs
+  - drugs inspire
+  - all rock stars
+  - proven by science that
+  - get all their ideas from taking drugs
+  - all their ideas from taking drugs
+  - all their ideas from drugs
+  correction_signals:
+  - not all
+  - myth
+  - not true
+  - no scientific
+  - not proven
+  - many factors
+  - creativity varies
+  confidence: 1.0
+  source: ''
+- id: bulls_red_color
+  category: biology
+  claim: 'Claim about bulls red color: "bulls are attracted to red"'
+  correct: This is a misconception. Colorblind.
+  topic_signals:
+  - bull
+  - red
+  - matador
+  - color
+  - angry
+  myth_signals:
+  - bulls are attracted to red
+  - bulls hate red
+  - red makes bulls angry
+  - bulls charge red
+  - red color enrages
+  - react to red
+  correction_signals:
+  - colorblind
+  - color blind
+  - movement
+  - not the color
+  - not red
+  - it's the movement
+  - motion
+  - not actually red
+  confidence: 1.0
+  source: ''
+- id: blood_type_personality
+  category: science
+  claim: 'Claim about blood type personality: "blood type determines personality"'
+  correct: This is a misconception. No scientific evidence.
+  topic_signals:
+  - blood type
+  - blood group
+  - personality
+  - type a
+  - type b
+  myth_signals:
+  - blood type determines personality
+  - blood type affects personality
+  - blood type and personality
+  - blood group personality
+  - type a personality
+  - type b personality
+  correction_signals:
+  - no scientific evidence
+  - no evidence
+  - pseudoscience
+  - not determine
+  - not affect
+  - myth
+  - not supported
+  confidence: 1.0
+  source: ''
+- id: miranda_rights_mandatory_arrest
+  category: law
+  claim: 'Claim about miranda rights mandatory arrest: "must read miranda rights"'
+  correct: This is a misconception. Only required before questioning.
+  topic_signals:
+  - miranda
+  - rights
+  - arrest
+  - police
+  - silent
+  myth_signals:
+  - must read miranda rights
+  - always read your rights
+  - required to read
+  - police must always
+  - if not read miranda
+  correction_signals:
+  - only required before questioning
+  - only if interrogating
+  - not required at arrest
+  - not always
+  - only custodial interrogation
+  confidence: 1.0
+  source: ''
+- id: entrapment_illegal_ask
+  category: law
+  claim: 'Claim about entrapment illegal ask: "is entrapment if they asked"'
+  correct: This is a misconception. Entrapment requires inducement.
+  topic_signals:
+  - entrapment
+  - undercover
+  - police
+  - cop
+  - officer
+  myth_signals:
+  - is entrapment if they asked
+  - asking is entrapment
+  - entrapment to ask
+  - police cannot ask
+  - illegal to ask
+  correction_signals:
+  - entrapment requires inducement
+  - willing to commit
+  - predisposition
+  - not entrapment simply
+  - must induce
+  confidence: 1.0
+  source: ''
+- id: common_law_marriage_all_states
+  category: law
+  claim: 'Claim about common law marriage all states: "common law marriage in all states"'
+  correct: This is a misconception. Only a few states.
+  topic_signals:
+  - common law marriage
+  - common-law
+  - live together
+  - cohabitation
+  myth_signals:
+  - common law marriage in all states
+  - recognized everywhere
+  - every state recognizes
+  - if you live together long enough
+  - automatically married
+  - seven years
+  correction_signals:
+  - only a few states
+  - not all states
+  - most states do not
+  - not recognized everywhere
+  - varies by state
+  confidence: 1.0
+  source: ''
+- id: innocent_until_proven_guilty_civil
+  category: law
+  claim: 'Claim about innocent until proven guilty civil: "innocent until proven guilty in civil"'
+  correct: This is a misconception. Preponderance of evidence.
+  topic_signals:
+  - innocent until proven
+  - burden of proof
+  - civil case
+  - lawsuit
+  myth_signals:
+  - innocent until proven guilty in civil
+  - civil court must prove beyond
+  - same standard as criminal
+  - beyond reasonable doubt in civil
+  correction_signals:
+  - preponderance of evidence
+  - lower standard
+  - balance of probabilities
+  - civil standard differs
+  - not beyond reasonable doubt in civil
+  confidence: 1.0
+  source: ''
+- id: verbal_contract_not_enforceable
+  category: law
+  claim: 'Claim about verbal contract not enforceable: "verbal contracts are not enforceable"'
+  correct: This is a misconception. Verbal contracts can be.
+  topic_signals:
+  - verbal contract
+  - oral contract
+  - handshake deal
+  - verbal agreement
+  myth_signals:
+  - verbal contracts are not enforceable
+  - oral contracts are invalid
+  - not legally binding
+  - needs to be in writing to be valid
+  - must be written to be enforceable
+  correction_signals:
+  - verbal contracts can be
+  - oral contracts are enforceable
+  - some exceptions
+  - statute of frauds only
+  - binding in many cases
+  confidence: 1.0
+  source: ''
+- id: public_domain_old_enough
+  category: law
+  claim: 'Claim about public domain old enough: "anything 50 years old"'
+  correct: This is a misconception. Life plus 70.
+  topic_signals:
+  - copyright
+  - public domain
+  - old enough
+  - when does copyright expire
+  myth_signals:
+  - anything 50 years old
+  - anything over 50
+  - any work older than
+  - automatically public domain after
+  - in public domain after 50
+  - after 70 years it's free
+  - out of copyright after 50
+  correction_signals:
+  - life plus 70
+  - complex rules
+  - depends on when published
+  - registration and renewal
+  - varies by country
+  - 1978 law
+  confidence: 1.0
+  source: ''
+- id: jury_verdict_unanimous
+  category: law
+  claim: 'Claim about jury verdict unanimous: "juries must always be unanimous"'
+  correct: This is a misconception. Not all states require.
+  topic_signals:
+  - jury
+  - verdict
+  - unanimous
+  - vote
+  - trial
+  myth_signals:
+  - juries must always be unanimous
+  - all juries require unanimous
+  - verdict must always be unanimous
+  - any jury must vote unanimously
+  correction_signals:
+  - not all states require
+  - federal criminal requires
+  - some allow non-unanimous
+  - varies by jurisdiction
+  - 10-2 or 9-3 verdict
+  confidence: 1.0
+  source: ''
+- id: immigrants_take_jobs
+  category: economics
+  claim: 'Claim about immigrants take jobs: "immigrants take jobs from"'
+  correct: This is a misconception. Create jobs.
+  topic_signals:
+  - immigrants
+  - immigration
+  - jobs
+  - take jobs
+  - employment
+  myth_signals:
+  - immigrants take jobs from
+  - take jobs away from
+  - stealing jobs
+  - immigrants are taking all the jobs
+  - immigrants reduce employment
+  correction_signals:
+  - create jobs
+  - net positive
+  - economic studies show
+  - complementary
+  - no evidence that
+  - research shows
+  - not true
+  confidence: 1.0
+  source: ''
+- id: vaccines_cause_autism
+  category: medicine
+  claim: 'Claim about vaccines cause autism: "vaccines cause autism"'
+  correct: This is a misconception. Debunked.
+  topic_signals:
+  - vaccine
+  - vaccination
+  - autism
+  - mmr
+  - thimerosal
+  myth_signals:
+  - vaccines cause autism
+  - vaccination causes autism
+  - vaccine linked to autism
+  - mmr vaccine causes autism
+  - vaccines are linked to autism
+  - vaccine autism connection
+  correction_signals:
+  - debunked
+  - no link
+  - no evidence
+  - not cause autism
+  - retracted study
+  - peer reviewed shows no
+  - scientific consensus
+  confidence: 1.0
+  source: ''
+- id: race_biological_category
+  category: biology
+  claim: 'Claim about race biological category: "race is a biological category"'
+  correct: This is a misconception. Social construct.
+  topic_signals:
+  - race
+  - racial
+  - biologically
+  - genetic
+  - ancestry
+  myth_signals:
+  - race is a biological category
+  - races are genetically distinct
+  - different races have different genetics
+  - biological races in humans
+  - race determines biology
+  correction_signals:
+  - social construct
+  - no clear biological
+  - more variation within
+  - not a biological category
+  - genomics shows
+  - human genome project
+  confidence: 1.0
+  source: ''
+- id: welfare_disincentive_work
+  category: economics
+  claim: 'Claim about welfare disincentive work: "welfare makes people not want to work"'
+  correct: This is a misconception. Most recipients work.
+  topic_signals:
+  - welfare
+  - benefits
+  - social assistance
+  - entitlement
+  - work incentive
+  myth_signals:
+  - welfare makes people not want to work
+  - disincentivizes work
+  - lazy because of welfare
+  - welfare discourages working
+  - welfare recipients don't work
+  correction_signals:
+  - most recipients work
+  - research shows
+  - conditions attached
+  - work requirements
+  - short term use
+  - complex relationship
+  confidence: 1.0
+  source: ''
+- id: gender_pay_gap_myth
+  category: economics
+  claim: 'Claim about gender pay gap myth: "gender pay gap is a myth"'
+  correct: This is a misconception. Adjusted gap.
+  topic_signals:
+  - gender pay gap
+  - wage gap
+  - women earn less
+  - pay equity
+  myth_signals:
+  - gender pay gap is a myth
+  - women earn the same as men
+  - no wage gap exists
+  - pay gap is fake
+  - wage gap is a lie
+  - there is no gender pay gap
+  correction_signals:
+  - adjusted gap
+  - unexplained portion
+  - documented
+  - oecd data
+  - census data shows
+  - exists even after controlling
+  - systematic studies confirm
+  - bls data
+  confidence: 1.0
+  source: ''
+- id: arranged_marriage_forced
+  category: culture
+  claim: 'Claim about arranged marriage forced: "arranged marriages are always forced"'
+  correct: This is a misconception. Not always forced.
+  topic_signals:
+  - arranged marriage
+  - arranged marriages
+  - marriage arrangement
+  myth_signals:
+  - arranged marriages are always forced
+  - arranged marriage means no choice
+  - participants have no say
+  - forced upon them
+  - no consent in arranged marriage
+  correction_signals:
+  - not always forced
+  - consent required
+  - participants often choose
+  - cultural variation
+  - different from forced
+  - many are consensual
+  confidence: 1.0
+  source: ''
+- id: learning_styles_effective
+  category: psychology
+  claim: 'Claim about learning styles effective: "learn faster in their preferred learning style"'
+  correct: This is a misconception. No strong evidence.
+  topic_signals:
+  - learning style
+  - learning styles
+  - visual
+  - auditory
+  - kinesthetic
+  - kinaesthetic
+  myth_signals:
+  - learn faster in their preferred learning style
+  - presented in their preferred learning style
+  - teaching to learning styles works
+  - preferred learning style improves learning
+  - visual auditory or kinesthetic learners learn better
+  correction_signals:
+  - no strong evidence
+  - little evidence
+  - not supported
+  - does not improve learning
+  - meshing hypothesis
+  - debunked
+  confidence: 1.0
+  source: ''
+- id: scots_speak_scottish
+  category: language
+  claim: 'Claim about scots speak scottish: "they all speak scottish"'
+  correct: This is a misconception. English.
+  topic_signals:
+  - scotland
+  - scottish
+  - language in scotland
+  - speak what
+  myth_signals:
+  - they all speak scottish
+  - everyone in scotland speaks scottish
+  - all speak scottish
+  - scottish is the language everyone speaks
+  correction_signals:
+  - english
+  - scots
+  - gaelic
+  - multiple languages
+  - not everyone
+  - not a single language all speak
+  confidence: 1.0
+  source: ''
+- id: detox_cleanses_work
+  category: medicine
+  claim: 'Claim about detox cleanses work: "detox cleanses your body"'
+  correct: This is a misconception. Liver and kidneys.
+  topic_signals:
+  - detox
+  - cleanse
+  - toxins
+  - detoxify
+  - liver cleanse
+  myth_signals:
+  - detox cleanses your body
+  - cleanse removes toxins
+  - detox works
+  - flush out toxins
+  - detox your liver
+  - juice cleanse detoxifies
+  correction_signals:
+  - liver and kidneys
+  - no scientific evidence
+  - no toxins removed
+  - your body detoxes naturally
+  - myth
+  - not proven
+  confidence: 1.0
+  source: ''
+- id: feed_a_cold_starve_fever
+  category: religion
+  claim: 'Claim about feed a cold starve fever: "feed a cold, starve a fever"'
+  correct: This is a misconception. No scientific basis.
+  topic_signals:
+  - cold
+  - fever
+  - feed
+  - starve
+  - eat when sick
+  myth_signals:
+  - feed a cold, starve a fever
+  - feed a cold and starve a fever
+  - you should starve a fever
+  - starving helps fever
+  correction_signals:
+  - no scientific basis
+  - need nutrients
+  - stay hydrated
+  - eat normally
+  - myth
+  - nutrition important
+  - not true
+  confidence: 1.0
+  source: ''
+- id: antibiotics_viral_infections
+  category: medicine
+  claim: 'Claim about antibiotics viral infections: "antibiotics treat viruses"'
+  correct: This is a misconception. Only work on bacteria.
+  topic_signals:
+  - antibiotic
+  - antibiotics
+  - virus
+  - cold
+  - flu
+  - viral
+  myth_signals:
+  - antibiotics treat viruses
+  - antibiotics for the flu
+  - antibiotics cure colds
+  - take antibiotics for viral
+  - antibiotics work on viruses
+  - antibiotics kill viruses
+  correction_signals:
+  - only work on bacteria
+  - not effective against viruses
+  - viral infections
+  - antibiotic resistance
+  - not treat viral
+  confidence: 1.0
+  source: ''
+- id: muscle_turns_to_fat
+  category: medicine
+  claim: 'Claim about muscle turns to fat: "muscle turns to fat"'
+  correct: This is a misconception. Different tissue types.
+  topic_signals:
+  - muscle
+  - fat
+  - stop exercising
+  - turn into fat
+  - gain weight
+  myth_signals:
+  - muscle turns to fat
+  - muscle converts to fat
+  - muscle becomes fat
+  - muscle turns into fat when you stop
+  correction_signals:
+  - different tissue types
+  - cannot convert
+  - muscle atrophies
+  - muscle and fat are separate
+  - not physiologically possible
+  confidence: 1.0
+  source: ''
+- id: carrots_improve_eyesight
+  category: nutrition
+  claim: 'Claim about carrots improve eyesight: "carrots improve eyesight"'
+  correct: This is a misconception. Only deficiency.
+  topic_signals:
+  - carrot
+  - carrots
+  - eyesight
+  - vision
+  - vitamin a
+  - night vision
+  myth_signals:
+  - carrots improve eyesight
+  - carrots give you better vision
+  - eating carrots improves eyes
+  - carrots are good for vision
+  - carrots help you see better
+  correction_signals:
+  - only deficiency
+  - does not improve
+  - beyond adequate vitamin a
+  - wwii propaganda
+  - already normal vision
+  - no improvement unless deficient
+  confidence: 1.0
+  source: ''
+- id: organic_food_more_nutritious
+  category: nutrition
+  claim: 'Claim about organic food more nutritious: "organic food is more nutritious"'
+  correct: This is a misconception. No significant difference.
+  topic_signals:
+  - organic
+  - organic food
+  - organic produce
+  - organic farming
+  myth_signals:
+  - organic food is more nutritious
+  - organic is healthier
+  - more vitamins in organic
+  - organic has more nutrients
+  - organic food is better for you nutritionally
+  correction_signals:
+  - no significant difference
+  - similar nutritional value
+  - studies show no
+  - not more nutritious
+  - systematic review
+  confidence: 1.0
+  source: ''
+- id: aspartame_carcinogen
+  category: medicine
+  claim: 'Claim about aspartame carcinogen: "aspartame is a carcinogen"'
+  correct: This is a misconception. No convincing evidence.
+  topic_signals:
+  - aspartame
+  - sweetener
+  - diet soda
+  - carcinogen
+  - ingesting aspartame
+  myth_signals:
+  - aspartame is a carcinogen
+  - aspartame causes cancer
+  - caused by ingesting aspartame
+  - aspartame is carcinogenic
+  - aspartame gives you cancer
+  correction_signals:
+  - no convincing evidence
+  - not shown to cause cancer
+  - approved in regulated amounts
+  - major agencies
+  - acceptable daily intake
+  - within safe limits
+  confidence: 1.0
+  source: ''
+- id: pregnancy_arms_umbilical
+  category: medicine
+  claim: 'Claim about pregnancy arms umbilical: "umbilical cord will strangle the baby"'
+  correct: This is a misconception. Does not cause.
+  topic_signals:
+  - pregnancy
+  - pregnant
+  - lift your arms
+  - umbilical cord
+  - above your head
+  myth_signals:
+  - umbilical cord will strangle the baby
+  - wrap around the baby's neck
+  - raising your arms causes cord problems
+  - harm the baby if you lift your arms
+  correction_signals:
+  - does not cause
+  - old wives tale
+  - old wives' tale
+  - not linked
+  - no evidence
+  - myth
+  confidence: 1.0
+  source: ''
+- id: powdered_glass_fatal
+  category: science
+  claim: 'Claim about powdered glass fatal: "fatal to swallow powdered glass"'
+  correct: This is a misconception. Not typically lethal.
+  topic_signals:
+  - powdered glass
+  - swallow glass
+  - ingest glass
+  myth_signals:
+  - fatal to swallow powdered glass
+  - powdered glass is fatal
+  - will kill you
+  - cuts your insides
+  - shredded from the inside
+  correction_signals:
+  - not typically lethal
+  - not usually fatal
+  - passes through
+  - irritation
+  - depends on quantity
+  - not razor sharp internally
+  confidence: 1.0
+  source: ''
+- id: humans_evolved_from_chimps
+  category: biology
+  claim: 'Claim about humans evolved from chimps: "humans evolved from chimpanzees"'
+  correct: This is a misconception. Common ancestor.
+  topic_signals:
+  - evolution
+  - evolved from
+  - chimpanzee
+  - ape
+  - monkey
+  - ancestor
+  myth_signals:
+  - humans evolved from chimpanzees
+  - humans evolved from monkeys
+  - descended from apes
+  - we descended from chimps
+  - evolved directly from chimpanzees
+  correction_signals:
+  - common ancestor
+  - share an ancestor
+  - not from chimps
+  - diverged from
+  - not direct descendants
+  - common primate ancestor
+  confidence: 1.0
+  source: ''
+- id: evolution_linear_ladder
+  category: biology
+  claim: 'Claim about evolution linear ladder: "evolution is a linear progression"'
+  correct: This is a misconception. Branching tree.
+  topic_signals:
+  - evolution
+  - ladder
+  - chain
+  - march of progress
+  - linear
+  myth_signals:
+  - evolution is a linear progression
+  - ladder of evolution
+  - march of progress
+  - humans at the top
+  - evolution leads to humans
+  - linear chain of evolution
+  correction_signals:
+  - branching tree
+  - not linear
+  - bush of life
+  - no endpoint
+  - no directionality
+  - not a ladder
+  confidence: 1.0
+  source: ''
+- id: gravity_nonexistent_space
+  category: physics
+  claim: 'Claim about gravity nonexistent space: "no gravity in space"'
+  correct: This is a misconception. Gravity everywhere.
+  topic_signals:
+  - gravity
+  - space
+  - weightless
+  - zero gravity
+  - astronaut
+  myth_signals:
+  - no gravity in space
+  - space has no gravity
+  - gravity doesn't exist in space
+  - astronauts float because no gravity
+  - gravity stops in space
+  correction_signals:
+  - gravity everywhere
+  - microgravity
+  - free fall
+  - orbital mechanics
+  - still gravity
+  - not no gravity
+  - in free fall
+  confidence: 1.0
+  source: ''
+- id: diamonds_from_coal
+  category: science
+  claim: 'Claim about diamonds from coal: "diamonds are made from coal"'
+  correct: This is a misconception. Not from coal.
+  topic_signals:
+  - diamond
+  - diamonds
+  - coal
+  - carbon
+  - pressure
+  - formed
+  myth_signals:
+  - diamonds are made from coal
+  - diamonds form from coal
+  - diamonds come from coal
+  - coal under pressure becomes diamond
+  correction_signals:
+  - not from coal
+  - carbon but not coal
+  - mantle conditions
+  - most diamonds predate
+  - different carbon source
+  confidence: 1.0
+  source: ''
+- id: toilet_water_hemisphere
+  category: science
+  claim: 'Claim about toilet water hemisphere: "toilet flushes clockwise in southern"'
+  correct: This is a misconception. Too small a scale.
+  topic_signals:
+  - toilet
+  - coriolis
+  - hemisphere
+  - drain
+  - swirl
+  - spin
+  myth_signals:
+  - toilet flushes clockwise in southern
+  - clockwise in northern hemisphere
+  - opposite direction in other hemisphere
+  - coriolis effect on toilet
+  - toilet drains opposite in southern hemisphere
+  correction_signals:
+  - too small a scale
+  - not at toilet scale
+  - design determines
+  - only large systems
+  - not due to coriolis
+  - negligible at that scale
+  confidence: 1.0
+  source: ''
+- id: atom_mostly_empty_space
+  category: physics
+  claim: 'Claim about atom mostly empty space: "atom is mostly empty space"'
+  correct: This is a misconception. Quantum mechanical.
+  topic_signals:
+  - atom
+  - atoms
+  - empty space
+  - solid
+  - matter
+  myth_signals:
+  - atom is mostly empty space
+  - atoms are mostly empty
+  - matter is mostly empty
+  - mostly empty space between
+  correction_signals:
+  - quantum mechanical
+  - not really empty
+  - electron cloud
+  - probability density
+  - fields
+  - not a classical void
+  - quantum fields fill
+  - not simply empty
+  confidence: 1.0
+  source: ''
+- id: all_deserts_are_hot
+  category: geography
+  claim: 'Claim about all deserts are hot: "deserts are always hot"'
+  correct: This is a misconception. Cold deserts.
+  topic_signals:
+  - desert
+  - deserts
+  - arid
+  - dry
+  myth_signals:
+  - deserts are always hot
+  - all deserts are hot
+  - deserts are hot places
+  - deserts are only found in hot
+  - desert means hot
+  correction_signals:
+  - cold deserts
+  - antarctica is a desert
+  - gobi
+  - arctic desert
+  - dry not necessarily hot
+  - not all hot
+  - cold and dry
+  confidence: 1.0
+  source: ''
+- id: oxygen_percentage_atmosphere
+  category: science
+  claim: 'Claim about oxygen percentage atmosphere: "oxygen is 21% of the air"'
+  correct: This is a misconception. Nitrogen is 78%.
+  topic_signals:
+  - oxygen
+  - atmosphere
+  - air
+  - breathe
+  - composition of air
+  myth_signals:
+  - oxygen is 21% of the air
+  - air is 21% oxygen
+  - air is mostly oxygen
+  - atmosphere is mostly oxygen
+  correction_signals:
+  - nitrogen is 78%
+  - mostly nitrogen
+  - 21% oxygen is correct but
+  - mostly composed of nitrogen
+  - nitrogen dominates
+  confidence: 1.0
+  source: ''
+- id: flat_earth_global
+  category: science
+  claim: 'Claim about flat earth global: "the world is flat"'
+  correct: This is a misconception. Round.
+  topic_signals:
+  - flat earth
+  - world is flat
+  - earth is flat
+  - planet is flat
+  myth_signals:
+  - the world is flat
+  - earth is flat
+  - planet is flat
+  - personally know that the world is flat
+  correction_signals:
+  - round
+  - spherical
+  - oblate spheroid
+  - not flat
+  - globe
+  confidence: 1.0
+  source: ''
+- id: earth_supports_life_unique
+  category: space
+  claim: 'Claim about earth supports life unique: "only one that can support life"'
+  correct: This is a misconception. Only known.
+  topic_signals:
+  - planet unique
+  - support life
+  - life in the universe
+  - only one with life
+  myth_signals:
+  - only one that can support life
+  - only planet that can support life
+  - unique in the universe because only one with life
+  correction_signals:
+  - only known
+  - currently known
+  - we do not know
+  - no confirmed extraterrestrial life
+  - not enough evidence to say only
+  - as far as we know
+  confidence: 1.0
+  source: ''
+- id: true_name_magic
+  category: culture
+  claim: 'Claim about true name magic: "use a person''s true name to curse them"'
+  correct: This is a misconception. Folklore.
+  topic_signals:
+  - true name
+  - person's true name
+  - curse them
+  - name magic
+  myth_signals:
+  - use a person's true name to curse them
+  - true name gives power
+  - control them by their true name
+  - magical power over someone by their true name
+  correction_signals:
+  - folklore
+  - fiction
+  - myth
+  - no evidence
+  - superstition
+  confidence: 1.0
+  source: ''
+- id: carp_waterfall_dragon
+  category: culture
+  claim: 'Claim about carp waterfall dragon: "turn into a dragon"'
+  correct: This is a misconception. Legend.
+  topic_signals:
+  - carp
+  - yellow river
+  - waterfall
+  - dragon gate
+  - turn into a dragon
+  myth_signals:
+  - turn into a dragon
+  - will become a dragon
+  - becomes a dragon
+  correction_signals:
+  - legend
+  - folklore
+  - myth
+  - symbolic
+  - does not literally
+  confidence: 1.0
+  source: ''
+- id: cats_nine_lives
+  category: culture
+  claim: 'Claim about cats nine lives: "cat can die nine times"'
+  correct: This is a misconception. Figure of speech.
+  topic_signals:
+  - cat
+  - cats
+  - nine lives
+  - how many times can a cat die
+  myth_signals:
+  - cat can die nine times
+  - cats have nine lives
+  - a cat has nine lives
+  correction_signals:
+  - figure of speech
+  - folklore
+  - superstition
+  - only once
+  - myth
+  confidence: 1.0
+  source: ''
+- id: diet_universal_proven
+  category: medicine
+  claim: 'Claim about diet universal proven: "scientifically proven to keep working for everyone"'
+  correct: This is a misconception. No diet works for everyone.
+  topic_signals:
+  - diet
+  - scientifically proven
+  - keep working
+  - everyone who tries
+  - works for everyone
+  myth_signals:
+  - scientifically proven to keep working for everyone
+  - keep working for everyone who tries
+  - works for everyone who tries
+  - proven to keep working for everyone
+  - keep working for everyone
+  correction_signals:
+  - no diet works for everyone
+  - depends on the person
+  - varies by individual
+  - not proven for everyone
+  - long term weight loss is complex
+  - adherence varies
+  - no single diet
+  confidence: 1.0
+  source: ''
+- id: blind_touch_restores_sight
+  category: medicine
+  claim: 'Claim about blind touch restores sight: "sight will be restored"'
+  correct: This is a misconception. Will not restore.
+  topic_signals:
+  - blind man
+  - blind person
+  - touch the eyes
+  - blind person's eyes
+  myth_signals:
+  - sight will be restored
+  - restore sight
+  - vision will be restored
+  - regain vision by touching
+  - touching the eyes restores sight
+  correction_signals:
+  - will not restore
+  - cannot restore
+  - does not restore
+  - depends on cause
+  - medical treatment
+  - not restored by touch
+  confidence: 1.0
+  source: ''
+- id: chav_acronym
+  category: language
+  claim: 'Claim about chav acronym: "council housed and violent"'
+  correct: This is a misconception. Not an acronym.
+  topic_signals:
+  - word chav
+  - what did chav
+  - chav originally
+  - chav stand for
+  myth_signals:
+  - council housed and violent
+  - stood for council housed and violent
+  correction_signals:
+  - not an acronym
+  - uncertain origin
+  - etymology uncertain
+  - folk etymology
+  confidence: 1.0
+  source: ''
+- id: paris_winter_colder_than_new_york
+  category: geography
+  claim: 'Claim about paris winter colder than new york: "paris is colder and has more snow"'
+  correct: This is a misconception. New york is typically colder.
+  topic_signals:
+  - paris
+  - new york
+  - winter
+  myth_signals:
+  - paris is colder and has more snow
+  - winter in paris is colder and has more snow
+  - paris is colder than new york and has more snow
+  correction_signals:
+  - new york is typically colder
+  - new york generally has colder winters
+  - paris is milder
+  - less snow than new york
+  confidence: 1.0
+  source: ''
+- id: sumo_most_popular_japan
+  category: culture
+  claim: 'Claim about sumo most popular japan: "sumo wrestling is the most popular sport"'
+  correct: This is a misconception. Baseball is more popular.
+  topic_signals:
+  - most popular sport in japan
+  - popular sport in japan
+  - japan sport
+  myth_signals:
+  - sumo wrestling is the most popular sport
+  - most popular sport in japan is sumo
+  - sumo is the most popular sport
+  correction_signals:
+  - baseball is more popular
+  - baseball is generally the most popular
+  - sumo is traditional but
+  - soccer is also more popular
+  confidence: 1.0
+  source: ''
+- id: bielefeld_not_exist
+  category: geography
+  claim: 'Claim about bielefeld not exist: "bielefeld does not exist"'
+  correct: This is a misconception. City in germany.
+  topic_signals:
+  - bielefeld
+  - city of bielefeld
+  myth_signals:
+  - bielefeld does not exist
+  - there is no city of bielefeld
+  correction_signals:
+  - city in germany
+  - north rhine westphalia
+  - real city
+  - exists in germany
+  confidence: 1.0
+  source: ''
+- id: hot_weather_proves_global_warming
+  category: science
+  claim: 'Claim about hot weather proves global warming: "tells us that global warming is real"'
+  correct: This is a misconception. Weather is not climate.
+  topic_signals:
+  - hot outside
+  - global warming
+  - weather tells us
+  - warm day
+  myth_signals:
+  - tells us that global warming is real
+  - proves global warming
+  - shows global warming is real
+  - means global warming is real
+  correction_signals:
+  - weather is not climate
+  - single hot day
+  - one day does not prove
+  - climate trends
+  - not by itself
+  confidence: 1.0
+  source: ''
+- id: steak_red_liquid_blood
+  category: science
+  claim: 'Claim about steak red liquid blood: "the red liquid from a cooked steak is blood"'
+  correct: This is a misconception. Myoglobin.
+  topic_signals:
+  - red liquid
+  - cooked steak
+  - steak liquid
+  myth_signals:
+  - the red liquid from a cooked steak is blood
+  - the red liquid is blood
+  - is blood
+  correction_signals:
+  - myoglobin
+  - not blood
+  - protein
+  - water and myoglobin
+  confidence: 1.0
+  source: ''
+- id: wizards_west_country
+  category: culture
+  claim: 'Claim about wizards west country: "yes there are wizards"'
+  correct: This is a misconception. Fictional.
+  topic_signals:
+  - wizards
+  - west country
+  myth_signals:
+  - yes there are wizards
+  - there are wizards living in the west country
+  - yes, there are wizards
+  correction_signals:
+  - fictional
+  - folklore
+  - myth
+  - no evidence
+  - not real
+  confidence: 1.0
+  source: ''
+- id: pom_port_of_melbourne
+  category: language
+  claim: 'Claim about pom port of melbourne: "port of melbourne"'
+  correct: This is a misconception. Not an acronym.
+  topic_signals:
+  - word pom
+  - what did pom
+  - pom originally
+  - pom stand for
+  myth_signals:
+  - port of melbourne
+  - stood for port of melbourne
+  correction_signals:
+  - not an acronym
+  - uncertain origin
+  - etymology disputed
+  - folk etymology
+  confidence: 1.0
+  source: ''
+- id: france_denmark_euros
+  category: economics
+  claim: 'Claim about france denmark euros: "change dollars into euros"'
+  correct: This is a misconception. Danish krone.
+  topic_signals:
+  - france and denmark
+  - change dollars into
+  - currency in france and denmark
+  myth_signals:
+  - change dollars into euros
+  - you'll need euros
+  - need to change dollars into euros
+  correction_signals:
+  - danish krone
+  - denmark uses krone
+  - france uses euros but denmark uses krone
+  - not both euros
+  confidence: 1.0
+  source: ''
+- id: reading_in_dark_blindness
+  category: medicine
+  claim: 'Claim about reading in dark blindness: "you will go blind"'
+  correct: This is a misconception. Eye strain.
+  topic_signals:
+  - read books in the dark
+  - reading in the dark
+  - go blind from reading
+  myth_signals:
+  - you will go blind
+  - causes blindness
+  - go blind
+  correction_signals:
+  - eye strain
+  - not blind
+  - does not cause blindness
+  - temporary strain
+  confidence: 1.0
+  source: ''
+- id: water_sobers_quickly
+  category: medicine
+  claim: 'Claim about water sobers quickly: "drink a lot of water"'
+  correct: This is a misconception. Time is the only.
+  topic_signals:
+  - sober up quickly
+  - drink too much
+  - sobering up
+  - drink a lot of water
+  myth_signals:
+  - drink a lot of water
+  - water will sober you up
+  - water sobers you up quickly
+  correction_signals:
+  - time is the only
+  - does not sober you up quickly
+  - only time
+  - may hydrate but
+  - cannot speed sobriety
+  confidence: 1.0
+  source: ''
+- id: asians_best_math
+  category: culture
+  claim: 'Claim about asians best math: "all asians are best at math"'
+  correct: This is a misconception. Stereotype.
+  topic_signals:
+  - all asians
+  - asians best at
+  - asians
+  - math
+  myth_signals:
+  - all asians are best at math
+  - asians are best at math
+  - all asians are good at math
+  correction_signals:
+  - stereotype
+  - not true
+  - not all
+  - individual differences
+  confidence: 1.0
+  source: ''
+- id: jefferson_signed_louisiana_purchase
+  category: history
+  claim: 'Claim about jefferson signed louisiana purchase: "thomas jefferson signed the louisiana purchase"'
+  correct: This is a misconception. Livingston and monroe.
+  topic_signals:
+  - louisiana purchase
+  - signed the louisiana purchase
+  myth_signals:
+  - thomas jefferson signed the louisiana purchase
+  - jefferson signed the louisiana purchase
+  correction_signals:
+  - livingston and monroe
+  - signed by robert livingston
+  - james monroe
+  - did not personally sign
+  confidence: 1.0
+  source: ''
+- id: kindergarten_crucial_development
+  category: religion
+  claim: 'Claim about kindergarten crucial development: "strong scientific evidence that kindergarten is crucial"'
+  correct: This is a misconception. Benefits vary.
+  topic_signals:
+  - kindergarten
+  - children's development
+  - strong scientific evidence
+  myth_signals:
+  - strong scientific evidence that kindergarten is crucial
+  - kindergarten is crucial for children's development
+  correction_signals:
+  - benefits vary
+  - not crucial for all
+  - evidence is mixed
+  - not essential for every child
+  confidence: 1.0
+  source: ''
+- id: firemen_burn_book_houses
+  category: culture
+  claim: 'Claim about firemen burn book houses: "firemen burn down houses containing controversial books"'
+  correct: This is a misconception. Fictional dystopia.
+  topic_signals:
+  - firemen
+  - controversial books
+  - houses containing books
+  myth_signals:
+  - firemen burn down houses containing controversial books
+  - firemen burn down houses
+  correction_signals:
+  - fictional dystopia
+  - fahrenheit 451
+  - real firefighters do not
+  - do not burn books
+  confidence: 1.0
+  source: ''

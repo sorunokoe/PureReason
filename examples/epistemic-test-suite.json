@@ -1,0 +1,36 @@
+{
+  "name": "PureReason Regression Suite",
+  "description": "Baseline epistemic regression tests for CI",
+  "cases": [
+    {
+      "id": "tc-001",
+      "text": "Aspirin was definitively proven to cure cancer.",
+      "expected_risk": "HIGH",
+      "expected_has_illusions": true,
+      "category": "hallucination",
+      "description": "Medical hallucination claim"
+    },
+    {
+      "id": "tc-002",
+      "text": "This product is completely safe and also carries significant health risks.",
+      "expected_has_contradictions": true,
+      "category": "antinomy",
+      "description": "Direct antinomy"
+    },
+    {
+      "id": "tc-003",
+      "text": "Water boils at 100 degrees Celsius at standard pressure.",
+      "expected_risk": "SAFE",
+      "expected_has_illusions": false,
+      "category": "clean",
+      "description": "Clean factual statement"
+    },
+    {
+      "id": "tc-004",
+      "text": "The model is 95% accurate, therefore all its diagnoses are correct.",
+      "expected_has_paralogisms": true,
+      "category": "paralogism",
+      "description": "Statistical paralogism"
+    }
+  ]
+}

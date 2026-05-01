@@ -1,0 +1,28 @@
+version: "1.0"
+domain: "medical"
+description: "Medical and healthcare domain"
+
+detection:
+  patterns:
+    - "\\b(patient|diagnosis|treatment|prognosis|symptom|disease|medication|drug)\\b"
+    - "\\b(medical|clinical|pharmaceutical|therapeutic|hospital|side effects?)\\b"
+  confidence_threshold: 0.5
+
+ensemble_weights:
+  kac_detector: 1.5
+  numeric_detector: 2.0
+  semantic_detector: 1.2
+  novelty_detector: 1.3
+  contradiction_detector: 1.8
+
+risk_thresholds:
+  critical: 0.85
+  high: 0.70
+  medium: 0.40
+  low: 0.20
+
+calibration:
+  method: "platt_scaling"
+  parameters:
+    A: 1.35
+    B: -0.42

@@ -1,0 +1,16 @@
+[package]
+name = "pure-reason-bench"
+version = "0.1.0"
+edition = "2021"
+description = "Epistemic regression testing and benchmarking for PureReason"
+
+[[bin]]
+name = "pure-reason-bench"
+path = "src/main.rs"
+
+[dependencies]
+pure-reason-core = { path = "../pure-reason-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }
+chrono = { workspace = true }

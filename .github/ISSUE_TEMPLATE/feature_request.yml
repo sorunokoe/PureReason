@@ -1,0 +1,60 @@
+name: Feature Request
+description: Suggest an idea or improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement to PureReason!
+
+        PureReason is a **pure deterministic verifier** — features must work without any LLM,
+        API key, or external model. Please keep this constraint in mind.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What problem does this feature solve? What is the use case?
+      placeholder: "I'm trying to... but PureReason currently can't..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the feature you'd like to see.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Core ECS scoring
+        - Domain rewriter (medical / legal / financial / technical)
+        - Reasoning chain verifier (vCoT)
+        - Arithmetic solver
+        - Syllogism / Z3 verifier
+        - CLI
+        - REST API
+        - Python SDK
+        - Rust library
+        - Benchmarks
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What alternatives have you considered?
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Any other context, examples, or references.

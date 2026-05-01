@@ -1,0 +1,6 @@
+# Workspace-level Cargo configuration
+
+# On macOS, PyO3 cdylib extensions must use dynamic_lookup for Python symbols.
+# Python provides them at runtime when the extension is imported.
+[target.'cfg(target_os = "macos")']
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]

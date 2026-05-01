@@ -1,0 +1,92 @@
+# PureReason Evaluation Protocol — Pre-registered (S30)
+#
+# All benchmark results published in docs/BENCHMARK.md MUST be produced under
+# these parameters.  Deviation requires a new table section with explicit
+# annotation.
+#
+# Version: 1 (locked 2026-04-17)
+# Rationale: fixes heterogeneous sampling (n=50/100/200) identified in
+#   editorial review J6 and TRIZ Report XI S30.
+
+version: 1
+locked_date: "2026-04-17"
+
+sampling:
+  seed: 42
+  n_per_class: 200        # balanced positive + negative samples
+  min_n_per_class: 100    # allowed minimum for new/small benchmarks
+
+statistics:
+  confidence_interval: wilson_95   # Wilson score interval, 95 % confidence
+  metrics: [precision, recall, f1, accuracy]
+  report_ci_for: [f1]              # CI columns required in docs/BENCHMARK.md tables
+  decimal_places: 3
+
+benchmarks:
+  # Existing registered benchmarks (DO NOT change sampling params without new section)
+  truthfulqa:
+    file: truthfulqa/TruthfulQA.csv
+    task: ungrounded_qa
+    verdict_fn: verdict_is_issue_ungrounded
+    note: "Open-world truthfulness; world-prior atlas is primary signal."
+
+  halueval_qa:
+    file: halueval/qa_data.json
+    task: grounded_qa
+    verdict_fn: verdict_is_issue_grounded
+    note: "Knowledge-grounded QA; KAC + entity novelty are primary signals."
+
+  halueval_dialogue:
+    file: halueval/dialogue_data.json
+    task: grounded_dialogue
+    verdict_fn: verdict_is_issue_grounded
+    note: "Conversational grounding; precision target over recall."
+
+  ragtruth:
+    file: [ragtruth/source_info.jsonl, ragtruth/response.jsonl]
+    task: grounded_rag
+    verdict_fn: verdict_is_issue_grounded
+    note: "RAG summarization; recall leadership target (R≥0.90)."
+
+  faithbench:
+    file: faithbench/FaithBench.csv
+    task: grounded_summarization
+    verdict_fn: verdict_is_issue_grounded
+    note: "Difficult NAACL 2025 summarization hallucinations."
+
+  felm:
+    file: felm/all.jsonl
+    task: felm_mixed
+    verdict_fn: verdict_is_issue_felm
+    note: "Segment-level factuality; arithmetic + STEM constants are primary signals."
+
+  # 2025–2026 new benchmarks
+  hallulens:
+    file: hallulens/precise_wiki_test.parquet
+    task: reference_answer_consistency
+    verdict_fn: verdict_is_issue_grounded
+    note: "HalluLens PreciseWiki (swiss-ai/hallulens on HF, arXiv:2504.17550). Synthetic grounding benchmark: correct answers as negatives, cross-category answer swaps as positives. Measures KAC + entity-novelty on grounded Wikipedia QA."
+
+  hallumix:
+    file: hallumix/data.jsonl
+    task: multi_domain_rag
+    verdict_fn: verdict_is_issue_grounded
+    note: "Multi-domain RAG distractors; first zero-LLM measurement target."
+
+  logicbench:
+    file: logicbench/propositional.jsonl
+    task: propositional_logic
+    verdict_fn: verdict_is_issue_grounded
+    note: "Formal propositional logic; dialectic layer primary signal."
+
+reproducibility:
+  cli_binary: "cargo build -p pure-reason-cli --release"
+  env:
+    RUST_LOG: "error"
+  workers: 8
+  timeout_per_sample_secs: 30
+
+release_gate:
+  require_all_benchmarks_in_table: true
+  require_ci_columns: true
+  block_on_regressions_gt: 0.02   # F1 regression > 0.02 blocks release

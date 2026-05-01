@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pureason"
+version = "0.2.0"
+description = "Zero-parameter epistemic calibration for AI outputs — Rust-powered deterministic verifier"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "PureReason Contributors", email = "noreply@pureason-ai.com" }]
+keywords = ["hallucination", "epistemic", "ai-safety", "llm", "calibration", "verification"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Quality Assurance",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+semantic = ["sentence-transformers>=2.2"]
+rest = ["requests>=2.28"]
+logic = ["z3-solver>=4.12"]
+nlp = ["spacy>=3.7", "word2number>=1.1"]
+dev = ["ruff>=0.4", "spacy>=3.7", "word2number>=1.1"]
+
+[project.scripts]
+pureason-check = "pureason._cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sorunokoe/PureReason"
+Repository = "https://github.com/sorunokoe/PureReason"
+Issues = "https://github.com/sorunokoe/PureReason/issues"
+Changelog = "https://github.com/sorunokoe/PureReason/releases"
+
+[tool.setuptools.packages.find]
+include = ["pureason*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = [
+    "E501",   # line too long — handled by formatter
+    "B008",   # function calls in argument defaults
+    "SIM108", # ternary operator (sometimes less readable)
+    "SIM113", # enumerate() not suitable for ThreadPoolExecutor as_completed callbacks
+    "RUF001", # ambiguous unicode in string — × and – are intentional in arithmetic code
+    "RUF002", # ambiguous unicode in docstring
+    "RUF003", # ambiguous unicode in comment
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pureason"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+

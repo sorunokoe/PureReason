@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Benchmark failure report
+    url: https://github.com/sorunokoe/PureReason/issues/new?template=benchmark_failure.yml
+    about: Report a wrong verdict to improve detection accuracy
+  - name: Discussions — Q&A
+    url: https://github.com/sorunokoe/PureReason/discussions
+    about: Ask questions, share ideas, or discuss usage

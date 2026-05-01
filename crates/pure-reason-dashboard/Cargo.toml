@@ -1,0 +1,21 @@
+[package]
+name = "pure-reason-dashboard"
+version = "0.1.0"
+edition = "2021"
+description = "Enterprise observability dashboard for PureReason epistemic validation"
+
+[[bin]]
+name = "pure-reason-dashboard"
+path = "src/main.rs"
+
+[dependencies]
+pure-reason-core = { path = "../pure-reason-core" }
+axum = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+clap = { workspace = true }
+uuid = { workspace = true }

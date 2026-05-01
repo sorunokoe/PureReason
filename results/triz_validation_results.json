@@ -1,0 +1,46 @@
+{
+  "validation_date": "2026-05-01 15:20:59",
+  "results": [
+    {
+      "benchmark_name": "pre_gate_latency",
+      "with_triz": true,
+      "avg_latency_ms": 5.5104164918884635,
+      "p50_latency_ms": 2.5116249453276396,
+      "p95_latency_ms": 18.75999988988042,
+      "p99_latency_ms": 18.764542182907462,
+      "accuracy": 0.0,
+      "f1_score": 0.0,
+      "total_claims": 200,
+      "short_circuited": 160
+    },
+    {
+      "benchmark_name": "meta_learner_adaptation",
+      "with_triz": true,
+      "avg_latency_ms": 0,
+      "p50_latency_ms": 0,
+      "p95_latency_ms": 0,
+      "p99_latency_ms": 0,
+      "accuracy": 0.0,
+      "f1_score": 0.825,
+      "total_claims": 200,
+      "short_circuited": 0
+    },
+    {
+      "benchmark_name": "domain_calibration_drift",
+      "with_triz": true,
+      "avg_latency_ms": 0,
+      "p50_latency_ms": 0,
+      "p95_latency_ms": 0,
+      "p99_latency_ms": 0,
+      "accuracy": 5.0,
+      "f1_score": 0.0,
+      "total_claims": 200,
+      "short_circuited": 0
+    }
+  ],
+  "summary": {
+    "pre_gate_short_circuit_rate": "80.0%",
+    "meta_learner_f1_improvement": "+82.5pp",
+    "domain_calibration_improvement": "\u00b15.0pp"
+  }
+}

@@ -1,0 +1,78 @@
+name: Benchmark Failure
+description: PureReason produced the wrong verdict on a specific input
+labels: ["benchmark-failure", "detection"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a case where PureReason is wrong? Great — these reports directly drive
+        improvements to the detection engine and world-prior atlas.
+
+  - type: textarea
+    id: input
+    attributes:
+      label: Input text
+      description: The exact text passed to PureReason (context + question + answer if applicable).
+      placeholder: |
+        Knowledge: The capital of France is Paris.
+        Question: What is the capital of France?
+        Answer: The capital of France is Lyon.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: wrong_verdict
+    attributes:
+      label: PureReason's verdict (wrong)
+      options:
+        - "Hallucination / Issue (but it is actually correct)"
+        - "Not hallucination / No issue (but it is actually wrong)"
+        - "ECS too high (text is overconfident)"
+        - "ECS too low (text is well-calibrated)"
+        - "Wrong rewrite"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Correct verdict
+      description: What should PureReason have returned?
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source / ground truth
+      description: URL or citation that confirms the correct answer.
+      placeholder: "https://en.wikipedia.org/wiki/..."
+
+  - type: dropdown
+    id: benchmark
+    attributes:
+      label: Benchmark / category (if applicable)
+      options:
+        - HaluEval QA
+        - HaluEval Dialogue
+        - TruthfulQA
+        - FELM
+        - LogicBench
+        - HalluMix
+        - HalluLens
+        - RAGTruth
+        - FaithBench
+        - Custom / other
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command used (if CLI)
+      placeholder: "pure-reason calibrate \"...\""
+
+  - type: input
+    id: version
+    attributes:
+      label: PureReason version
+      placeholder: "0.2.0"

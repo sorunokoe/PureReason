@@ -1,0 +1,16 @@
+[package]
+name = "pure-reason-py"
+description = "Python bindings for the PureReason Kantian reasoning system via PyO3"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+name = "pure_reason"
+crate-type = ["cdylib"]
+
+[dependencies]
+pure-reason-core = { path = "../pure-reason-core" }
+pyo3 = { version = "0.22", features = ["extension-module"] }
+serde_json = { workspace = true }
