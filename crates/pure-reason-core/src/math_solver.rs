@@ -128,12 +128,11 @@ impl MathSolver {
                 '+' | '-' if paren_depth == 0 => {
                     // Minus is a sign if it follows an operator or paren, otherwise it's subtraction
                     let is_sign = i > 0 && "+-*/(^%".contains(chars[i - 1]);
-                    if !is_sign {
-                        if min_precedence > 1 {
+                    if !is_sign
+                        && min_precedence > 1 {
                             min_precedence = 1;
                             split_pos = Some((i, chars[i]));
                         }
-                    }
                 }
                 '*' | '/' | '%' if paren_depth == 0 => {
                     if min_precedence > 2 {

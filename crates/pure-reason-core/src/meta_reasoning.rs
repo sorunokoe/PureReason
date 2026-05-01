@@ -174,7 +174,7 @@ impl MetaReasoner {
         // Record outcome for this path
         self.phase_performance_history
             .entry(reasoning_path.to_string())
-            .or_insert_with(Vec::new)
+            .or_default()
             .push(was_correct);
 
         // Adaptive threshold: if many successes, we can be more aggressive

@@ -331,8 +331,8 @@ mod tests {
         let points = create_test_points();
         let curve = CalibrationCurve::from_points("test".to_string(), points, 0.1);
         let (threshold, f1) = curve.optimal_f1_threshold();
-        assert!(threshold >= 0.0 && threshold <= 1.0);
-        assert!(f1 >= 0.0 && f1 <= 1.0);
+        assert!((0.0..=1.0).contains(&threshold));
+        assert!((0.0..=1.0).contains(&f1));
     }
 
     #[test]
@@ -368,7 +368,7 @@ mod tests {
         let points = create_test_points();
         let curve = CalibrationCurve::from_points("test".to_string(), points, 0.1);
 
-        let f1_threshold = ThresholdStrategy::MaximizeF1.recommend(&curve);
+        let _f1_threshold = ThresholdStrategy::MaximizeF1.recommend(&curve);
         let precision_threshold = ThresholdStrategy::HighPrecision.recommend(&curve);
         let recall_threshold = ThresholdStrategy::HighRecall.recommend(&curve);
 

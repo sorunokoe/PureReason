@@ -691,7 +691,7 @@ impl KantianPipeline {
         // Domain governance: infer domain and apply thresholds
         let inferred_domain_governance = domain_governance::infer_domain(answer_text);
         let _governance_check = domain_governance::check_governance(
-            inferred_domain_governance.clone(),
+            inferred_domain_governance,
             answer_text,
             ensemble_confidence,
             true, // Treating as falsifiable for now
@@ -712,7 +712,7 @@ impl KantianPipeline {
         // ── [PHASE 3.5.1: SYMBOLIC VERIFICATION] ─────────────────────────────
         // Constraint checking for hallucination detection
         let symbolic_penalty = {
-            let verifier = SymbolicVerifier::for_domain(inferred_domain.clone());
+            let verifier = SymbolicVerifier::for_domain(inferred_domain);
             let check_result = verifier.verify_reasoning(answer_text);
             check_result.confidence_penalty
         };
@@ -736,7 +736,7 @@ impl KantianPipeline {
 
         // ── [PHASE 3.5.2: PROCESS REWARD MODEL] ─────────────────────────────
         // Domain-specific phase weighting for refined scoring
-        let reward_model = ProcessRewardModel::for_domain(inferred_domain.clone());
+        let reward_model = ProcessRewardModel::for_domain(inferred_domain);
         let phase_scores = vec![
             phase_a_signal, // CoT
             0.50,           // Uncertainty (proxy)
@@ -749,7 +749,7 @@ impl KantianPipeline {
 
         // ── [PHASE 3.5.3: META-REASONING] ────────────────────────────────────
         // Adaptive routing based on reasoning quality
-        let mut meta_reasoner = MetaReasoner::for_domain(inferred_domain.clone());
+        let mut meta_reasoner = MetaReasoner::for_domain(inferred_domain);
         let routing_result = meta_reasoner.self_critique_and_route(reward_adjusted_confidence);
         let final_routed_confidence = routing_result.confidence;
 

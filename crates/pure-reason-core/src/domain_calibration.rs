@@ -175,11 +175,10 @@ impl DomainCalibrator {
 
             let confidence = match_count as f64 / patterns.len() as f64;
 
-            if confidence >= config.detection.confidence_threshold {
-                if best_match.is_none() || confidence > best_match.as_ref().unwrap().1 {
+            if confidence >= config.detection.confidence_threshold
+                && (best_match.is_none() || confidence > best_match.as_ref().unwrap().1) {
                     best_match = Some((domain_name.clone(), confidence));
                 }
-            }
         }
 
         // Fallback to general domain
@@ -294,7 +293,7 @@ impl DomainConfig {
             let b = self.calibration.parameters.b;
 
             // Logistic function
-            1.0 / (1.0 + (-1.0 * (a * raw_score + b)).exp())
+            1.0 / (1.0 + (-(a * raw_score + b)).exp())
         } else {
             // Isotonic regression not yet implemented, return raw
             raw_score

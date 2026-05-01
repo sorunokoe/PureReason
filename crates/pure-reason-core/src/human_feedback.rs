@@ -162,7 +162,7 @@ impl FeedbackManager {
         for annotation in &self.annotations {
             insights_map
                 .entry(annotation.recommended_phase.clone())
-                .or_insert_with(Vec::new)
+                .or_default()
                 .push(annotation);
         }
 
@@ -524,6 +524,6 @@ mod tests {
 
         fm.extract_insights();
         let recs = fm.get_domain_recommendations("medical");
-        assert!(recs.len() > 0);
+        assert!(!recs.is_empty());
     }
 }

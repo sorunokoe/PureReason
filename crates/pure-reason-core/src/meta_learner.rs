@@ -85,7 +85,7 @@ impl MetaLearner {
         self.total_cases += 1;
         self.failures_by_benchmark
             .entry(failure.benchmark.clone())
-            .or_insert_with(Vec::new)
+            .or_default()
             .push(failure);
 
         // Update learning progress (increase toward 1.0 with diminishing returns)
@@ -131,7 +131,7 @@ impl MetaLearner {
                 // Store effectiveness metric
                 self.phase_effectiveness
                     .entry(phase.clone())
-                    .or_insert_with(HashMap::new)
+                    .or_default()
                     .insert(benchmark.clone(), 1.0 - failure_rate);
             }
         }

@@ -4,7 +4,7 @@
 //! can be applied to the ensemble verifier.
 
 use pure_reason_core::domain_config::{
-    ConfidenceThresholds, Domain, DomainConfig, EnsembleWeights, Tier2Phases,
+    ConfidenceThresholds, Domain, DomainConfig, EnsembleWeights,
 };
 
 #[test]

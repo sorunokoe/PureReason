@@ -296,7 +296,7 @@ impl PreVerifier {
         // Capitalized words (proxy for named entities)
         let capitalized_count = text
             .split_whitespace()
-            .filter(|w| w.chars().next().map_or(false, |c| c.is_uppercase()))
+            .filter(|w| w.chars().next().is_some_and(|c| c.is_uppercase()))
             .count();
         score += match capitalized_count {
             0..=2 => 0,

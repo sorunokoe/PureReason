@@ -156,7 +156,7 @@ impl ErrorAnalysis {
             *freq_map.entry(error.error_type).or_insert(0) += 1;
             domain_map
                 .entry(error.error_type)
-                .or_insert_with(std::collections::HashSet::new)
+                .or_default()
                 .insert(error.domain.clone());
         }
 

@@ -237,8 +237,8 @@ impl BenchmarkResultsPackage {
             self.competitive.deepseek_r1.cost_per_1m,
             self.competitive.evicheck.cost_per_1m
         ));
-        md.push_str(&format!("| Deterministic | ✅ | ❌ | ❌ | ✅ |\n"));
-        md.push_str(&format!("| Explainable | ✅ | ❌ | ✅ | ❌ |\n"));
+        md.push_str("| Deterministic | ✅ | ❌ | ❌ | ✅ |\n");
+        md.push_str("| Explainable | ✅ | ❌ | ✅ | ❌ |\n");
 
         md.push_str("\n## Reproducibility\n\n");
         md.push_str(&format!(

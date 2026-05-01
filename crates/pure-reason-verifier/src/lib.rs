@@ -29,7 +29,6 @@ use pure_reason_core::{
     contradiction_detector::{extract_claims, find_contradictions},
     math_solver::MathSolver,
     pipeline::{KantianPipeline, RiskLevel},
-    pre_verification_v2::{PreVerdict, PreVerificationConfig, PreVerifier},
     structured_validator::StructuredDecisionValidator,
 };
 use pure_reason_trace::{

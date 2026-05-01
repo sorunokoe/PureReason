@@ -49,7 +49,7 @@ def load_model():
 
         print(f"✓ Model loaded from {model_path}", file=sys.stderr)
     except Exception as e:
-        raise RuntimeError(f"Failed to load model: {e}")
+        raise RuntimeError(f"Failed to load model: {e}") from e
 
 
 def infer(knowledge: str, claim: str) -> dict[str, float]:
@@ -107,7 +107,7 @@ def infer(knowledge: str, claim: str) -> dict[str, float]:
         }
 
     except Exception as e:
-        raise RuntimeError(f"Inference failed: {e}")
+        raise RuntimeError(f"Inference failed: {e}") from e
 
 
 def main():

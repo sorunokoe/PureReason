@@ -111,7 +111,7 @@ impl CompetitiveReport {
     pub fn compute_ranking(&mut self) {
         let mut better_count = 0;
 
-        for (_name, f1) in &self.competitor_f1s {
+        for f1 in self.competitor_f1s.values() {
             if self.our_f1 > *f1 {
                 better_count += 1;
             }

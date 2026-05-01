@@ -196,7 +196,7 @@ impl SessionMetaLearner {
 
         // Adapt weights every adapt_frequency calls (after warmup)
         if self.call_count >= self.config.warmup_calls
-            && self.call_count % self.config.adapt_frequency == 0
+            && self.call_count.is_multiple_of(self.config.adapt_frequency)
         {
             self.adapt_weights();
         }
@@ -262,7 +262,7 @@ mod tests {
 
     #[test]
     fn test_warmup_period() {
-        let mut learner = SessionMetaLearner::new();
+        let learner = SessionMetaLearner::new();
         assert!(learner.is_warmup());
         assert_eq!(learner.call_count(), 0);
 

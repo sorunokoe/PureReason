@@ -8,10 +8,10 @@
 //! - Wikipedia corpus (P40)
 
 use pure_reason_core::{
-    domain_calibration::{DetectedDomain, DomainCalibrator},
-    meta_learner_v2::{EnsembleWeights, MetaLearnerConfig, SessionMetaLearner},
+    domain_calibration::DomainCalibrator,
+    meta_learner_v2::SessionMetaLearner,
     pre_verification_v2::{PreVerificationConfig, PreVerifier},
-    semantic_fallback::{SemanticFallbackConfig, SemanticFallbackDetector},
+    semantic_fallback::SemanticFallbackDetector,
     wikipedia_corpus::WikipediaCorpus,
 };
 use std::path::PathBuf;

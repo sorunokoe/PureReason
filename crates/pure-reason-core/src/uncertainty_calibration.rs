@@ -397,7 +397,7 @@ mod tests {
         let low = manager.calibrated_confidence("medical", 0.3);
         let high = manager.calibrated_confidence("medical", 0.7);
         // Calibration should increase low and decrease high
-        assert!(low > 0.3 || low == 0.3);
-        assert!(high < 0.7 || high == 0.7);
+        assert!(low >= 0.3);
+        assert!(high <= 0.7);
     }
 }

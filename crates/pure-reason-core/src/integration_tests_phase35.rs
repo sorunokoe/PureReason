@@ -203,9 +203,9 @@ mod integration_tests {
 
         // WHEN: Create Phase 3.5 modules for each domain
         for domain in domains {
-            let _verifier = SymbolicVerifier::for_domain(domain.clone());
-            let _model = ProcessRewardModel::for_domain(domain.clone());
-            let _reasoner = MetaReasoner::for_domain(domain.clone());
+            let _verifier = SymbolicVerifier::for_domain(domain);
+            let _model = ProcessRewardModel::for_domain(domain);
+            let _reasoner = MetaReasoner::for_domain(domain);
         }
 
         // THEN: All should create successfully without panic
