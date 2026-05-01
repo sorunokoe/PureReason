@@ -88,15 +88,16 @@ pub struct PreVerifier {
     config: PreVerificationConfig,
 }
 
+impl Default for PreVerifier {
+    fn default() -> Self {
+        Self::new(PreVerificationConfig::default())
+    }
+}
+
 impl PreVerifier {
     /// Create new pre-verifier with configuration.
     pub fn new(config: PreVerificationConfig) -> Self {
         Self { config }
-    }
-
-    /// Create pre-verifier with default configuration.
-    pub fn default() -> Self {
-        Self::new(PreVerificationConfig::default())
     }
 
     /// Run pre-verification checks.

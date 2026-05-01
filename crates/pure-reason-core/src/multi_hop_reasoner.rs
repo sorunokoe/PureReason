@@ -88,7 +88,7 @@ impl ReasoningStep {
             input,
             reasoning,
             output,
-            confidence: confidence.max(0.0).min(1.0),
+            confidence: confidence.clamp(0.0, 1.0),
             confidence_reason: reason,
         }
     }
@@ -163,7 +163,7 @@ impl ReasoningChain {
             conclusion,
             forward_confidence,
             backward_confidence,
-            overall_confidence: overall_confidence.max(0.0).min(1.0),
+            overall_confidence: overall_confidence.clamp(0.0, 1.0),
             weakest_step_index,
             is_coherent,
         }

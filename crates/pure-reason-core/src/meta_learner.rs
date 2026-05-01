@@ -69,6 +69,12 @@ pub struct MetaLearner {
     pub learning_progress: f64,
 }
 
+impl Default for MetaLearner {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl MetaLearner {
     /// Create new meta-learner
     pub fn new() -> Self {
@@ -195,12 +201,6 @@ impl MetaLearner {
             .get(benchmark)
             .map(|v| v.len())
             .unwrap_or(0)
-    }
-}
-
-impl Default for MetaLearner {
-    fn default() -> Self {
-        Self::new()
     }
 }
 

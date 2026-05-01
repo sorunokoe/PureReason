@@ -123,6 +123,6 @@ mod triz_integration_tests {
         );
 
         // All components should work together without panicking
-        assert!(true, "End-to-end integration successful");
+        eprintln!("End-to-end integration successful");
     }
 }

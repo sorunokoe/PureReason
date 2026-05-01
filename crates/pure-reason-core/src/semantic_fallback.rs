@@ -208,7 +208,6 @@ impl SemanticFallbackDetector {
 /// 4. **Candle** - Use Hugging Face Candle (Rust ML framework)
 ///
 /// Recommended for Phase 2: ONNX (best performance, no Python dependency).
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -218,8 +217,8 @@ mod tests {
         let detector = SemanticFallbackDetector::new().unwrap();
         // Check if available (may be true if sentence-transformers installed)
         let available = detector.is_available();
-        // Should not panic regardless of availability
-        assert!(available || !available); // Always true, just verifying no panic
+        // Just verify no panic - result can be true or false depending on environment
+        let _ = available;
     }
 
     #[test]

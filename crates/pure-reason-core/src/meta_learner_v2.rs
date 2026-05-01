@@ -137,6 +137,12 @@ pub struct SessionMetaLearner {
     call_count: usize,
 }
 
+impl Default for SessionMetaLearner {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl SessionMetaLearner {
     /// Create new session meta-learner with default configuration.
     pub fn new() -> Self {

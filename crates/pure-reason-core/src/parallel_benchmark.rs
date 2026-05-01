@@ -11,7 +11,8 @@
 //! - HumanEval: 164 tasks
 //! - DROP: 10,000 tasks
 //! - MATH: 12,500 tasks
-//! **Total**: 44,000+ tasks
+//!
+//!   **Total**: 44,000+ tasks
 
 use crate::benchmark_integration::{BenchmarkMetrics, BenchmarkTask, TaskResult};
 use serde::{Deserialize, Serialize};

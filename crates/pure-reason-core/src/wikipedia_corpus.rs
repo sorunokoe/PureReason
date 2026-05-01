@@ -401,8 +401,8 @@ mod tests {
         cache.insert("query4".to_string(), articles1.clone());
 
         assert_eq!(cache.cache.len(), 3);
-        assert!(cache.cache.get("query1").is_none());
-        assert!(cache.cache.get("query4").is_some());
+        assert!(!cache.cache.contains_key("query1"));
+        assert!(cache.cache.contains_key("query4"));
     }
 
     #[test]
