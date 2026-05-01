@@ -8,7 +8,7 @@
 ╚═════════════════════════════╝
 </pre>
 
-[![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.3.1-blue.svg)](CHANGELOG.md)
 [![CI](https://github.com/sorunokoe/PureReason/actions/workflows/lint.yml/badge.svg)](https://github.com/sorunokoe/PureReason/actions/workflows/lint.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Rust 1.75+](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
@@ -16,7 +16,7 @@
 [![MCP](https://img.shields.io/badge/integration-MCP%2FCLI-blue.svg)](#default-operating-mode)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./.github/CONTRIBUTING.md)
 
-**✨ NEW: [v0.3.0 Release](#whats-new-in-v030) – Systematic Performance Improvements**
+**✨ NEW: [v0.3.1 Release](#whats-new-in-v030) – Neural Models Implementation**
 
 </div>
 
