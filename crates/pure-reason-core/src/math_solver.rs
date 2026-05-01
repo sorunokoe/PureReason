@@ -133,17 +133,13 @@ impl MathSolver {
                         split_pos = Some((i, chars[i]));
                     }
                 }
-                '*' | '/' | '%' if paren_depth == 0 => {
-                    if min_precedence > 2 {
-                        min_precedence = 2;
-                        split_pos = Some((i, chars[i]));
-                    }
+                '*' | '/' | '%' if paren_depth == 0 && min_precedence > 2 => {
+                    min_precedence = 2;
+                    split_pos = Some((i, chars[i]));
                 }
-                '^' if paren_depth == 0 => {
-                    if min_precedence > 3 {
-                        min_precedence = 3;
-                        split_pos = Some((i, chars[i]));
-                    }
+                '^' if paren_depth == 0 && min_precedence > 3 => {
+                    min_precedence = 3;
+                    split_pos = Some((i, chars[i]));
                 }
                 _ => {}
             }

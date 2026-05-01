@@ -197,7 +197,7 @@ impl ErrorAnalysis {
             .collect();
 
         // Sort by frequency descending
-        patterns.sort_by(|a, b| b.frequency.cmp(&a.frequency));
+        patterns.sort_by_key(|p| std::cmp::Reverse(p.frequency));
 
         // Get top errors by frequency
         let top_errors = patterns.iter().take(3).map(|p| p.error_type).collect();
