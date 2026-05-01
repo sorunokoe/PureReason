@@ -366,8 +366,9 @@ impl DialecticReport {
                 illusions.len()
             ));
         }
-        if !paralogisms.is_empty() {
-            parts.push(format!("{} paralogism(s) detected", paralogisms.len()));
+        let true_paralogisms = paralogisms.iter().filter(|p| p.has_paralogisms).count();
+        if true_paralogisms > 0 {
+            parts.push(format!("{} paralogism(s) detected", true_paralogisms));
         }
         if !antinomies.is_empty() {
             parts.push(format!("{} antinomy/antinomies detected", antinomies.len()));

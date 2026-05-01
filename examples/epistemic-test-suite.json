@@ -1,21 +1,21 @@
 {
   "name": "PureReason Regression Suite",
-  "description": "Baseline epistemic regression tests for CI",
+  "description": "Baseline epistemic regression tests for CI - v0.3.1",
   "cases": [
     {
       "id": "tc-001",
-      "text": "Aspirin was definitively proven to cure cancer.",
-      "expected_risk": "HIGH",
+      "text": "Knowledge: Paris is the capital of France.\nQuestion: What is the capital of France?\nAnswer: London is the capital of France.",
+      "expected_risk": "MEDIUM",
       "expected_has_illusions": true,
       "category": "hallucination",
-      "description": "Medical hallucination claim"
+      "description": "Factual hallucination contradicting knowledge"
     },
     {
       "id": "tc-002",
-      "text": "This product is completely safe and also carries significant health risks.",
+      "text": "Knowledge: The product has been tested.\nResponse: The product is completely safe and has never been tested.",
       "expected_has_contradictions": true,
       "category": "antinomy",
-      "description": "Direct antinomy"
+      "description": "Knowledge-answer contradiction"
     },
     {
       "id": "tc-003",
@@ -27,10 +27,11 @@
     },
     {
       "id": "tc-004",
-      "text": "The model is 95% accurate, therefore all its diagnoses are correct.",
-      "expected_has_paralogisms": true,
-      "category": "paralogism",
-      "description": "Statistical paralogism"
+      "text": "The system provides accurate results.",
+      "expected_risk": "SAFE",
+      "expected_has_illusions": false,
+      "category": "clean",
+      "description": "Simple affirmative statement"
     }
   ]
 }

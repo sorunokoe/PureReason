@@ -871,7 +871,7 @@ impl PipelineReport {
         ));
         md.push_str(&format!(
             "- Paralogism reports: {}\n\n",
-            self.dialectic.paralogisms.len()
+            self.dialectic.paralogisms.iter().filter(|p| p.has_paralogisms).count()
         ));
 
         md.push_str("## Wittgenstein\n");
