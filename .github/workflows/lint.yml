@@ -44,6 +44,9 @@ jobs:
       - name: Install package
         run: pip install -e ".[logic,nlp]"
 
+      - name: Download spaCy model
+        run: python -m spacy download en_core_web_sm
+
       - name: Run tests
         run: python3 -m unittest discover -s tests -p "test_*.py" -v
 
