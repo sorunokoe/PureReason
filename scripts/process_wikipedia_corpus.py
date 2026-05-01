@@ -14,7 +14,6 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from typing import List
 
 try:
     import spacy
@@ -24,7 +23,7 @@ except ImportError:
     print("Warning: spaCy not available. Entity extraction will be disabled.")
 
 
-def extract_entities(text: str, nlp) -> List[str]:
+def extract_entities(text: str, nlp) -> list[str]:
     """Extract named entities from text using spaCy."""
     if not SPACY_AVAILABLE or nlp is None:
         return []
@@ -56,7 +55,7 @@ def clean_abstract(text: str) -> str:
 def parse_wikipedia_xml(xml_file: str, output_file: str, spacy_model: str = 'en_core_web_sm'):
     """
     Parse Wikipedia XML dump and convert to JSONL format.
-    
+
     Args:
         xml_file: Path to enwiki-latest-abstract.xml
         output_file: Path to output JSONL file

@@ -4,7 +4,7 @@ TRIZ Validation Benchmark
 
 Measures actual performance gains from TRIZ improvements:
 - Pre-gate latency reduction
-- Meta-learner F1 improvement  
+- Meta-learner F1 improvement
 - Domain calibration ECS accuracy
 - Overall system performance
 
@@ -16,7 +16,6 @@ import statistics
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Dict, List
 
 
 @dataclass
@@ -39,7 +38,7 @@ class ValidationResult:
     total_claims: int = 0
     short_circuited: int = 0
 
-def measure_latency_distribution(latencies: List[float]) -> Dict[str, float]:
+def measure_latency_distribution(latencies: list[float]) -> dict[str, float]:
     """Calculate latency percentiles."""
     if not latencies:
         return {"avg": 0, "p50": 0, "p95": 0, "p99": 0}
@@ -57,7 +56,7 @@ def measure_latency_distribution(latencies: List[float]) -> Dict[str, float]:
 def run_pre_gate_validation() -> ValidationResult:
     """
     Validate pre-gate performance improvement.
-    
+
     Expected: -40% latency on 60% of claims
     """
     print("🔍 Validating Pre-Gate Performance...")
@@ -115,7 +114,7 @@ def run_pre_gate_validation() -> ValidationResult:
 def run_meta_learner_validation() -> ValidationResult:
     """
     Validate meta-learner adaptation.
-    
+
     Expected: +5-10pp F1 after 100-call warmup
     """
     print("\n🔍 Validating Meta-Learner Adaptation...")
@@ -156,7 +155,7 @@ def run_meta_learner_validation() -> ValidationResult:
 def run_domain_calibration_validation() -> ValidationResult:
     """
     Validate domain calibration accuracy.
-    
+
     Expected: ±5pp ECS drift (vs ±15pp before)
     """
     print("\n🔍 Validating Domain Calibration...")
@@ -183,7 +182,7 @@ def run_domain_calibration_validation() -> ValidationResult:
 
     return result
 
-def generate_report(results: List[ValidationResult], output_path: Path):
+def generate_report(results: list[ValidationResult], output_path: Path):
     """Generate validation report."""
     print("\n📊 Generating validation report...")
 

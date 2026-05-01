@@ -71,9 +71,7 @@ def universal_verdict(text: str, verdict: dict) -> bool:
         return True
     if reasoning_chain_consistency_oracle(text):
         return True
-    if _entity_novelty_grounded(text):
-        return True
-    return False
+    return bool(_entity_novelty_grounded(text))
 
 
 # ─── Deprecated per-benchmark aliases ────────────────────────────────────────

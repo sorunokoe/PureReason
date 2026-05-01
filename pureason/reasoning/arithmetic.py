@@ -142,7 +142,7 @@ def _detect_operation(text: str) -> str | None:
 
     nlp = _get_nlp()
     doc = nlp(text.lower())
-    all_lemmas: set[str] = {t.lemma_ for t in doc if not t.is_punct and not t.is_space}
+    {t.lemma_ for t in doc if not t.is_punct and not t.is_space}
 
     # Scope context-sensitive signals to the question sentence (last sentence).
     question_sent = _re.split(r"[.!]\s+", text.lower())[-1].strip()

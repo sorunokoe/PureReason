@@ -17,10 +17,9 @@ import gzip
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Set
 
 
-def load_corpus_ids(corpus_file: str) -> Set[str]:
+def load_corpus_ids(corpus_file: str) -> set[str]:
     """Load article IDs from compressed JSONL corpus."""
     ids = set()
 
@@ -34,10 +33,10 @@ def load_corpus_ids(corpus_file: str) -> Set[str]:
     return ids
 
 
-def load_benchmark_sources(benchmark_name: str) -> Set[str]:
+def load_benchmark_sources(benchmark_name: str) -> set[str]:
     """
     Load source article IDs/titles from benchmark dataset.
-    
+
     Returns set of identifiers (Wikipedia IDs or normalized titles).
     """
     # Map benchmark names to their data files
@@ -76,7 +75,7 @@ def load_benchmark_sources(benchmark_name: str) -> Set[str]:
     return sources
 
 
-def compute_overlap(corpus_ids: Set[str], benchmark_sources: Set[str]) -> Dict:
+def compute_overlap(corpus_ids: set[str], benchmark_sources: set[str]) -> dict:
     """Compute overlap between corpus and benchmark sources."""
     overlapping = corpus_ids & benchmark_sources
 
@@ -91,10 +90,10 @@ def compute_overlap(corpus_ids: Set[str], benchmark_sources: Set[str]) -> Dict:
     }
 
 
-def audit_corpus(corpus_file: str, benchmarks: List[str], threshold: float, output_file: str):
+def audit_corpus(corpus_file: str, benchmarks: list[str], threshold: float, output_file: str):
     """
     Audit corpus for benchmark leakage.
-    
+
     Args:
         corpus_file: Path to Wikipedia corpus (JSONL or JSONL.gz)
         benchmarks: List of benchmark names to check
@@ -186,7 +185,5 @@ def main():
     audit_corpus(args.corpus, benchmarks, args.threshold, args.output)
 
 
-if __name__ == '__main__':
-    main()
-__name__ == "__main__":
+if __name__ == "__main__":
     main()

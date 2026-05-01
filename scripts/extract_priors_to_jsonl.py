@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Extract misconception priors from Rust code to JSON lines."""
 
-import re
 import json
+import re
 from pathlib import Path
 
 rust_file = Path("crates/pure-reason-core/src/world_priors.rs")

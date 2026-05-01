@@ -10,7 +10,6 @@ Used by pure-reason-core pipeline to get model predictions.
 import json
 import sys
 from pathlib import Path
-from typing import Dict
 
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -53,14 +52,14 @@ def load_model():
         raise RuntimeError(f"Failed to load model: {e}")
 
 
-def infer(knowledge: str, claim: str) -> Dict[str, float]:
+def infer(knowledge: str, claim: str) -> dict[str, float]:
     """
     Infer probability that claim is FALSIFIABLE (can be fact-checked, potentially false).
-    
+
     Args:
         knowledge: Background knowledge or context
         claim: The claim to evaluate
-    
+
     Returns:
         {
             "falsifiable_prob": 0.0-1.0,     # P(can be fact-checked)

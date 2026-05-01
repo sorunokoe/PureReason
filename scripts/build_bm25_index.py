@@ -55,7 +55,7 @@ END;
 def build_index(jsonl_file: str, db_file: str, batch_size: int = 10000):
     """
     Build SQLite BM25 index from JSONL corpus.
-    
+
     Args:
         jsonl_file: Path to Wikipedia JSONL corpus
         db_file: Path to output SQLite database

@@ -17,12 +17,11 @@ import csv
 import json
 import random
 from pathlib import Path
-from typing import Dict, List
 
 # Random seed for reproducibility
 random.seed(42)
 
-def load_felm(felm_path: Path) -> List[Dict]:
+def load_felm(felm_path: Path) -> list[dict]:
     """Load FELM dataset (factual and non-factual claims)."""
     samples = []
     try:
@@ -46,7 +45,7 @@ def load_felm(felm_path: Path) -> List[Dict]:
         print(f"✗ Failed to load FELM: {e}")
     return samples
 
-def load_truthfulqa(qa_path: Path) -> List[Dict]:
+def load_truthfulqa(qa_path: Path) -> list[dict]:
     """Load TruthfulQA CSV and create synthetic pairs."""
     samples = []
     try:
@@ -86,7 +85,7 @@ def load_truthfulqa(qa_path: Path) -> List[Dict]:
         print(f"✗ Failed to load TruthfulQA: {e}")
     return samples
 
-def load_halueval(halueval_path: Path) -> List[Dict]:
+def load_halueval(halueval_path: Path) -> list[dict]:
     """Load HaluEval JSONL dataset."""
     samples = []
     try:
@@ -130,7 +129,7 @@ def format_for_distilbert(text: str) -> str:
     # Simple format: [CLS] text [SEP]
     return f"[CLS] {text} [SEP]"
 
-def balance_dataset(samples: List[Dict]) -> List[Dict]:
+def balance_dataset(samples: list[dict]) -> list[dict]:
     """Balance dataset by downsampling majority class."""
     positives = [s for s in samples if s["label"] == 1]
     negatives = [s for s in samples if s["label"] == 0]
@@ -157,7 +156,7 @@ def balance_dataset(samples: List[Dict]) -> List[Dict]:
 
     return balanced
 
-def prepare_data(data_dir: Path) -> Dict[str, List[Dict]]:
+def prepare_data(data_dir: Path) -> dict[str, list[dict]]:
     """Load all datasets, balance, and split."""
 
     print("\n" + "="*70)

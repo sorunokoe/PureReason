@@ -15,7 +15,6 @@ Expected Performance:
 import json
 import time
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import numpy as np
 import torch
@@ -38,7 +37,7 @@ torch.manual_seed(SEED)
 class FalsifiableDataset(Dataset):
     """Binary classification dataset for DistilBERT."""
 
-    def __init__(self, data: List[Dict], tokenizer, max_length: int):
+    def __init__(self, data: list[dict], tokenizer, max_length: int):
         self.data = data
         self.tokenizer = tokenizer
         self.max_length = max_length
@@ -66,7 +65,7 @@ class FalsifiableDataset(Dataset):
         }
 
 
-def compute_metrics(preds: np.ndarray, labels: np.ndarray) -> Dict[str, float]:
+def compute_metrics(preds: np.ndarray, labels: np.ndarray) -> dict[str, float]:
     """Compute precision, recall, F1."""
     from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
@@ -83,7 +82,7 @@ def compute_metrics(preds: np.ndarray, labels: np.ndarray) -> Dict[str, float]:
     }
 
 
-def evaluate(model, dataloader, device) -> Tuple[float, float]:
+def evaluate(model, dataloader, device) -> tuple[float, float]:
     """Evaluate on validation/test set. Returns loss and F1."""
     model.eval()
     total_loss = 0.0
