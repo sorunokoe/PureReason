@@ -12,224 +12,127 @@
 [![CI](https://github.com/sorunokoe/PureReason/actions/workflows/lint.yml/badge.svg)](https://github.com/sorunokoe/PureReason/actions/workflows/lint.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Rust 1.75+](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
-[![Tests](https://img.shields.io/badge/tests-693%20passing-brightgreen.svg)](#testing)
-[![MCP](https://img.shields.io/badge/integration-MCP%2FCLI-blue.svg)](#default-operating-mode)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./.github/CONTRIBUTING.md)
+[![Tests](https://img.shields.io/badge/tests-618%20passing-brightgreen.svg)](#)
+[![MCP](https://img.shields.io/badge/integration-MCP%2FCLI-blue.svg)](#quick-start)
 
-**✨ NEW: [v0.3.1 Release](#whats-new-in-v030) – Neural Models Implementation**
+**Fast hallucination detection for AI systems**
 
 </div>
 
 ---
 
-**PureReason** is a specialized **deterministic reasoning verification engine** for agentic workflows.
+## What is PureReason?
 
-It verifies, calibrates, and governs AI model outputs using symbolic logic and neural embeddings. The system is designed as a **verification layer** around frontier models (Claude, GPT, Gemini) rather than replacing them - it catches hallucinations, flags overconfidence, and scores text with a **0-100 Epistemic Confidence Score (ECS)**.
+**PureReason** verifies AI model outputs for hallucinations, contradictions, and overconfidence. It's a **verification layer** that works alongside frontier models (GPT, Claude, Gemini) - not a replacement for them.
 
-**What PureReason is best for:**
-- ✅ **Fast verification** - Deterministic checks in <5ms
-- ✅ **Hallucination detection** - Catches contradictions and fabrications
-- ✅ **Explainable decisions** - Traceable verification logic
-- ✅ **Zero API costs** - Runs completely offline
-- ✅ **Production safety** - Governance layer for AI agents
+**Use it when you need:**
+- ✅ Fast verification (<5ms per check)
+- ✅ Hallucination detection
+- ✅ Explainable decisions
+- ✅ Offline operation (zero API costs)
+- ✅ Safety layer for AI agents
 
-**What PureReason is NOT:**
-- ❌ Not a general-purpose reasoning model (use GPT-5, Claude, o1 for that)
-- ❌ Not a problem solver - verifies solutions, doesn't generate them
-- ❌ Not a replacement for frontier models - works alongside them
+**Don't use it for:**
+- ❌ General reasoning (use GPT-5, Claude, o1)
+- ❌ Problem solving (it verifies, doesn't generate)
+- ❌ Content generation
 
-The primary deployment flow is:
+## Benchmarks
 
-- the user talks to **Claude Code, Copilot, Codex, or another frontier agent**
-- that agent calls **PureReason** through MCP, the local CLI, or a loopback-local service
-- PureReason returns verification findings, regulated text, task state, and traceable review decisions
+PureReason achieves strong performance on hallucination detection benchmarks:
 
-PureReason is **not** trying to replace the agent's chat loop or own model access by default.
+| Benchmark | F1 Score | Task |
+|-----------|----------|------|
+| **HaluEval QA** | **0.871** | Question answering verification |
+| **LogicBench** | **0.846** | Structural logic detection |
+| **TruthfulQA** | **0.798** | Misconception detection |
+| **HalluLens** | **0.729** | Grounding + contradiction checks |
+| **FELM** | 0.645 | Segment-level factuality |
+| **RAGTruth** | 0.646 | Grounded hallucination detection |
+| **HalluMix** | 0.664 | Multi-domain hallucination |
+| **HaluEval Dialogue** | 0.634 | Dialogue verification |
+| **FaithBench** | 0.622 | Summarization faithfulness |
 
-## Why this exists in the agentic era
+**Performance gains** (v0.3.1):
+- +25-30pp F1 improvement over baseline
+- -40% latency reduction
+- ±5pp ECS accuracy (vs ±15pp drift before)
 
-Frontier models are powerful, but real multi-step workflows still struggle with:
+**Full methodology**: See [`docs/BENCHMARK.md`](./docs/BENCHMARK.md) and [`docs/REPRODUCIBILITY.md`](./docs/REPRODUCIBILITY.md)
 
-- non-determinism that hurts debugging and trust
-- weak auditability for tool use and long-horizon decisions
-- cost and latency blowups in chained agent runs
-- brittle tool contracts, loop/stuck states, and prompt-injection risk
-- poor review and escalation paths for high-risk actions
+## How It Works
 
-PureReason's direction is to become the **reasoning assurance layer** around
-those systems:
-
-- integrate with frontier agents through MCP, CLI, and local review contracts
-- verify plans, tool calls, and outputs before action
-- attach evidence, provenance, and reviewable traces
-- support human approval flows where risk is high
-- keep local/default workflows usable without provider credentials
-- start with **software plan/spec review** and **software change review** for AI
-  platform and engineering teams
-
-## Best current fit
-
-- existing coding agents that need a local verifier/reviewer they can call directly
-- verifying model output instead of generating it
-- local or offline reasoning checks
-- auditability and policy enforcement around sensitive workflows
-- arithmetic, logic, contradiction, and overconfidence detection
-
-## Default operating mode
-
-PureReason now has a single primary operating mode:
-
-- **local assurance** — Pure Rust / Z3 / regex / verifier-runtime stack, exposed through MCP and CLI
-
-That default path is designed to work without provider credentials because the
-frontier model already lives in the agent that is calling PureReason.
-
-Local review state is persisted by default under `~/.pure-reason/agent-state/`
-as `tasks.sqlite3`, `traces.sqlite3`, and `evidence.sqlite3`. Override the
-directory with `PURE_REASON_STATE_DIR`, or with
-`pure-reason review --state-dir ...` for one-off CLI runs. If no home directory
-can be resolved, `PURE_REASON_STATE_DIR` must be set explicitly.
-
----
-
-## Quick Start (MCP Integration)
-
-**For frontier agents (Claude Code, GitHub Copilot, Cursor)**:
-
-```bash
-# 1. Build the MCP server
-cargo build --release -p pure-reason-mcp
-
-# 2. Add to your agent's MCP config (e.g., Claude Desktop)
-# See docs/MCP-INTEGRATION.md for detailed setup
-
-# 3. Agent can now call PureReason tools:
-#    - verify_text / verify_structured_decision
-#    - review_text / review_structured_decision  
-#    - analyze / certify / regulate / validate
+```text
+Input:  "The patient must have cancer."
+Output: Risk: HIGH | Confidence: 34/100
+Flag:   Certainty overreach
+Rewrite:"The patient has findings consistent with possible malignancy."
 ```
 
-**Standalone CLI**:
+PureReason combines:
+- **Symbolic logic** - Deterministic verification using Z3
+- **Neural embeddings** - Semantic similarity detection (all-MiniLM-L6-v2)
+- **Domain calibration** - Per-domain accuracy tuning
+- **Knowledge grounding** - Entity checking and contradiction detection
+
+The typical workflow:
+1. **Frontier model** (GPT, Claude) generates output
+2. **PureReason** verifies and scores it (0-100 ECS)
+3. Agent receives verification + regulated text
+4. High-risk outputs flagged for human review
+
+## Quick Start
+
+### 1. Standalone CLI
 
 ```bash
 cargo install --path crates/pure-reason-cli --locked
 pure-reason review "The patient must have cancer."
 ```
 
-**Full integration guide**: [`docs/MCP-INTEGRATION.md`](./docs/MCP-INTEGRATION.md)
+### 2. MCP Integration (for AI agents)
 
----
+```bash
+# Build the MCP server
+cargo build --release -p pure-reason-mcp
 
-## What you get today
-
-### Core Features
-- **ECS score (0-100)** with confidence banding and domain-aware calibration
-- **Reasoning-chain verification** for arithmetic and logical steps
-- **Contradiction and hallucination-like risk detection**
-- **Domain-aware regulation/rewrite** for overconfident or risky language
-- **Agent-facing review surfaces**: MCP tools and `pure-reason review` for local agent calls
-- **Durable local review state**: persisted task, trace, and review-evidence stores for agent workflows
-- **Multiple product surfaces**: CLI, Rust library, Python wrapper, REST API, **MCP**
-- **Deterministic local mode** designed to complement existing frontier agents
-
-### What's New in v0.3.0
-
-PureReason now includes **systematic performance improvements** across the verification pipeline:
-
-- **Pre-Verification Gate V2** — Fast pre-checks (<5ms) short-circuit 60-80% of simple claims
-  - Arithmetic error detection (<1ms)
-  - Blacklist pattern matching
-  - Input complexity scoring
-  - **Impact**: -40% average latency
-
-- **Session Meta-Learner V2** — Adaptive learning adjusts detector weights based on accuracy
-  - Session-scoped (no cross-session contamination)
-  - Per-detector accuracy tracking
-  - 100-call warmup period
-  - **Impact**: +5-10pp F1 after warmup
-
-- **Domain Calibration** — Per-domain ensemble weights and ECS calibration
-  - Regex-based domain detection (medical, legal, financial, general)
-  - YAML configuration per domain
-  - Platt scaling calibration curves
-  - **Impact**: ±5pp ECS accuracy (vs ±15pp before)
-
-- **Wikipedia Corpus** — 6M Wikipedia article knowledge base with BM25 search
-  - Lazy loading SQLite FTS5 index
-  - Entity detection for novelty checking
-  - LRU cache for performance
-  - **Impact**: +18pp TruthfulQA recall (when corpus available)
-
-- **Semantic Fallback** — Embedding-based hallucination detection using all-MiniLM-L6-v2
-  - Cosine similarity threshold detection (<0.86 = hallucination)
-  - Catches semantic variations pattern matching misses
-  - Python subprocess interface with graceful fallback
-  - **Status**: Fully implemented, optimizations pending
-  - **Impact**: +8-12pp recall on narrative hallucinations
-
-**Cumulative gains**: +25-30pp F1, -40% latency, 3× better calibration accuracy
-
-See [`docs/TRIZ-IMPLEMENTATION.md`](./docs/TRIZ-IMPLEMENTATION.md) for full guide.
-
-### Competitive Context (April 2026)
-
-**PureReason's Niche:** Fast, deterministic verification layer for AI systems
-
-**Alternatives & Comparisons:**
-- **Frontier Models (GPT-5, Claude Opus 4, Gemini Ultra):** Superior for general reasoning, problem-solving, and novel tasks. Use these for generation; use PureReason to verify their output.
-- **Formal Theorem Provers (Lean, Coq):** More rigorous for mathematical proofs but require formal specifications. PureReason handles natural language.
-- **Hallucination Detection APIs:** Cloud-based, probabilistic. PureReason is local, deterministic, and explainable.
-- **Enterprise AI Governance:** Broader scope (compliance, monitoring). PureReason focuses on reasoning verification.
-
-**When to use PureReason:**
-- You need fast verification (<5ms) of AI outputs
-- You want explainable, traceable decisions
-- You operate offline or want zero API costs
-- You're building production AI agents that need safety rails
-
-**When NOT to use PureReason:**
-- You need novel problem-solving (use frontier models)
-- You need rigorous mathematical proofs (use theorem provers)
-- You need general-purpose reasoning (use GPT-5, Claude, o1)
-
----
-
-### What PureReason is NOT
-
-- **Not a general-purpose reasoning model** - Specialized for verification, not generation
-- **Not a problem solver** - Verifies and scores solutions, doesn't create them
-- **Not a content generator** - Assesses confidence in existing text
-- **Not an LLM** - Deterministic verifier, not a language model
-- **Not a replacement for domain expertise** — we flag risk, human judgment required
-- **Not yet a full agent runtime** — the current repo is stronger at verification
-  than orchestration
-- **Not for long-context** — optimized for claim-level reasoning (<10K tokens
-  vs LLM 100K+)
-
-## Evidence and roadmap
-
-When you want measured capabilities and caveats, start with:
-
-- [`docs/CAPABILITIES.md`](./docs/CAPABILITIES.md)
-- [`docs/BENCHMARK.md`](./docs/BENCHMARK.md)
-- [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md)
-- [`docs/REPRODUCIBILITY.md`](./docs/REPRODUCIBILITY.md)
-
-When you want the product direction, read:
-
-- [`docs/ADR-002.md`](./docs/ADR-002.md) — agentic reasoning assurance roadmap
-- [`docs/README.md`](./docs/README.md) — documentation index and evidence-first reading order
-
-### Example signal
-
-```text
-Input:  "The patient must have cancer."
-ECS:    34/100 (LOW)
-Flag:   Certainty overreach
-Rewrite:"The patient has findings consistent with possible malignancy."
+# Add to your agent's MCP config
+# Full guide: docs/MCP-INTEGRATION.md
 ```
 
-### Chain-of-thought check (math reasoning)
+Your agent (Claude Desktop, Cursor, GitHub Copilot) can then call PureReason verification tools.
+
+### 3. Python API
+
+```bash
+pip install pureason[semantic,logic,nlp]
+```
+
+```python
+from pureason import verify
+
+result = verify("Aspirin cures all cancers.")
+print(result["risk_level"])  # HIGH
+print(result["has_illusions"])  # True
+```
+
+### 4. REST API
+
+```bash
+cargo run -p pure-reason-api -- --bind 127.0.0.1:3000
+```
+
+## Core Features
+
+- **Hallucination detection** - Catches contradictions, fabrications, entity errors
+- **Confidence scoring** - 0-100 ECS with domain-aware calibration  
+- **Reasoning verification** - Chain-of-thought and arithmetic step checking
+- **Text regulation** - Rewrites overconfident claims to hedged language
+- **Multiple interfaces** - CLI, MCP, Python, Rust library, REST API
+- **Offline operation** - No API keys required, runs completely local
+- **Explainable results** - Traceable verification logic with evidence
+
+## Example: Chain-of-Thought Verification
 
 ```text
 Step 1: A train travels 120 miles in 2 hours.
@@ -243,145 +146,68 @@ First failing step: 2
 Reason: arithmetic_error (120 / 2 should be 60, not 90)
 ```
 
-PureReason verifies each step deterministically and pinpoints the exact failure, so you get traceable reasoning checks instead of a black-box verdict.
+PureReason verifies each step deterministically and pinpoints exact failures.
 
----
+## Advanced Usage
 
-## Python Reasoning Layer
-
-The Python layer provides formal logic verification, arithmetic reasoning, and
-MCQ evaluation on top of the Rust core.
-
-### Installation
-
-```bash
-# Base install (pure Rust scoring only)
-pip install -e .
-
-# With NLP reasoning (spaCy dependency parsing, word-to-number)
-pip install -e ".[nlp]"
-python -m spacy download en_core_web_sm
-
-# Train the arithmetic operation classifier (writes data/op_classifier.npz)
-python3 scripts/train_op_classifier.py
-
-# With zero-shot semantic operation detection
-pip install -e ".[nlp,semantic]"
-
-# Full development environment
-pip install -e ".[dev]"
-```
-
-### NLP Pipeline Architecture
-
-The reasoning layer uses **zero-hardcoded-vocabulary** NLP.  All linguistic
-knowledge lives in pre-trained models — not in word lists or regex.
-
-| Sub-system | Implementation | Replaces |
-|---|---|---|
-| Entity extraction | spaCy POS (`PROPN`, `NOUN+cap`, `NUM`) | 65-word `_NON_ENTITIES` frozenset |
-| Predicate normalisation | spaCy `token.lemma_` + stop-word filter | 49-word `_PROP_STOP` + manual stemmers |
-| Auxiliary verb detection | spaCy `token.pos_ == "AUX"` | 13-word `_AUX_VERBS` frozenset |
-| Negation exclusion | spaCy `dep_ == "neg"` | 4 hardcoded negation words in `_prop_key` |
-| Word-to-number | `word2number` library | 32-entry `_WORD_NUMS` dict |
-| Arithmetic operation detection | TF-IDF + LogReg classifier (`_clf.py`) + structural dep-tree | 32-word `_OP_LEMMAS` dict + 76 inline keyword strings |
-| NL → Z3 sentence parsing | spaCy dependency tree walk | 45 regex patterns |
-
-### Reasoning Modules
-
-```
-pureason/reasoning/
-├── _z3utils.py    spaCy NLP utilities (lemma, pred key, entity extraction)
-├── _z3ctx.py      Z3 variable registry + dep-tree NL→Z3 parser
-├── _clf.py        TF-IDF + LogReg operation classifier (pure-numpy inference)
-├── arithmetic.py  Word-problem solver (classifier + structural dep-tree + word2number)
-├── syllogism.py   Formal syllogism checker (Z3 + heuristic fallback)
-├── chain.py       Chain-of-thought step verifier
-├── repair.py      Arithmetic error detector/repairer + majority vote
-└── mcq.py         Multiple-choice question evaluator
-```
-
-### Verify a Syllogism
+### Python Reasoning Layer
 
 ```python
+# Verify formal syllogisms
 from pureason.reasoning import verify_syllogism
 
 report = verify_syllogism(
     premises=["All mammals are warm-blooded.", "Whales are mammals."],
     conclusion="Whales are warm-blooded.",
 )
-print(report.is_valid)          # True
-print(report.chain_confidence)  # 0.88
-```
+print(report.is_valid)  # True
 
-### Solve an Arithmetic Word Problem
-
-```python
+# Solve arithmetic word problems
 from pureason.reasoning import solve_arithmetic
 
-report = solve_arithmetic("Maria earned 50 dollars and spent 23 dollars. How much does she have?")
+report = solve_arithmetic("Maria earned 50 dollars and spent 23 dollars. How much?")
 print(report.answer)  # "27"
-print(report.is_valid)
 ```
 
----
-
-
+### Build from Source
 
 ```bash
 git clone https://github.com/sorunokoe/PureReason
 cd PureReason
-cargo install --path crates/pure-reason-cli --locked
-pure-reason calibrate "The patient must have cancer."
+cargo build --release
+./target/release/pure-reason review "Your text here"
 ```
-
-```bash
-# API mode (local, offline)
-cargo run -p pure-reason-api -- --bind 127.0.0.1:3000 --allow-unauthenticated
-
-# API with outbound webhooks enabled (explicit opt-in)
-cargo run -p pure-reason-api --features webhooks -- --bind 127.0.0.1:3000
-```
-
-```bash
-# Python wrapper
-python -m pip install -e .
-python -m pureason._cli calibrate "The stock will definitely double."
-```
-
-### Leakage audit (run before trusting any F1)
-
-```bash
-python3 benchmarks/benchmark_leak_audit.py --verbose
-```
-
-Fails the build if any signal string in `world_priors.rs` overlaps a
-benchmark test file. Required to pass before any new prior can land.
 
 ---
 
-## References (expanded docs and implementation)
+## Documentation
 
-| Topic | Reference |
-|---|---|
-| Architecture Decision Records | [`docs/ADR-001.md`](./docs/ADR-001.md) (Scale 1 governance), [`docs/ADR-002.md`](./docs/ADR-002.md) (Agentic assurance roadmap) |
-| **TRIZ implementation guide** | [`docs/TRIZ-IMPLEMENTATION.md`](./docs/TRIZ-IMPLEMENTATION.md) — Systematic improvements, deployment, performance |
-| TRIZ integrity report (2026-04) | [`docs/TRIZ-42.md`](./docs/TRIZ-42.md) |
-| Benchmarks and methodology | [`docs/BENCHMARK.md`](./docs/BENCHMARK.md) |
-| Methodology and ECS rationale | [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md) |
-| Reproducibility: hashes, seeds, holdout | [`docs/REPRODUCIBILITY.md`](./docs/REPRODUCIBILITY.md) |
-| Capability matrix | [`docs/CAPABILITIES.md`](./docs/CAPABILITIES.md) |
-| MCP Integration | [`docs/MCP-INTEGRATION.md`](./docs/MCP-INTEGRATION.md) — Agent integration guide |
-| CLI commands and output formats | [`crates/pure-reason-cli/`](./crates/pure-reason-cli/) |
-| Core Rust engine | [`crates/pure-reason-core/`](./crates/pure-reason-core/) |
-| REST API server | [`crates/pure-reason-api/`](./crates/pure-reason-api/) |
-| Python wrapper/SDK | [`crates/pure-reason-py/`](./crates/pure-reason-py/) |
-| Trust dashboard | [`crates/pure-reason-dashboard/`](./crates/pure-reason-dashboard/) |
-| Benchmark runner scripts | [`benchmarks/`](./benchmarks/) |
-| Contribution guide | [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md) |
+| Topic | Link |
+|-------|------|
+| **Benchmarks** | [`docs/BENCHMARK.md`](./docs/BENCHMARK.md) - Full results and methodology |
+| **Reproducibility** | [`docs/REPRODUCIBILITY.md`](./docs/REPRODUCIBILITY.md) - Seeds, hashes, holdout |
+| **MCP Integration** | [`docs/MCP-INTEGRATION.md`](./docs/MCP-INTEGRATION.md) - Agent setup guide |
+| **Capabilities** | [`docs/CAPABILITIES.md`](./docs/CAPABILITIES.md) - Feature matrix |
+| **TRIZ Guide** | [`docs/TRIZ-IMPLEMENTATION.md`](./docs/TRIZ-IMPLEMENTATION.md) - Performance improvements |
+| **API Reference** | [`crates/pure-reason-core/`](./crates/pure-reason-core/) - Core Rust engine |
+| **Contributing** | [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md) - How to contribute |
 
----
+## Use Cases
+
+**Best for:**
+- Verifying AI agent outputs before execution
+- Detecting hallucinations in RAG systems
+- Scoring confidence in generated claims
+- Offline reasoning verification
+- Production AI safety layers
+- Code agents needing local verification
+
+**Not suitable for:**
+- Novel problem solving (use GPT-5, Claude, o1)
+- Long-context reasoning (>10K tokens)
+- Real-time streaming (optimized for batch)
+- Content generation
 
 ## License
 
-Apache 2.0 — see [`LICENSE`](./LICENSE).
+Apache 2.0 — see [`LICENSE`](./LICENSE)
