@@ -11,15 +11,57 @@ from .models import EpistemicChainReport, StepVerification
 
 
 def _load_syllogism_classifier() -> tuple[object, object] | None:
-    """Load trained classifier. Returns (vectorizer, clf) or None if not found."""
+    """Load or train classifier on-the-fly. Returns (vectorizer, clf) or None if training fails."""
     try:
         import pickle
         from pathlib import Path
 
         clf_path = Path(__file__).parent.parent.parent / "data" / "syllogism_clf.pkl"
+        
+        # Try to load existing pickle
         if clf_path.exists():
-            with open(clf_path, "rb") as f:
-                return pickle.load(f)
+            try:
+                with open(clf_path, "rb") as f:
+                    return pickle.load(f)
+            except Exception:
+                # Pickle load failed (probably sklearn version mismatch)
+                # Fall through to train on-the-fly
+                pass
+        
+        # Train classifier on-the-fly if pickle doesn't exist or failed to load
+        from ._syllogism_clf import _train_syllogism_classifier
+        
+        # Get training data from benchmarks
+        try:
+            import sys
+            import os
+            # Add project root to path to import benchmarks
+            project_root = Path(__file__).parent.parent.parent
+            sys.path.insert(0, str(project_root))
+            from benchmarks.run_reasoning_verification import _INVALID_SYLLOGISMS, _VALID_SYLLOGISMS
+            
+            valid = list(_VALID_SYLLOGISMS)
+            invalid = list(_INVALID_SYLLOGISMS)
+            
+            premises_list = [list(p) for p, _ in valid] + [list(p) for p, _ in invalid]
+            conclusions = [c for _, c in valid] + [c for _, c in invalid]
+            labels = [1] * len(valid) + [0] * len(invalid)
+            
+            vectorizer, clf = _train_syllogism_classifier(premises_list, conclusions, labels)
+            
+            # Try to cache it for next time
+            try:
+                clf_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(clf_path, "wb") as f:
+                    pickle.dump((vectorizer, clf), f)
+            except Exception:
+                # Can't write cache, but that's OK
+                pass
+            
+            return vectorizer, clf
+        except Exception:
+            # Training failed, return None
+            pass
     except Exception:
         pass
     return None
