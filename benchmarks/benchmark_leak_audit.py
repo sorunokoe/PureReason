@@ -39,11 +39,12 @@ DOWNLOADS = REPO / "benchmarks" / "downloads"
 
 # ─── Signal extraction from misconceptions_corpus_v1.jsonl ────────────────────
 
+
 def extract_signals(path: Path) -> list[tuple[str, str]]:
     """Return list of (kind, signal) tuples from JSONL corpus."""
     if not path.exists():
         return []
-    
+
     out: list[tuple[str, str]] = []
     try:
         with open(path, encoding="utf-8") as fh:
@@ -55,7 +56,7 @@ def extract_signals(path: Path) -> list[tuple[str, str]]:
                     row = json.loads(line)
                 except json.JSONDecodeError:
                     continue
-                
+
                 # Extract signals from topic_signals, myth_signals, correction_signals
                 for kind in ("topic_signals", "myth_signals", "correction_signals"):
                     signals = row.get(kind, [])
@@ -67,9 +68,8 @@ def extract_signals(path: Path) -> list[tuple[str, str]]:
                                     out.append((kind, sig))
     except OSError:
         pass
-    
-    return out
 
+    return out
 
 
 # ─── Benchmark text extraction ───────────────────────────────────────────────
@@ -214,7 +214,9 @@ def find_hits(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument(
         "--jaccard",
         type=float,

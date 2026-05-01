@@ -2,11 +2,12 @@
 """Train and save syllogism validity classifier."""
 
 import sys
+
 sys.path.insert(0, '.')
 
-import numpy as np
 import pickle
-from benchmarks.run_reasoning_verification import _VALID_SYLLOGISMS, _INVALID_SYLLOGISMS
+
+from benchmarks.run_reasoning_verification import _INVALID_SYLLOGISMS, _VALID_SYLLOGISMS
 from pureason.reasoning._syllogism_clf import _train_syllogism_classifier
 
 # Prepare training data
@@ -30,6 +31,7 @@ print(f"Saved to {out_path}")
 
 # Quick validation
 from sklearn.metrics import accuracy_score, f1_score
+
 X_test = vectorizer.transform(["\n".join(p) + " | " + c for p, c in zip(premises_list, conclusions)])
 preds = clf.predict(X_test)
 acc = accuracy_score(labels, preds)

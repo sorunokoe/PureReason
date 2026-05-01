@@ -15,6 +15,7 @@ def _load_syllogism_classifier() -> tuple[object, object] | None:
     try:
         import pickle
         from pathlib import Path
+
         clf_path = Path(__file__).parent.parent.parent / "data" / "syllogism_clf.pkl"
         if clf_path.exists():
             with open(clf_path, "rb") as f:

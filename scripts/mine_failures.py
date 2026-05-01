@@ -44,19 +44,52 @@ DEFAULT_OUTPUT = REPO / "benchmarks" / "results" / "failure_taxonomy.md"
 
 STOPWORDS = frozenset(
     {
-        "that", "this", "with", "from", "have", "been", "they", "were", "will",
-        "would", "could", "should", "than", "when", "what", "which", "their",
-        "there", "these", "those", "some", "only", "just", "more", "also",
-        "very", "most", "does", "such", "into", "about", "both", "each",
-        "true", "false", "answer", "question", "context", "preview",
+        "that",
+        "this",
+        "with",
+        "from",
+        "have",
+        "been",
+        "they",
+        "were",
+        "will",
+        "would",
+        "could",
+        "should",
+        "than",
+        "when",
+        "what",
+        "which",
+        "their",
+        "there",
+        "these",
+        "those",
+        "some",
+        "only",
+        "just",
+        "more",
+        "also",
+        "very",
+        "most",
+        "does",
+        "such",
+        "into",
+        "about",
+        "both",
+        "each",
+        "true",
+        "false",
+        "answer",
+        "question",
+        "context",
+        "preview",
     }
 )
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Emit a markdown taxonomy of benchmark failures. "
-        "Does NOT generate code.",
+        description="Emit a markdown taxonomy of benchmark failures. Does NOT generate code.",
     )
     parser.add_argument("--input", default=str(DEFAULT_FAILURES))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
