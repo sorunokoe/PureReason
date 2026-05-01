@@ -1,17 +1,11 @@
 <div align="center">
 
 <pre>
-╔═══════════════════════════════════════════════════╗
-║                                                   ║
-║      ◈  P U R E   R E A S O N  ◈                ║
-║                                                   ║
-║    Reasoning Assurance for AI Agents             ║
-║    Deterministic · Fast · Zero-Cost              ║
-║                                                   ║
-║    🎯 <5ms verification  ⚡ -40% latency          ║
-║    ✨ +25-30pp accuracy   🔒 100% deterministic   ║
-║                                                   ║
-╚═══════════════════════════════════════════════════╝
+╔═════════════════════════════╗
+║                             ║
+║ ◈  P U R E   R E A S O N  ◈ ║
+║                             ║
+╚═════════════════════════════╝
 </pre>
 
 [![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](CHANGELOG.md)
