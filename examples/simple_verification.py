@@ -59,9 +59,9 @@ def main():
     print("=" * 60)
     print("AGENT DECISION LOGIC")
     print("=" * 60)
-    for i, (claim, result) in enumerate([
-        (claim1, result1), (claim2, result2), (claim3, result3)
-    ], 1):
+    for i, (claim, result) in enumerate(
+        [(claim1, result1), (claim2, result2), (claim3, result3)], 1
+    ):
         if result.ecs >= 70:
             decision = "✅ ACCEPT"
         elif result.ecs >= 40:

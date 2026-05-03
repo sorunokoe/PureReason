@@ -32,8 +32,10 @@ from pureason.guard import ReasoningGuard
 
 # === Request/Response Models ===
 
+
 class VerifyRequest(BaseModel):
     """Request to verify a single claim."""
+
     text: str = Field(..., description="Text to verify", min_length=1, max_length=10000)
     min_ecs: int = Field(default=70, description="Minimum acceptable ECS", ge=0, le=100)
     include_details: bool = Field(default=False, description="Include full verification details")
@@ -41,12 +43,14 @@ class VerifyRequest(BaseModel):
 
 class BatchVerifyRequest(BaseModel):
     """Request to verify multiple claims."""
+
     texts: list[str] = Field(..., description="List of texts to verify", max_items=100)
     min_ecs: int = Field(default=70, ge=0, le=100)
 
 
 class VerifyResponse(BaseModel):
     """Response for a single verification."""
+
     text: str
     ecs: int
     risk: str
@@ -58,6 +62,7 @@ class VerifyResponse(BaseModel):
 
 class BatchVerifyResponse(BaseModel):
     """Response for batch verification."""
+
     results: list[VerifyResponse]
     total_count: int
     passed_count: int
@@ -68,6 +73,7 @@ class BatchVerifyResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     """Health check response."""
+
     status: str
     version: str
     uptime_seconds: float
@@ -75,6 +81,7 @@ class HealthResponse(BaseModel):
 
 class MetricsResponse(BaseModel):
     """Metrics endpoint response."""
+
     total_requests: int
     total_verifications: int
     avg_latency_ms: float
@@ -86,7 +93,7 @@ class MetricsResponse(BaseModel):
 app = FastAPI(
     title="PureReason API",
     description="Fast hallucination detection and verification",
-    version="0.3.1"
+    version="0.3.1",
 )
 
 # Simple in-memory metrics (use Redis/Prometheus in production)
@@ -108,7 +115,7 @@ async def health():
     return {
         "status": "healthy",
         "version": "0.3.1",
-        "uptime_seconds": time.time() - metrics["start_time"]
+        "uptime_seconds": time.time() - metrics["start_time"],
     }
 
 
@@ -117,18 +124,20 @@ async def get_metrics():
     """Metrics endpoint for monitoring."""
     avg_latency = (
         metrics["total_latency_ms"] / metrics["total_verifications"]
-        if metrics["total_verifications"] > 0 else 0.0
+        if metrics["total_verifications"] > 0
+        else 0.0
     )
     avg_ecs = (
         metrics["total_ecs"] / metrics["total_verifications"]
-        if metrics["total_verifications"] > 0 else 0.0
+        if metrics["total_verifications"] > 0
+        else 0.0
     )
 
     return {
         "total_requests": metrics["total_requests"],
         "total_verifications": metrics["total_verifications"],
         "avg_latency_ms": round(avg_latency, 2),
-        "avg_ecs": round(avg_ecs, 1)
+        "avg_ecs": round(avg_ecs, 1),
     }
 
 
@@ -166,7 +175,7 @@ async def verify(request: VerifyRequest):
             "passed": result.ecs >= request.min_ecs,
             "issues": issues,
             "rewrite": result.text if result.repaired else None,
-            "latency_ms": round(latency_ms, 2)
+            "latency_ms": round(latency_ms, 2),
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Verification failed: {e!s}") from e
@@ -199,15 +208,17 @@ async def verify_batch(request: BatchVerifyRequest):
         if result.repaired:
             issues.append("arithmetic_error_repaired")
 
-        results.append({
-            "text": result.text,
-            "ecs": int(result.ecs),
-            "risk": "HIGH" if result.ecs < 40 else "MEDIUM" if result.ecs < 70 else "LOW",
-            "passed": result.ecs >= request.min_ecs,
-            "issues": issues,
-            "rewrite": result.text if result.repaired else None,
-            "latency_ms": round(latency_ms, 2)
-        })
+        results.append(
+            {
+                "text": result.text,
+                "ecs": int(result.ecs),
+                "risk": "HIGH" if result.ecs < 40 else "MEDIUM" if result.ecs < 70 else "LOW",
+                "passed": result.ecs >= request.min_ecs,
+                "issues": issues,
+                "rewrite": result.text if result.repaired else None,
+                "latency_ms": round(latency_ms, 2),
+            }
+        )
 
         metrics["total_verifications"] += 1
         metrics["total_latency_ms"] += latency_ms
@@ -223,7 +234,7 @@ async def verify_batch(request: BatchVerifyRequest):
         "passed_count": passed_count,
         "failed_count": len(results) - passed_count,
         "avg_ecs": round(total_ecs / len(results), 1),
-        "total_latency_ms": round(total_latency, 2)
+        "total_latency_ms": round(total_latency, 2),
     }
 
 
@@ -238,19 +249,16 @@ async def root():
             "/metrics": "Performance metrics",
             "/verify": "Verify a single claim (POST)",
             "/verify/batch": "Verify multiple claims (POST)",
-            "/docs": "Interactive API documentation"
+            "/docs": "Interactive API documentation",
         },
         "documentation": "https://github.com/sorunokoe/PureReason",
         "examples": [
             {
                 "endpoint": "/verify",
                 "method": "POST",
-                "body": {
-                    "text": "Water boils at 100°C at sea level.",
-                    "min_ecs": 70
-                }
+                "body": {"text": "Water boils at 100°C at sea level.", "min_ecs": 70},
             }
-        ]
+        ],
     }
 
 

@@ -54,7 +54,7 @@ class PureReasonVerifier:
             "provenance": result.provenance,
             "repaired": result.repaired,
             "text": result.text,
-            "original": result.original
+            "original": result.original,
         }
 
 
@@ -70,7 +70,7 @@ def example_without_langchain():
     llm_outputs = [
         "Based on the symptoms, the patient likely has the flu.",
         "The answer is 25 because 10 + 15 = 26.",
-        "The solution is X, but also not X, depending on the context."
+        "The solution is X, but also not X, depending on the context.",
     ]
 
     for output in llm_outputs:
