@@ -15,21 +15,20 @@ Test: curl http://localhost:8000/health
 
 import sys
 import time
-from typing import List, Optional
+from typing import Optional
+
 sys.path.insert(0, ".")
 
 try:
-    from fastapi import FastAPI, HTTPException, Request
-    from fastapi.responses import JSONResponse
-    from pydantic import BaseModel, Field
     import uvicorn
+    from fastapi import FastAPI, HTTPException
+    from pydantic import BaseModel, Field
 except ImportError:
     print("❌ Missing dependencies. Install with:")
     print("   pip install fastapi uvicorn pydantic")
     sys.exit(1)
 
 from pureason.guard import ReasoningGuard
-
 
 # === Request/Response Models ===
 
@@ -42,7 +41,7 @@ class VerifyRequest(BaseModel):
 
 class BatchVerifyRequest(BaseModel):
     """Request to verify multiple claims."""
-    texts: List[str] = Field(..., description="List of texts to verify", max_items=100)
+    texts: list[str] = Field(..., description="List of texts to verify", max_items=100)
     min_ecs: int = Field(default=70, ge=0, le=100)
 
 
@@ -52,14 +51,14 @@ class VerifyResponse(BaseModel):
     ecs: int
     risk: str
     passed: bool
-    issues: List[str] = []
+    issues: list[str] = []
     rewrite: Optional[str] = None
     latency_ms: float
 
 
 class BatchVerifyResponse(BaseModel):
     """Response for batch verification."""
-    results: List[VerifyResponse]
+    results: list[VerifyResponse]
     total_count: int
     passed_count: int
     failed_count: int
@@ -124,7 +123,7 @@ async def get_metrics():
         metrics["total_ecs"] / metrics["total_verifications"]
         if metrics["total_verifications"] > 0 else 0.0
     )
-    
+
     return {
         "total_requests": metrics["total_requests"],
         "total_verifications": metrics["total_verifications"],
@@ -136,7 +135,7 @@ async def get_metrics():
 @app.post("/verify", response_model=VerifyResponse)
 async def verify(request: VerifyRequest):
     """Verify a single claim.
-    
+
     Example:
         curl -X POST http://localhost:8000/verify \\
              -H "Content-Type: application/json" \\
@@ -144,22 +143,22 @@ async def verify(request: VerifyRequest):
     """
     metrics["total_requests"] += 1
     metrics["total_verifications"] += 1
-    
+
     start = time.time()
-    
+
     try:
         result = guard.verify(request.text)
-        
+
         issues = []
         if result.provenance == "flagged":
             issues.append("low_confidence")
         if result.repaired:
             issues.append("arithmetic_error_repaired")
-        
+
         latency_ms = (time.time() - start) * 1000
         metrics["total_latency_ms"] += latency_ms
         metrics["total_ecs"] += result.ecs
-        
+
         return {
             "text": result.text,
             "ecs": int(result.ecs),
@@ -170,13 +169,13 @@ async def verify(request: VerifyRequest):
             "latency_ms": round(latency_ms, 2)
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Verification failed: {e!s}") from e
 
 
 @app.post("/verify/batch", response_model=BatchVerifyResponse)
 async def verify_batch(request: BatchVerifyRequest):
     """Verify multiple claims in a batch.
-    
+
     Example:
         curl -X POST http://localhost:8000/verify/batch \\
              -H "Content-Type: application/json" \\
@@ -184,22 +183,22 @@ async def verify_batch(request: BatchVerifyRequest):
     """
     if len(request.texts) > 100:
         raise HTTPException(status_code=400, detail="Maximum 100 texts per batch")
-    
+
     metrics["total_requests"] += 1
     batch_start = time.time()
-    
+
     results = []
     for text in request.texts:
         start = time.time()
         result = guard.verify(text)
         latency_ms = (time.time() - start) * 1000
-        
+
         issues = []
         if result.provenance == "flagged":
             issues.append("low_confidence")
         if result.repaired:
             issues.append("arithmetic_error_repaired")
-        
+
         results.append({
             "text": result.text,
             "ecs": int(result.ecs),
@@ -209,15 +208,15 @@ async def verify_batch(request: BatchVerifyRequest):
             "rewrite": result.text if result.repaired else None,
             "latency_ms": round(latency_ms, 2)
         })
-        
+
         metrics["total_verifications"] += 1
         metrics["total_latency_ms"] += latency_ms
         metrics["total_ecs"] += result.ecs
-    
+
     passed_count = sum(1 for r in results if r["passed"])
     total_ecs = sum(r["ecs"] for r in results)
     total_latency = (time.time() - batch_start) * 1000
-    
+
     return {
         "results": results,
         "total_count": len(results),
@@ -281,7 +280,7 @@ Example:
 
 Press Ctrl+C to stop
 """)
-    
+
     uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
 
 
