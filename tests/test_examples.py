@@ -123,10 +123,7 @@ class TestChainOfThoughtUseCases(unittest.TestCase):
         )
         # The step "15 + 27 = 43" is at index 1 (second step).
         # 15 + 27 = 42, not 43, so it should be flagged.
-        arith_flagged = any(
-            "ARITHMETIC_ERROR" in sv.flags
-            for sv in report.steps
-        )
+        arith_flagged = any("ARITHMETIC_ERROR" in sv.flags for sv in report.steps)
         self.assertTrue(arith_flagged, "Arithmetic error should be flagged")
 
     @patch("pureason.reasoning.chain._run")
@@ -299,16 +296,18 @@ class TestMCQUseCases(unittest.TestCase):
 
         # Return different ECS for each choice to make one clearly best
         call_count = 0
+
         def side_effect(*args, **kwargs):
             nonlocal call_count
             call_count += 1
             ecs_values = [80, 50, 60, 40]
             idx = min(call_count - 1, len(ecs_values) - 1)
             return {"ecs": ecs_values[idx], "flags": []}
+
         mock_run.side_effect = side_effect
 
         choices = ["Paris", "Berlin", "Madrid", "Rome"]
-        best_idx, report = pick_best_answer("Capital of France?", choices)
+        best_idx, _report = pick_best_answer("Capital of France?", choices)
         self.assertIn(best_idx, range(len(choices)))
 
     def test_empty_choices_raises(self) -> None:
@@ -368,9 +367,11 @@ class TestSyllogismUseCases(unittest.TestCase):
         """
         from pureason.reasoning import verify_syllogism
 
-        with patch("pureason.reasoning.syllogism._classifier_check", return_value=None), \
-             patch("pureason.reasoning.syllogism._z3_entailment_check", return_value=None), \
-             patch("pureason.reasoning.syllogism._kac_step_vs_context", return_value=(False, [])):
+        with (
+            patch("pureason.reasoning.syllogism._classifier_check", return_value=None),
+            patch("pureason.reasoning.syllogism._z3_entailment_check", return_value=None),
+            patch("pureason.reasoning.syllogism._kac_step_vs_context", return_value=(False, [])),
+        ):
             report = verify_syllogism(
                 premises=["All dogs are animals.", "All cats are animals."],
                 conclusion="All dogs are cats.",

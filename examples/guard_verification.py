@@ -26,7 +26,7 @@ def example_basic_verification():
     print("=== Basic Verification ===")
     print(f"Input:      {text}")
     print(f"ECS:        {result.ecs}/100")
-    print(f"Provenance: {result.provenance}")   # "verified", "repaired", or "flagged"
+    print(f"Provenance: {result.provenance}")  # "verified", "repaired", or "flagged"
     print(f"Repaired:   {result.repaired}")
     print(f"Text out:   {result.text}")
     print()
@@ -56,10 +56,10 @@ def example_arithmetic_repair():
     guard = ReasoningGuard(threshold=60, repair=True)
 
     texts = [
-        "3 + 4 = 7 so the answer is correct.",      # correct — no repair
-        "3 + 4 = 8 so the answer is correct.",      # wrong — repaired
-        "6 * 7 = 41 which gives the total.",        # wrong — repaired
-        "10 / 2 = 5 items per group.",              # correct — no repair
+        "3 + 4 = 7 so the answer is correct.",  # correct — no repair
+        "3 + 4 = 8 so the answer is correct.",  # wrong — repaired
+        "6 * 7 = 41 which gives the total.",  # wrong — repaired
+        "10 / 2 = 5 items per group.",  # correct — no repair
     ]
 
     print("=== Arithmetic Repair ===")
@@ -88,8 +88,8 @@ def example_degradation_tracking():
     )
 
     # Simulate a sequence of ECS scores — first good, then degrading
-    good_texts = ["The sky is blue."] * 6         # will get ~75 ECS each
-    bad_texts = ["Maybe yes maybe no."] * 3       # will get lower ECS
+    good_texts = ["The sky is blue."] * 6  # will get ~75 ECS each
+    bad_texts = ["Maybe yes maybe no."] * 3  # will get lower ECS
 
     print("=== Degradation Tracking ===")
     with warnings.catch_warnings(record=True) as caught:
@@ -97,7 +97,9 @@ def example_degradation_tracking():
         for t in good_texts + bad_texts:
             guard.verify(t)
 
-    degradation_warnings = [w for w in caught if issubclass(w.category, ReasoningDegradationWarning)]
+    degradation_warnings = [
+        w for w in caught if issubclass(w.category, ReasoningDegradationWarning)
+    ]
     if degradation_warnings:
         print(f"  Degradation detected: {degradation_warnings[0].message}")
     else:

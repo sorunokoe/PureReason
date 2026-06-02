@@ -106,7 +106,7 @@ def _print_report(premises, conclusion, report: EpistemicChainReport):
     for i, p in enumerate(premises):
         print(f"  Premise {i + 1}: {p}")
     print(f"  Conclusion: {conclusion}")
-    print(f"  ---")
+    print("  ---")
     print(f"  is_valid:         {report.is_valid}")
     print(f"  chain_confidence: {report.chain_confidence:.2f}")
     print(f"  summary:          {report.summary}")

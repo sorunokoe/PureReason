@@ -29,8 +29,8 @@ def example_safe_eval():
         ("2 ** 10", 1024.0),
         ("(3 + 4) * 2", 14.0),
         ("-5 + 3", -2.0),
-        ("5 / 0", None),           # division by zero → None
-        ("import os", None),       # not arithmetic → None
+        ("5 / 0", None),  # division by zero → None
+        ("import os", None),  # not arithmetic → None
     ]
 
     print("=== Safe Expression Evaluator ===")
