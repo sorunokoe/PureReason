@@ -44,12 +44,12 @@ def example_arithmetic_error_chain():
         "Therefore, the answer is 43.",
     ]
 
-    # Note: 15 + 27 = 42, so step 1 has an arithmetic error
-    # (The answer step also carries the wrong value.)
+    # Note: 15 + 27 = 42, so the step at index 1 (the second step) has an arithmetic error
 
     report = verify_chain(problem, steps)
 
     print("=== Arithmetic Error Chain ===")
+    print("  Note: 15 + 27 = 42, not 43 — the second step should be flagged.")
     _print_report(report)
     print()
     return report

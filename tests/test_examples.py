@@ -121,7 +121,8 @@ class TestChainOfThoughtUseCases(unittest.TestCase):
                 "15 + 27 = 43.",
             ],
         )
-        # Step 1 (index 1) has wrong arithmetic: 15+27=42 not 43
+        # The step "15 + 27 = 43" is at index 1 (second step).
+        # 15 + 27 = 42, not 43, so it should be flagged.
         arith_flagged = any(
             "ARITHMETIC_ERROR" in sv.flags
             for sv in report.steps
@@ -359,11 +360,11 @@ class TestSyllogismUseCases(unittest.TestCase):
         self.assertTrue(report.is_valid)
 
     def test_invalid_syllogism(self) -> None:
-        """Invalid syllogism — undistributed middle — should be detected.
+        """Invalid syllogism — conclusion does not follow from premises.
 
-        The heuristic fallacy check detects hasty generalisation:
-        no universal premises support the universal conclusion.
-        We mock only the KAC fallback to isolate the heuristic path.
+        We mock the classifier, Z3, and KAC layers to isolate the heuristic
+        fallacy check which detects that no universal premises support
+        the universal conclusion.
         """
         from pureason.reasoning import verify_syllogism
 

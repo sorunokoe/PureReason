@@ -5,8 +5,8 @@ expected inputs, outputs, and integration patterns.
 
 > **Prerequisite** — install the Python package first:
 > ```bash
-> pip install -e .                     # core (always required)
-> pip install -e ".[nlp]"              # + spaCy & word2number
+> pip install -e .                     # core (examples 1–2, 6–9)
+> pip install -e ".[nlp]"              # + spaCy & word2number (examples 3–5)
 > python -m spacy download en_core_web_sm
 > ```
 
