@@ -86,7 +86,17 @@ The typical workflow:
 ### Installation
 
 ```bash
-pip install -e .
+pip install -e .                       # core package
+```
+
+**Optional extras** (unlock additional features):
+
+```bash
+pip install -e ".[nlp]"                # spaCy + word2number (syllogism, arithmetic solver)
+python -m spacy download en_core_web_sm
+pip install -e ".[logic]"              # Z3 solver (formal entailment checking)
+pip install -e ".[semantic]"           # sentence-transformers (semantic similarity)
+pip install -e ".[rest]"               # requests (REST API client)
 ```
 
 ### 5-Minute Quickstart
@@ -115,13 +125,23 @@ else:
 
 ### Real-World Examples
 
-See [`examples/`](./examples/) for production-ready code:
+See [`examples/`](./examples/) for production-ready, tested code:
 
-- **[`simple_verification.py`](./examples/simple_verification.py)** - Basic usage (5 min)
-- **[`langchain_integration.py`](./examples/langchain_integration.py)** - LangChain integration (10 min)
-- **[`api_server.py`](./examples/api_server.py)** - Production FastAPI server (15 min)
+| Example | File | What it covers |
+|---------|------|----------------|
+| **Guard Verification** | [`guard_verification.py`](./examples/guard_verification.py) | ECS scoring, thresholds, repair, degradation tracking |
+| **Chain-of-Thought** | [`chain_of_thought.py`](./examples/chain_of_thought.py) | Multi-step reasoning verification |
+| **Arithmetic Solver** | [`arithmetic_solver.py`](./examples/arithmetic_solver.py) | Word problem solving end-to-end |
+| **Syllogism Checker** | [`syllogism_verification.py`](./examples/syllogism_verification.py) | Formal logic verification (Z3 + heuristics) |
+| **MCQ Picker** | [`mcq_picker.py`](./examples/mcq_picker.py) | Multiple-choice answer selection |
+| **Arithmetic Repair** | [`arithmetic_repair.py`](./examples/arithmetic_repair.py) | Deterministic error correction |
+| **Simple Verification** | [`simple_verification.py`](./examples/simple_verification.py) | Quick-start 3-claim demo |
+| **LangChain Integration** | [`langchain_integration.py`](./examples/langchain_integration.py) | LangChain pipeline wrapper |
+| **API Server** | [`api_server.py`](./examples/api_server.py) | FastAPI microservice |
 
-Run the simple example:
+All examples have tests in [`tests/test_examples.py`](./tests/test_examples.py).
+
+Run any example:
 ```bash
 python examples/simple_verification.py
 ```
@@ -163,14 +183,24 @@ Your agent (Claude Desktop, Cursor, GitHub Copilot) can then call PureReason ver
 ### 3. Python API (Advanced)
 
 ```python
-from pureason.reasoning import verify_chain
+from pureason.reasoning import verify_chain, solve_arithmetic, verify_syllogism
 
 # Verify a chain of reasoning steps
 problem = "What is 2 + 2?"
 steps = ["Let me add the numbers.", "2 + 2 = 4", "Therefore, the answer is 4."]
-
 result = verify_chain(problem, steps)
-print(f"Confidence: {result.ecs}/100")
+print(f"Valid: {result.is_valid}, Confidence: {result.chain_confidence:.2f}")
+
+# Solve an arithmetic word problem
+report = solve_arithmetic("Maria has 15 apples. She buys 8 more. How many in total?")
+print(f"Answer: {report.answer}")
+
+# Verify a syllogism
+report = verify_syllogism(
+    premises=["All mammals are warm-blooded.", "Whales are mammals."],
+    conclusion="Whales are warm-blooded.",
+)
+print(f"Valid: {report.is_valid}")
 ```
 
 ## Core Features
@@ -235,6 +265,8 @@ cargo build --release
 
 | Topic | Link |
 |-------|------|
+| **Examples** | [`examples/README.md`](./examples/README.md) - Tested use cases with code |
+| **Improvement Plan** | [`docs/IMPROVEMENT-PLAN.md`](./docs/IMPROVEMENT-PLAN.md) - Roadmap for next improvements |
 | **Benchmarks** | [`docs/BENCHMARK.md`](./docs/BENCHMARK.md) - Full results and methodology |
 | **Reproducibility** | [`docs/REPRODUCIBILITY.md`](./docs/REPRODUCIBILITY.md) - Seeds, hashes, holdout |
 | **MCP Integration** | [`docs/MCP-INTEGRATION.md`](./docs/MCP-INTEGRATION.md) - Agent setup guide |
